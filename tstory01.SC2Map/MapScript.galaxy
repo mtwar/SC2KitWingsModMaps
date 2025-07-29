@@ -1552,7 +1552,7 @@ trigger gt_PrepareRoomBridge;
 trigger gt_PrepareRoomCantina;
 trigger gt_PrepareRoomChar;
 trigger gt_CharArtifactAnimation;
-trigger gt_PrepareRoomArmory2;
+trigger gt_PrepareRoomConscription;
 trigger gt_PrepareRoomCorridor;
 trigger gt_PrepareRoomFlagship;
 trigger gt_PrepareRoomGalaxy;
@@ -1569,7 +1569,7 @@ trigger gt_WalkinArmory;
 trigger gt_WalkinBridge;
 trigger gt_WalkinCantina;
 trigger gt_WalkinChar;
-trigger gt_WalkinChar2;
+trigger gt_WalkinConscription;
 trigger gt_WalkinLab;
 trigger gt_WalkinMarSara;
 trigger gt_EnterArmory;
@@ -1577,7 +1577,7 @@ trigger gt_EnterBridge;
 trigger gt_EnterCantina;
 trigger gt_EnterCantinaStartJukebox;
 trigger gt_EnterChar;
-trigger gt_EnterChar2;
+trigger gt_EnterConscription;
 trigger gt_EnterLab;
 trigger gt_EnterMarSara;
 trigger gt_EnterCantinaStartJukebox2;
@@ -7642,7 +7642,7 @@ void gf_PrepareRoom (int lp_room) {
     SoundSetReverb("Reverb_StoryModeTest", 0.0, false, false);
     autoD1937875_val = lp_room;
     if (autoD1937875_val == ge_RoomID_RoomConscription) {
-        TriggerExecute(gt_PrepareRoomArmory2, true, false);
+        TriggerExecute(gt_PrepareRoomConscription, true, false);
     }
     else if (autoD1937875_val == ge_RoomID_RoomArmory) {
         TriggerExecute(gt_PrepareRoomArmory, true, false);
@@ -7701,7 +7701,7 @@ void gf_WalkinRoom (int lp_room) {
     // Implementation
     auto0CE9CDAF_val = lp_room;
     if (auto0CE9CDAF_val == ge_RoomID_RoomConscription) {
-        TriggerExecute(gt_WalkinChar2, true, true);
+        TriggerExecute(gt_WalkinConscription, true, true);
     }
     else if (auto0CE9CDAF_val == ge_RoomID_RoomArmory) {
         TriggerExecute(gt_WalkinArmory, true, true);
@@ -7737,7 +7737,7 @@ void gf_EnterRoom (int lp_room, bool lp_showTransition) {
 
     auto63D10BA2_val = lp_room;
     if (auto63D10BA2_val == ge_RoomID_RoomConscription) {
-        TriggerExecute(gt_EnterChar2, true, false);
+        TriggerExecute(gt_EnterConscription, true, false);
     }
     else if (auto63D10BA2_val == ge_RoomID_RoomArmory) {
         TriggerExecute(gt_EnterArmory, true, false);
@@ -19309,7 +19309,7 @@ void gt_CharArtifactAnimation_Init () {
 //--------------------------------------------------------------------------------------------------
 // Trigger: Prepare Room Conscription
 //--------------------------------------------------------------------------------------------------
-bool gt_PrepareRoomArmory2_Func (bool testConds, bool runActions) {
+bool gt_PrepareRoomConscription_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -19330,8 +19330,8 @@ bool gt_PrepareRoomArmory2_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_PrepareRoomArmory2_Init () {
-    gt_PrepareRoomArmory2 = TriggerCreate("gt_PrepareRoomArmory2_Func");
+void gt_PrepareRoomConscription_Init () {
+    gt_PrepareRoomConscription = TriggerCreate("gt_PrepareRoomConscription_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19750,7 +19750,7 @@ void gt_WalkinChar_Init () {
 //--------------------------------------------------------------------------------------------------
 // Trigger: Walk in Conscription
 //--------------------------------------------------------------------------------------------------
-bool gt_WalkinChar2_Func (bool testConds, bool runActions) {
+bool gt_WalkinConscription_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Actions
     if (!runActions) {
@@ -19762,8 +19762,8 @@ bool gt_WalkinChar2_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_WalkinChar2_Init () {
-    gt_WalkinChar2 = TriggerCreate("gt_WalkinChar2_Func");
+void gt_WalkinConscription_Init () {
+    gt_WalkinConscription = TriggerCreate("gt_WalkinConscription_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19920,14 +19920,14 @@ void gt_EnterChar_Init () {
 //--------------------------------------------------------------------------------------------------
 // Trigger: Enter Conscription
 //--------------------------------------------------------------------------------------------------
-bool gt_EnterChar2_Func (bool testConds, bool runActions) {
+bool gt_EnterConscription_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_EnterChar2_Init () {
-    gt_EnterChar2 = TriggerCreate("gt_EnterChar2_Func");
+void gt_EnterConscription_Init () {
+    gt_EnterConscription = TriggerCreate("gt_EnterConscription_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40132,7 +40132,7 @@ void InitTriggers () {
     gt_PrepareRoomCantina_Init();
     gt_PrepareRoomChar_Init();
     gt_CharArtifactAnimation_Init();
-    gt_PrepareRoomArmory2_Init();
+    gt_PrepareRoomConscription_Init();
     gt_PrepareRoomCorridor_Init();
     gt_PrepareRoomFlagship_Init();
     gt_PrepareRoomGalaxy_Init();
@@ -40149,7 +40149,7 @@ void InitTriggers () {
     gt_WalkinBridge_Init();
     gt_WalkinCantina_Init();
     gt_WalkinChar_Init();
-    gt_WalkinChar2_Init();
+    gt_WalkinConscription_Init();
     gt_WalkinLab_Init();
     gt_WalkinMarSara_Init();
     gt_EnterArmory_Init();
@@ -40157,7 +40157,7 @@ void InitTriggers () {
     gt_EnterCantina_Init();
     gt_EnterCantinaStartJukebox_Init();
     gt_EnterChar_Init();
-    gt_EnterChar2_Init();
+    gt_EnterConscription_Init();
     gt_EnterLab_Init();
     gt_EnterMarSara_Init();
     gt_EnterCantinaStartJukebox2_Init();
