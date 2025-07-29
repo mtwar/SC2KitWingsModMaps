@@ -216,7 +216,7 @@ Param/Value/ACD29889=Raw Power
 Param/Value/AD9E5F3F=Armory
 Param/Value/ADF09654=x = 
 Param/Value/AECDD177=Claw
-Param/Value/AF6FF0E1=Armory
+Param/Value/AF6FF0E1=Conscription
 Param/Value/B0EC18CF=Mercenaries
 Param/Value/B227C2EF=
 Param/Value/B2701B8D=AAAAA
@@ -310,6 +310,7 @@ Param/Value/F89FE48B=Free Bird
 Param/Value/F8D4A69F=Play
 Param/Value/F93B35C3= sits
 Param/Value/F9F016D2=Invalid room name.
+Param/Value/FB03780E=Armory
 Param/Value/FD6397AB=Marcus Cade
 Param/Value/FDDC74F7=Picked at loc[
 Param/Value/FDEB51AC=Cantina

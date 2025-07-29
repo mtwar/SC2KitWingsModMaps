@@ -274,21 +274,22 @@ const int ge_ActorSceneType_Conversation = 0;
 const int ge_ActorSceneType_Scene = 1;
 const int ge_RoomID_RoomNone = 0;
 const int ge_RoomID_RoomBridge = 1;
-const int ge_RoomID_RoomArmory = 2;
-const int ge_RoomID_RoomLab = 3;
-const int ge_RoomID_RoomCantina = 4;
-const int ge_RoomID_RoomChar = 5;
-const int ge_RoomID_RoomMarSara = 6;
-const int ge_RoomID_RoomCorridor = 7;
-const int ge_RoomID_RoomFlagship = 8;
-const int ge_RoomID_RoomObservatory = 9;
-const int ge_RoomID_RoomMissionArchieves = 10;
-const int ge_RoomID_RoomGalaxy = 11;
-const int ge_RoomID_RoomLabResearch = 12;
-const int ge_RoomID_RoomMercenary = 13;
-const int ge_RoomID_RoomTechPurchase = 14;
-const int ge_RoomID_RoomVoid = 15;
-const int ge_RoomID_RoomLast = 16;
+const int ge_RoomID_RoomConscription = 2;
+const int ge_RoomID_RoomArmory = 3;
+const int ge_RoomID_RoomLab = 4;
+const int ge_RoomID_RoomCantina = 5;
+const int ge_RoomID_RoomChar = 6;
+const int ge_RoomID_RoomMarSara = 7;
+const int ge_RoomID_RoomCorridor = 8;
+const int ge_RoomID_RoomFlagship = 9;
+const int ge_RoomID_RoomObservatory = 10;
+const int ge_RoomID_RoomMissionArchieves = 11;
+const int ge_RoomID_RoomGalaxy = 12;
+const int ge_RoomID_RoomLabResearch = 13;
+const int ge_RoomID_RoomMercenary = 14;
+const int ge_RoomID_RoomTechPurchase = 15;
+const int ge_RoomID_RoomVoid = 16;
+const int ge_RoomID_RoomLast = 17;
 const int ge_CantinaStates_Normal = 0;
 const int ge_CantinaStates_Broken = 1;
 const int ge_RoomStateType_Visited = 0;
@@ -436,6 +437,7 @@ text[41] gv_debugSceneLabels;
 int gv_roomCheatDialog;
 int gv_roomCheatButtonMarSara;
 int gv_roomCheatButtonBridge;
+int gv_roomCheatButtonConscription;
 int gv_roomCheatButtonArmory;
 int gv_roomCheatButtonCantina;
 int gv_roomCheatButtonLab;
@@ -494,6 +496,8 @@ int gv_c_ROOM_LAST;
 int gv_currentRoom;
 bool gv_onHyperion;
 bool gv_onChar;
+unit gv_conscriptionRoom;
+unitgroup gv_conscriptionRoomUnits;
 unit gv_armoryRoom;
 unitgroup gv_armoryRoomUnits;
 unitgroup gv_armoryRoomZoomRemovableUnits;
@@ -844,6 +848,7 @@ void InitGlobals () {
     gv_roomCheatDialog = c_invalidDialogId;
     gv_roomCheatButtonMarSara = c_invalidDialogControlId;
     gv_roomCheatButtonBridge = c_invalidDialogControlId;
+    gv_roomCheatButtonConscription = c_invalidDialogControlId;
     gv_roomCheatButtonArmory = c_invalidDialogControlId;
     gv_roomCheatButtonCantina = c_invalidDialogControlId;
     gv_roomCheatButtonLab = c_invalidDialogControlId;
@@ -896,6 +901,7 @@ void InitGlobals () {
     gv_c_ROOM_FIRST = 1;
     gv_c_ROOM_LAST = ((ge_RoomID_RoomLast) - 1);
     gv_currentRoom = ge_RoomID_RoomNone;
+    gv_conscriptionRoomUnits = UnitGroupEmpty();
     gv_armoryRoomUnits = UnitGroupEmpty();
     gv_armoryRoomZoomRemovableUnits = UnitGroupEmpty();
     gv_bridgeRoomUnits = UnitGroupEmpty();
@@ -1465,6 +1471,7 @@ trigger gt_Init04Environment;
 trigger gt_Init05Sounds;
 trigger gt_Init06Intro;
 trigger gt_ReturnToArmory;
+trigger gt_ReturnToConscription;
 trigger gt_ReturnToBridge;
 trigger gt_ReturnToCantina;
 trigger gt_ReturnToCantinaArcade;
@@ -4627,6 +4634,8 @@ void gf_RoomCheatCreateDialog () {
     gf_RoomCheatAddButton(StringExternal("Param/Value/A770B1AA"));
     gv_roomCheatButtonBridge = DialogControlLastCreated();
     gf_RoomCheatAddButton(StringExternal("Param/Value/AF6FF0E1"));
+    gv_roomCheatButtonConscription = DialogControlLastCreated();
+    gf_RoomCheatAddButton(StringExternal("Param/Value/FB03780E"));
     gv_roomCheatButtonArmory = DialogControlLastCreated();
     gf_RoomCheatAddButton(StringExternal("Param/Value/FDEB51AC"));
     gv_roomCheatButtonCantina = DialogControlLastCreated();
@@ -16160,6 +16169,26 @@ void gt_ReturnToArmory_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Return To Conscription
+//--------------------------------------------------------------------------------------------------
+bool gt_ReturnToConscription_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_GoToRoom(ge_RoomID_RoomConscription, false);
+    gf_EnterRoom(ge_RoomID_RoomConscription, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ReturnToConscription_Init () {
+    gt_ReturnToConscription = TriggerCreate("gt_ReturnToConscription_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Return To Bridge
 //--------------------------------------------------------------------------------------------------
 bool gt_ReturnToBridge_Func (bool testConds, bool runActions) {
@@ -16625,7 +16654,10 @@ bool gt_ReturnGeneric_Func (bool testConds, bool runActions) {
 
     TriggerDebugOutput(1, (StringExternal("Param/Value/DE8C56DB") + gf_RoomName(lv_room)), false);
     auto391AC1EA_val = lv_room;
-    if (auto391AC1EA_val == ge_RoomID_RoomArmory) {
+    if (auto391AC1EA_val == ge_RoomID_RoomConscription) {
+        TriggerExecute(gt_ReturnToConscription, true, true);
+    }
+    else if (auto391AC1EA_val == ge_RoomID_RoomArmory) {
         TriggerExecute(gt_ReturnToArmory, true, true);
     }
     else if (auto391AC1EA_val == ge_RoomID_RoomBridge) {
@@ -39913,6 +39945,7 @@ void InitTriggers () {
     gt_Init05Sounds_Init();
     gt_Init06Intro_Init();
     gt_ReturnToArmory_Init();
+    gt_ReturnToConscription_Init();
     gt_ReturnToBridge_Init();
     gt_ReturnToCantina_Init();
     gt_ReturnToCantinaArcade_Init();
