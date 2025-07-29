@@ -94,7 +94,7 @@ Param/Value/40029CEE=Init States Starts
 Param/Value/4062419E=Random Song with offset = 
 Param/Value/40C21185=News
 Param/Value/40E87BD9=Brian Bode
-Param/Value/426CDD17=Armory
+Param/Value/426CDD17=Conscription
 Param/Value/4359C814=Tired and embittered by years of struggle against the all-powerful Terran Dominion, freedom fighter Jim Raynor has returned to his home world of Mar Sara. <n/><n/>But even on this ravaged backwater world the forces of the tyrannical Emperor Mengsk are moving to take control...
 Param/Value/457FF79A=Tech Purchase
 Param/Value/474CF0AF=Galaxy
@@ -144,6 +144,7 @@ Param/Value/72B22E0C=   Global =
 Param/Value/747F7CC1=Hanson A
 Param/Value/75FB0D17= for 
 Param/Value/760FB0C0=Preloading Room = 
+Param/Value/76C5335F=Armory
 Param/Value/77845A39=</s>
 Param/Value/77BDD6A4=Look at function is enabled.
 Param/Value/7BA8DB12=A Zerg, A Shotgun, and You
@@ -272,6 +273,7 @@ Param/Value/D7841535=Rory Swann
 Param/Value/D7CB3165=Is Story Transitional Save = 
 Param/Value/D7DC7C30=Waiting Finishes Session ID Local = 
 Param/Value/D866B28B=</s>
+Param/Value/DA61D7EF=Conscription
 Param/Value/DADFB189=facing = 
 Param/Value/DAFC6ABC=Preload Room: 
 Param/Value/DC642613=American Trilogy
@@ -316,6 +318,8 @@ Param/Value/FDDC74F7=Picked at loc[
 Param/Value/FDEB51AC=Cantina
 Param/Value/FEDA652A=Big Tuna
 Param/Value/FFFD0315=Bridge
+Unit/Name/SMHyperionCantinaStage1Set=Hyperion Conscription Set
+Unit/Name/SMHyperionConscriptionStage1Set=Hyperion Conscription Set
 UserData/TStory01ABChoice/THanson03A_Action=Protect the Colony
 UserData/TStory01ABChoice/THanson03A_Description=Side with the terran refugees against the protoss. This will anger the protoss, but it will buy Dr. Hanson more time to search for a cure. Regardless of whether she finds a cure, Dr. Hanson's efforts will lead to new breakthroughs in zerg research.
 UserData/TStory01ABChoice/THanson03A_Reward=<s val="ABChoiceResearchPoints_Zerg">+3 Zerg research</s>

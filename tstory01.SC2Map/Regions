@@ -127,4 +127,11 @@
             <quad value="128.2861,65.621,129.0888,66.9401"/>
         </shape>
     </region>
+    <region id="13">
+        <name value="ConscriptionRoomArea"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="1.8125,50.4143,19.084,58.939"/>
+        </shape>
+    </region>
 </Regions>

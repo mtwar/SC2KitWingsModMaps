@@ -1,8 +1,10 @@
-﻿Button/EditorSuffix/TStory01ABChoiceBroodLords=(ABChoice Reward)
+﻿Actor/Name/SMHyperionConscriptionStage1Set=SM Hyperion Conscription Stage 1 Set
+Button/EditorSuffix/TStory01ABChoiceBroodLords=(ABChoice Reward)
 Button/EditorSuffix/TStory01ABChoiceGhost=(ABChoice Reward)
 Button/EditorSuffix/TStory01ABChoiceMutalisk=(ABChoice Reward)
 Button/EditorSuffix/TStory01ABChoiceNydusWorm=(ABChoice Reward)
 Button/EditorSuffix/TStory01ABChoiceSpectre=(ABChoice Reward)
+Unit/EditorPrefix/SMHyperionCantinaStage1Set=SM -
 User/Name/TStory01ABChoice=ABChoice
 User/Name/TStory01Briefings=Briefings
 User/Name/TStory01TVNews=TVNews
