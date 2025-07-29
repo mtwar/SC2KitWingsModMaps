@@ -1,0 +1,5 @@
+title=WoL@Kit
+desc=Wings of Liberty
+author=Kit
+campaign=WoL
+version=1.1.2
