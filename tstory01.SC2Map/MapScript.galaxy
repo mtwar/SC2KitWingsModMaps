@@ -7813,10 +7813,6 @@ void gf_LeaveRoomChar (bool lp_showTransition) {
 
 void gf_LeaveRoomConscription (bool lp_showTransition) {
     // Automatic Variable Declarations
-    // Implementation
-    gf_CharTychusAnimationStop();
-    gf_DestoryCharBackgroundSounds();
-    gf_CharActorAnimation(true, false, true);
 }
 
 void gf_LeaveRoomLab (bool lp_showTransition) {
@@ -19756,6 +19752,12 @@ void gt_WalkinChar_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_WalkinChar2_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_ChangeRoom(ge_RoomID_RoomConscription, false);
     return true;
 }
 
