@@ -9,6 +9,7 @@
 <Achievement id="TRaynor01_2"/>
 <Achievement id="TRaynor01_3"/>
 <Actor id="SYSTEM_ActorConfig"/>
+<Actor id="ConstructionCrane"/>
 <Actor id="PathingBlocker1x1Doodad"/>
 <Actor id="Checkpoint"/>
 <Actor id="BillboardTall" Variations="1"/>
@@ -39,6 +40,7 @@
 <Actor id="MarSaraTree" Variations="0,1,2,3,4,5"/>
 <Actor id="MarSaraTreeDead" Variations="0,1,2,4,5"/>
 <Actor id="MarSaraTunnel"/>
+<Actor id="MetalGateDiagonal"/>
 <Actor id="NewFolsomSandbags" Variations="0,4,5"/>
 <Actor id="Outhouse" Variations="0,2"/>
 <Actor id="PipesCap" Variations="0,1"/>
@@ -174,13 +176,17 @@
 <Unit id="Cow"/>
 <Unit id="MengskStatueAlone"/>
 <Unit id="MengskStatue"/>
+<Unit id="SecurityGateDiagonalULBR"/>
 <Unit id="Firebat"/>
+<Unit id="Diamondback"/>
 <Unit id="Raynor01"/>
 <Unit id="SpecialOpsDropship"/>
 <Unit id="TransportTruck"/>
 <Unit id="Civilian" Variations="0,1,2,3"/>
 <Unit id="CivilianFemale" Variations="1,2"/>
+<Unit id="ProtossRelic" Variations="2"/>
 <Unit id="LogisticsHeadquarters"/>
 <Unit id="MengskHologramBillboard"/>
+<Unit id="Medic"/>
 <Unit id="ColonistTransport"/>
 </Preload>

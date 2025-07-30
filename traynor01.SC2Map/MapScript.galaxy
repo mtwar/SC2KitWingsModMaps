@@ -1187,7 +1187,7 @@ bool gt_RoadblockAttacked_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!(((EventUnit() == UnitFromId(59)) || (EventUnit() == UnitFromId(238)) || (EventUnit() == UnitFromId(2671)) || (EventUnit() == UnitFromId(2715))))) {
+        if (!(((EventUnit() == UnitFromId(59)) || (EventUnit() == UnitFromId(238)) || (EventUnit() == UnitFromId(2671)) || (EventUnit() == UnitFromId(2715)) || (EventUnit() == UnitFromId(728701518))))) {
             return false;
         }
     }
@@ -4949,6 +4949,8 @@ bool gt_IntroCinematic_Func (bool testConds, bool runActions) {
     UnitGroupAdd(gv_introUnitCargoStart, UnitCargoLastCreated());
     UnitCargoCreate(gv_introDropship, "Marine", 5);
     libNtve_gf_AddUnitGroupToUnitGroup(UnitCargoLastCreatedGroup(), gv_introUnitCargoStart);
+    UnitCargoCreate(gv_introDropship, "Medic", 1);
+    UnitGroupAdd(gv_introUnitCargoStart, UnitCargoLastCreated());
     if (((PlayerDifficulty(1) == 1) == true)) {
         auto51E1AAFD_g = gv_introUnitCargoStart;
         auto51E1AAFD_u = UnitGroupCount(auto51E1AAFD_g, c_unitCountAll);
@@ -5136,6 +5138,9 @@ bool gt_IntroCleanupEscape_Func (bool testConds, bool runActions) {
     UnitGroupAdd(gv_raynorsMarines, UnitLastCreated());
     libNtve_gf_CreateUnitsAtPoint2(1, "Marine", 0, gv_p1_USER, PointFromId(1020));
     UnitGroupAdd(gv_raynorsMarines, UnitLastCreated());
+    libNtve_gf_CreateUnitsAtPoint2(1, "Medic", 0, gv_p1_USER, PointFromId(1603395795));
+    UnitGroupAdd(gv_raynorsMarines, UnitLastCreated());
+    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropEnergyPercent, 100.0);
     if (((PlayerDifficulty(1) == 1) == true)) {
         auto0729A66F_g = gv_raynorsMarines;
         auto0729A66F_u = UnitGroupCount(auto0729A66F_g, c_unitCountAll);

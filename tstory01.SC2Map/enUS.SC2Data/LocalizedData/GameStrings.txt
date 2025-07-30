@@ -319,7 +319,6 @@ Param/Value/FDEB51AC=Cantina
 Param/Value/FEDA652A=Big Tuna
 Param/Value/FFFD0315=Bridge
 Unit/Name/SMHyperionCantinaStage1Set=Hyperion Conscription Set
-Unit/Name/SMHyperionConscriptionStage1Set=Hyperion Conscription Set
 UserData/TStory01ABChoice/THanson03A_Action=Protect the Colony
 UserData/TStory01ABChoice/THanson03A_Description=Side with the terran refugees against the protoss. This will anger the protoss, but it will buy Dr. Hanson more time to search for a cure. Regardless of whether she finds a cure, Dr. Hanson's efforts will lead to new breakthroughs in zerg research.
 UserData/TStory01ABChoice/THanson03A_Reward=<s val="ABChoiceResearchPoints_Zerg">+3 Zerg research</s>
