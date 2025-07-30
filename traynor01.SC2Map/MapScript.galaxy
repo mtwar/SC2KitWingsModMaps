@@ -9,6 +9,7 @@ include "TriggerLibs/NativeLib"
 include "TriggerLibs/LibertyLib"
 include "LibCamp"
 include "LibWoLC"
+include "LibDE1190BD"
 include "LibWCMI"
 include "LibWCUI"
 
@@ -20,6 +21,7 @@ void InitLibs () {
     libLbty_InitLib();
     libCamp_InitLib();
     libWoLC_InitLib();
+    libDE1190BD_InitLib();
     libWCMI_InitLib();
     libWCUI_InitLib();
 }
@@ -325,6 +327,7 @@ bool gt_Initialization_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_Init07Help, true, true);
     libWoLC_gf_RegisterFootageRecording(gt_BriefingQ);
     TriggerExecute(gt_IntroQ, true, false);
+    TriggerExecute(libDE1190BD_gt_RunAllCustomAI, true, false);
     return true;
 }
 
@@ -423,6 +426,9 @@ bool gt_Init03Units_Func (bool testConds, bool runActions) {
     unitgroup auto2F4CDA0F_g;
     int auto2F4CDA0F_u;
     unit auto2F4CDA0F_var;
+    unitgroup autoC775885E_g;
+    int autoC775885E_u;
+    unit autoC775885E_var;
     unitgroup autoEC35DFDD_g;
     int autoEC35DFDD_u;
     unit autoEC35DFDD_var;
@@ -532,6 +538,13 @@ bool gt_Init03Units_Func (bool testConds, bool runActions) {
         if (auto2F4CDA0F_var == null) { break; }
         UnitGroupAdd(gv_dominionCompoundGuards, auto2F4CDA0F_var);
     }
+    autoC775885E_g = UnitGroup("Medic", gv_p2_DOMINION_RED, RegionFromId(92), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoC775885E_u = UnitGroupCount(autoC775885E_g, c_unitCountAll);
+    for (;; autoC775885E_u -= 1) {
+        autoC775885E_var = UnitGroupUnitFromEnd(autoC775885E_g, autoC775885E_u);
+        if (autoC775885E_var == null) { break; }
+        UnitGroupAdd(gv_dominionCompoundGuards, autoC775885E_var);
+    }
     UnitGroupAdd(gv_dominionCompoundGuards, UnitFromId(2440));
     autoEC35DFDD_g = UnitGroup("Marine", gv_p2_DOMINION_RED, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoEC35DFDD_u = UnitGroupCount(autoEC35DFDD_g, c_unitCountAll);
@@ -549,6 +562,25 @@ bool gt_Init03Units_Func (bool testConds, bool runActions) {
     UnitSetInfoText(UnitFromId(105), StringExternal("Param/Value/109B7653"), StringToText(""), StringToText(""));
     UnitSetInfoText(UnitFromId(110), StringExternal("Param/Value/92F9BC44"), StringToText(""), StringToText(""));
     UnitSetInfoText(UnitFromId(158), StringExternal("Param/Value/0EE513C6"), StringExternal("Param/Value/63EABF07"), StringToText(""));
+    if ((libNtve_gf_DifficultyValueInt(1, 0, 0, 0) == 1)) {
+        UnitSetPropertyFixed(UnitFromId(1968438346), c_unitPropEnergyMax, 50.0);
+    }
+    else {
+        if ((libNtve_gf_DifficultyValueInt(0, 1, 0, 0) == 1)) {
+            UnitSetPropertyFixed(UnitFromId(1968438346), c_unitPropEnergyMax, 100.0);
+        }
+        else {
+            UnitSetPropertyFixed(UnitFromId(1968438346), c_unitPropEnergyMax, 125.0);
+        }
+    }
+    if ((libNtve_gf_DifficultyValueInt(0, 0, 1, 0) == 1)) {
+        UnitSetPropertyFixed(UnitFromId(611471937), c_unitPropEnergyMax, 25.0);
+    }
+
+    if ((libNtve_gf_DifficultyValueInt(0, 0, 0, 1) == 1)) {
+        UnitSetPropertyFixed(UnitFromId(611471937), c_unitPropEnergyMax, 50.0);
+    }
+
     return true;
 }
 
@@ -4951,6 +4983,7 @@ bool gt_IntroCinematic_Func (bool testConds, bool runActions) {
     libNtve_gf_AddUnitGroupToUnitGroup(UnitCargoLastCreatedGroup(), gv_introUnitCargoStart);
     UnitCargoCreate(gv_introDropship, "Medic", 1);
     UnitGroupAdd(gv_introUnitCargoStart, UnitCargoLastCreated());
+    UnitSetPropertyFixed(UnitCargoLastCreated(), c_unitPropEnergyPercent, 100.0);
     if (((PlayerDifficulty(1) == 1) == true)) {
         auto51E1AAFD_g = gv_introUnitCargoStart;
         auto51E1AAFD_u = UnitGroupCount(auto51E1AAFD_g, c_unitCountAll);
