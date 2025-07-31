@@ -44,6 +44,7 @@ int gv_roadblockTransmission;
 actor gv_roadblockActor01;
 actor gv_roadblockActor02;
 actor gv_roadblockActor03;
+actor gv_roadblockActor04;
 unit gv_mutteringJohn;
 unit gv_southieTarget;
 unit gv_viking01;
@@ -79,6 +80,7 @@ int gv_holoboardTransmission05;
 int gv_holoboardTransmission06;
 bool gv_unitMovementTip;
 int gv_riksvillePopulation;
+int gv_bonusCreditsEarned;
 int gv_holoboardsDestroyed;
 int gv_dominionMarinesKilled;
 int gv_dominionMarinesTotal;
@@ -206,6 +208,7 @@ trigger gt_SouthieMarineaggroProximity;
 trigger gt_SouthieMarineattackQ;
 trigger gt_SouthieTransmissionKill;
 trigger gt_ThisisbadQ;
+trigger gt_KillWallAutosave;
 trigger gt_EscapeView;
 trigger gt_EscapeDamage;
 trigger gt_EscapeClearQ;
@@ -215,6 +218,7 @@ trigger gt_CivilianSpawnCrowd;
 trigger gt_CivilianMarchQ;
 trigger gt_Flyawaybirdie;
 trigger gt_FlyawaybirdieptIItheBirdening;
+trigger gt_DominionExcavationSiteAutosave;
 trigger gt_DominionCompoundViewQ;
 trigger gt_DominionCompoundVikingland;
 trigger gt_DominionCompoundClear;
@@ -259,6 +263,12 @@ trigger gt_ObjectiveRaynorSurviveComplete;
 trigger gt_ObjectiveDestroyDominionHoloboardsCreate;
 trigger gt_ObjectiveDestroyDominionHoloboardsComplete;
 trigger gt_ObjectiveDestroyDominionHoloboardsUpdate;
+trigger gt_ObjectiveDeathlessCreate;
+trigger gt_ObjectiveDeathlessComplete;
+trigger gt_ObjectiveDeathlessFailed;
+trigger gt_ObjectiveDominionExcavationSiteCreate;
+trigger gt_ObjectiveDominionExcavationSiteUpdate;
+trigger gt_ObjectiveDominionExcavationSiteComplete;
 trigger gt_BriefingQ;
 trigger gt_BriefingScene00;
 trigger gt_BriefingScene00Viking;
@@ -710,6 +720,8 @@ bool gt_StartGame_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_UnitMovementCheck, true);
     TriggerExecute(gt_ObjectiveDestroyLogisticalHQCreateQ, true, true);
     TriggerExecute(gt_ObjectiveRaynorMustSurviveCreateQ, true, true);
+    TriggerExecute(gt_ObjectiveDeathlessCreate, true, true);
+    TriggerExecute(gt_ObjectiveDominionExcavationSiteCreate, true, true);
     TriggerExecute(gt_TutorialReviewQ, true, true);
     TriggerExecute(gt_OpeningLineQ, true, true);
     TriggerExecute(gt_ShowTipsQ, true, true);
@@ -1110,6 +1122,8 @@ bool gt_RoadblockView_Func (bool testConds, bool runActions) {
         gv_roadblockActor02 = libNtve_gf_ActorLastCreated();
         libNtve_gf_AttachModelToUnit(UnitFromId(2671), "BriefingUnitSelectRedSmall", "Ref_Center");
         gv_roadblockActor03 = libNtve_gf_ActorLastCreated();
+        libNtve_gf_AttachModelToUnit(UnitFromId(728701518), "BriefingUnitSelectRedSmall", "Ref_Center");
+        gv_roadblockActor04 = libNtve_gf_ActorLastCreated();
     }
 
     return true;
@@ -1762,8 +1776,8 @@ bool gt_RiksvilleTownSquareViewQ_Func (bool testConds, bool runActions) {
     VisRevealerCreate(gv_p1_USER, RegionFromId(59));
     gv_riksvilleTownSquareReavler = VisRevealerLastCreated();
     CameraLockInput(gv_p1_USER, true);
-    CameraPan(gv_p1_USER, PointFromId(165), 1.0, -1, 20, false);
-    Wait(1.0, c_timeGame);
+    CameraPan(gv_p1_USER, PointFromId(165), 0.5, -1, 20, false);
+    Wait(0.5, c_timeGame);
     CameraLockInput(gv_p1_USER, false);
     libNtve_gf_CreateUnitsAtPoint2(1, "VikingFighter", 0, gv_p2_DOMINION_RED, PointFromId(134));
     gv_viking01 = UnitLastCreated();
@@ -2193,6 +2207,50 @@ bool gt_ThisisbadQ_Func (bool testConds, bool runActions) {
 void gt_ThisisbadQ_Init () {
     gt_ThisisbadQ = TriggerCreate("gt_ThisisbadQ_Func");
     TriggerAddEventUnitDied(gt_ThisisbadQ, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Kill Wall Autosave
+//--------------------------------------------------------------------------------------------------
+bool gt_KillWallAutosave_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_gameOver == false))) {
+            return false;
+        }
+
+        if (!((gv_inCinematic == false))) {
+            return false;
+        }
+
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnit()) == gv_p1_USER))) {
+            return false;
+        }
+
+        if (!((UnitFilterMatch(EventUnit(), gv_p1_USER, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32)))) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/28174837"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_KillWallAutosave_Init () {
+    gt_KillWallAutosave = TriggerCreate("gt_KillWallAutosave_Func");
+    TriggerAddEventUnitRegion(gt_KillWallAutosave, null, RegionFromId(10), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -2759,6 +2817,27 @@ bool gt_FlyawaybirdieptIItheBirdening_Func (bool testConds, bool runActions) {
 void gt_FlyawaybirdieptIItheBirdening_Init () {
     gt_FlyawaybirdieptIItheBirdening = TriggerCreate("gt_FlyawaybirdieptIItheBirdening_Func");
     TriggerAddEventUnitRangePoint(gt_FlyawaybirdieptIItheBirdening, null, RegionGetCenter(RegionFromId(3)), 5.0, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Excavation Site Autosave
+//--------------------------------------------------------------------------------------------------
+bool gt_DominionExcavationSiteAutosave_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/A167E679"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_DominionExcavationSiteAutosave_Init () {
+    gt_DominionExcavationSiteAutosave = TriggerCreate("gt_DominionExcavationSiteAutosave_Func");
+    TriggerAddEventUnitRegion(gt_DominionExcavationSiteAutosave, null, RegionFromId(55), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -4163,6 +4242,7 @@ bool gt_VictoryTowerDestroyed_Func (bool testConds, bool runActions) {
     CameraPan(gv_p1_USER, PointFromId(2439), 2.0, -1, 20, false);
     Wait(2.0, c_timeReal);
     TriggerExecute(gt_ObjectiveDestroyLogisticalHQComplete, true, false);
+    TriggerExecute(gt_ObjectiveDeathlessComplete, true, false);
     TriggerExecute(gt_ObjectiveRaynorSurviveComplete, true, true);
     libWCMI_gf_RunMissionVictorySequence(gt_VictoryQ);
     return true;
@@ -4576,6 +4656,7 @@ bool gt_ObjectiveDestroyDominionHoloboardsUpdate_Func (bool testConds, bool runA
 
     TriggerExecute(gt_ObjectiveDestroyDominionHoloboardsCreate, true, false);
     gv_objectiveTaskDestroyDominionHoloboardsProgress += 1;
+    gv_bonusCreditsEarned += UserDataGetInt("MissionObjective", "TRaynor01_3", "RewardCreditsEach", 1);
     libWCMI_gf_SetMissionObjectiveProgress("TRaynor01_3", gv_objectiveTaskDestroyDominionHoloboardsProgress);
     if ((gv_objectiveTaskDestroyDominionHoloboardsProgress == gv_objectiveTaskDestroyDominionHoloboardsTotal)) {
         TriggerEnable(TriggerGetCurrent(), false);
@@ -4589,6 +4670,184 @@ bool gt_ObjectiveDestroyDominionHoloboardsUpdate_Func (bool testConds, bool runA
 void gt_ObjectiveDestroyDominionHoloboardsUpdate_Init () {
     gt_ObjectiveDestroyDominionHoloboardsUpdate = TriggerCreate("gt_ObjectiveDestroyDominionHoloboardsUpdate_Func");
     TriggerAddEventUnitDamaged(gt_ObjectiveDestroyDominionHoloboardsUpdate, null, c_unitDamageTypeAny, c_unitDamageFatal, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Deathless Create
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDeathlessCreate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_CreateObjectiveCampaign("TRaynor01_5");
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDeathlessCreate_Init () {
+    gt_ObjectiveDeathlessCreate = TriggerCreate("gt_ObjectiveDeathlessCreate_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Deathless Complete
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDeathlessComplete_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_ZS_SetMissionObjectiveState("TRaynor01_5", libWoLC_ge_MissionObjectiveState_Completed);
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDeathlessComplete_Init () {
+    gt_ObjectiveDeathlessComplete = TriggerCreate("gt_ObjectiveDeathlessComplete_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Deathless Failed
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDeathlessFailed_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_gameOver == false))) {
+            return false;
+        }
+
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnit()) == gv_p1_USER))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libWCMI_gf_ZS_SetMissionObjectiveState("TRaynor01_5", libWoLC_ge_MissionObjectiveState_Failed);
+    TriggerEnable(TriggerGetCurrent(), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDeathlessFailed_Init () {
+    gt_ObjectiveDeathlessFailed = TriggerCreate("gt_ObjectiveDeathlessFailed_Func");
+    TriggerAddEventUnitDamaged(gt_ObjectiveDeathlessFailed, null, c_unitDamageTypeAny, c_unitDamageFatal, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Create
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteCreate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_CreateObjectiveCampaign("TRaynor01_4");
+    libWCMI_gf_HideObjectiveCampaign("TRaynor01_4");
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteCreate_Init () {
+    gt_ObjectiveDominionExcavationSiteCreate = TriggerCreate("gt_ObjectiveDominionExcavationSiteCreate_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Update
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteUpdate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_gameOver == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libWCMI_gf_DisplayMissionObjectiveRewardFloatingText(UnitGetPosition(EventUnit()), "TRaynor01_4");
+    UnitKill(EventUnit());
+    TriggerExecute(gt_ObjectiveDominionExcavationSiteComplete, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteUpdate_Init () {
+    gt_ObjectiveDominionExcavationSiteUpdate = TriggerCreate("gt_ObjectiveDominionExcavationSiteUpdate_Func");
+    TriggerAddEventUnitAbility(gt_ObjectiveDominionExcavationSiteUpdate, null, AbilityCommand("Pickup", 0), c_unitAbilStageExecute, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Complete
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteComplete_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_ZS_SetMissionObjectiveState("TRaynor01_4", libWoLC_ge_MissionObjectiveState_Completed);
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteComplete_Init () {
+    gt_ObjectiveDominionExcavationSiteComplete = TriggerCreate("gt_ObjectiveDominionExcavationSiteComplete_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -6050,6 +6309,7 @@ void InitTriggers () {
     gt_SouthieMarineattackQ_Init();
     gt_SouthieTransmissionKill_Init();
     gt_ThisisbadQ_Init();
+    gt_KillWallAutosave_Init();
     gt_EscapeView_Init();
     gt_EscapeDamage_Init();
     gt_EscapeClearQ_Init();
@@ -6059,6 +6319,7 @@ void InitTriggers () {
     gt_CivilianMarchQ_Init();
     gt_Flyawaybirdie_Init();
     gt_FlyawaybirdieptIItheBirdening_Init();
+    gt_DominionExcavationSiteAutosave_Init();
     gt_DominionCompoundViewQ_Init();
     gt_DominionCompoundVikingland_Init();
     gt_DominionCompoundClear_Init();
@@ -6103,6 +6364,12 @@ void InitTriggers () {
     gt_ObjectiveDestroyDominionHoloboardsCreate_Init();
     gt_ObjectiveDestroyDominionHoloboardsComplete_Init();
     gt_ObjectiveDestroyDominionHoloboardsUpdate_Init();
+    gt_ObjectiveDeathlessCreate_Init();
+    gt_ObjectiveDeathlessComplete_Init();
+    gt_ObjectiveDeathlessFailed_Init();
+    gt_ObjectiveDominionExcavationSiteCreate_Init();
+    gt_ObjectiveDominionExcavationSiteUpdate_Init();
+    gt_ObjectiveDominionExcavationSiteComplete_Init();
     gt_BriefingQ_Init();
     gt_BriefingScene00_Init();
     gt_BriefingScene00Viking_Init();

@@ -36,7 +36,7 @@
             <cliffDoodad name="AvernusGasRefineryTO2" pos="156.000000 102.000000 2.000000 " rot="0"/>
             <cliffDoodad name="AvernusSpectreChamberTO2" pos="80.000000 146.000000 2.000000 " rot="0"/>
         </cliffDoodadList>
-        <vertData quantizeBias="9.000000e+00" quantizeScale="2.862936e-04" standardHeight="7.985796e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="9.000263e+00" quantizeScale="2.862973e-04" standardHeight="7.985796e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="AvernusEx1"/>

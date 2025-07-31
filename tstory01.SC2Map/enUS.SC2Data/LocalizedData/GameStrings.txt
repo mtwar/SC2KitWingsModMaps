@@ -9,6 +9,7 @@ Button/Tooltip/TStory01ABChoiceMutalisk=Fast-attacking air unit that bounces its
 Button/Tooltip/TStory01ABChoiceNydusWorm=Zerg structure that erupts suddenly from the ground and ejects large numbers of Zerg units.
 Button/Tooltip/TStory01ABChoiceSpectre=Infiltration unit. Can use Ultrasonic Pulse, Psionic Lash and Cloak abilities. Can also call down Tactical Nukes.
 Conversation/LabFidgetsArtifact/Group00001=1st Artifact conversation without Hanson
+ConversationState/MissionObjective/TRaynor01_4=Find dominion excavation site
 ConversationState/StoryState/MyNewSuperValue=MyNewSuperValue
 DocInfo/Author=Blizzard Entertainment
 DocInfo/DescLong=
@@ -319,6 +320,8 @@ Param/Value/FDEB51AC=Cantina
 Param/Value/FEDA652A=Big Tuna
 Param/Value/FFFD0315=Bridge
 Unit/Name/SMHyperionCantinaStage1Set=Hyperion Conscription Set
+UserData/MissionObjective/TRaynor01_3_Name=Destroy Dominion Holoboards - 2500 Credits Each
+UserData/MissionObjective/[Override]TRaynor01_3_Name=Destroy Dominion Holoboards
 UserData/TStory01ABChoice/THanson03A_Action=Protect the Colony
 UserData/TStory01ABChoice/THanson03A_Description=Side with the terran refugees against the protoss. This will anger the protoss, but it will buy Dr. Hanson more time to search for a cure. Regardless of whether she finds a cure, Dr. Hanson's efforts will lead to new breakthroughs in zerg research.
 UserData/TStory01ABChoice/THanson03A_Reward=<s val="ABChoiceResearchPoints_Zerg">+3 Zerg research</s>

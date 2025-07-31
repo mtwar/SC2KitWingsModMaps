@@ -30,6 +30,7 @@ Param/Value/21D320AE=Raynor
 Param/Value/24A1B636=
 Param/Value/26D5D7A5= 
 Param/Value/2807169B=Civilian
+Param/Value/28174837=Walking into Riksville kill wall
 Param/Value/29965F32=
 Param/Value/2AAFCC43=
 Param/Value/2B86A39F=Civilians Liberated
@@ -69,6 +70,7 @@ Param/Value/9A2B800E=
 Param/Value/9B978DD4=
 Param/Value/9DDB8681=Enemy Unit
 Param/Value/9E5EA8B9= 
+Param/Value/A167E679=Found Dominion excavation site
 Param/Value/A1835947=
 Param/Value/A3BF4F95=Reinforcements
 Param/Value/A4DB4B84=Click on the <c val="FFFF00">Tutorials</c> tab from the <c val="FFFF00">Help (F12)</c> menu to view the available tutorial videos.

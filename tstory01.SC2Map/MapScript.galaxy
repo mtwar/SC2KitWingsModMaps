@@ -15454,7 +15454,6 @@ bool gt_Init02BRooms_Func (bool testConds, bool runActions) {
     libNtve_gf_ShowHideUnit(gv_bridgeNose, false);
     gv_conscriptionRoom = UnitFromId(15);
     gv_conscriptionRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(13), UnitFilter(0, 0, 0, 0), 0);
-    gf_ShowHideUnitGroup(false, gv_conscriptionRoomUnits);
     gv_cantinaRoom = UnitFromId(659);
     gv_cantinaRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(3), UnitFilter(0, 0, 0, 0), 0);
     gv_charRoom = UnitFromId(213);

@@ -797,4 +797,44 @@
             <radius value="3.1125"/>
         </shape>
     </region>
+    <region id="10">
+        <name value="Auto-Save_Triggered02"/>
+        <color value="255,128,0,255"/>
+        <shape type="circle">
+            <center value="51.041,44.9587"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="48.2036,47.983"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="47.1784,48.7468"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="49.204,46.936"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="50.0361,45.9985"/>
+            <radius value="1.7202"/>
+        </shape>
+    </region>
+    <region id="55">
+        <name value="Auto-Save_Triggered03"/>
+        <color value="255,128,0,255"/>
+        <shape type="circle">
+            <center value="78.8154,91.2185"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="79.816,90.1716"/>
+            <radius value="1.7202"/>
+        </shape>
+        <shape type="circle">
+            <center value="80.648,89.2341"/>
+            <radius value="1.7202"/>
+        </shape>
+    </region>
 </Regions>
