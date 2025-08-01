@@ -1,5 +1,5 @@
-title=WoL@Kit
+title=Conscripted Forces
 desc=Wings of Liberty
-author=Kit
+author=oscarthegrouch3921
 campaign=WoL
-version=1.1.2
+version=0.1.0
