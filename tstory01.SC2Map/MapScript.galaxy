@@ -782,6 +782,7 @@ unit gv_armoryIntroBGUnit_Fidget;
 trigger gv_tVNewsCurrentThread;
 bool gv_tipStart;
 bool gv_armoryOpenedNew;
+bool gv_conscriptionOpenedNew;
 bool gv_cantinaOpenedNew;
 bool gv_labOpenedNew;
 
@@ -2212,6 +2213,7 @@ trigger gt_TipStarmap;
 trigger gt_TipMissionArchieves;
 trigger gt_TipArmory;
 trigger gt_TipArmoryConsole;
+trigger gt_TipConscription;
 trigger gt_TipCantina;
 trigger gt_TipMercenaries;
 trigger gt_TipNewMercenaries;
@@ -7759,7 +7761,7 @@ void gf_EnterRoom (int lp_room, bool lp_showTransition) {
     }
     else {
     }
-    if (((lp_room == ge_RoomID_RoomArmory) || (lp_room == ge_RoomID_RoomBridge) || (lp_room == ge_RoomID_RoomCantina) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomLab))) {
+    if (((lp_room == ge_RoomID_RoomArmory) || (lp_room == ge_RoomID_RoomBridge) || (lp_room == ge_RoomID_RoomCantina) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomLab) || (lp_room == ge_RoomID_RoomConscription))) {
         libCamp_gf_UpdateRoomChangePanel();
     }
 
@@ -8166,7 +8168,12 @@ int gf_RoomLocation (int lp_room) {
         return ge_RoomLocation_RoomLocationHyperion;
     }
     else if (auto403A5568_val == ge_RoomID_RoomConscription) {
-        return ge_RoomLocation_RoomLocationHyperion;
+        if ((libWoLC_gf_MissionStatusCheck("TRaynor03", libWoLC_ge_MissionStatus_Completed) == false)) {
+            return ge_RoomLocation_RoomLocationMarSara;
+        }
+        else {
+            return ge_RoomLocation_RoomLocationHyperion;
+        }
     }
     else if (auto403A5568_val == ge_RoomID_RoomArmory) {
         return ge_RoomLocation_RoomLocationHyperion;
@@ -9024,7 +9031,23 @@ void gf_DisplayRoomChangePanel () {
 
                 }
             }
+            else {
+                if ((gf_RoomLocationIsEnabled(ge_RoomLocation_RoomLocationMarSara) == true)) {
+                    lv_roomIndex = gv_c_ROOM_FIRST;
+                    libCamp_gf_AddRoomChangePanelButton(gf_RoomName(ge_RoomID_RoomMarSara), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
+                    lv_roomIndex = (lv_roomIndex + 1);
+                    gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
+                    TriggerExecute(gt_RoomChangeButtonUpdate, true, false);
+                    libCamp_gf_AddRoomChangePanelButton(gf_RoomName(ge_RoomID_RoomConscription), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
+                    gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
+                    TriggerExecute(gt_RoomChangeButtonUpdate, true, false);
+                    if ((libWoLC_gf_StoryState("ConscriptionVisited") == false)) {
+                        libCamp_gf_FlashRoomChangePanelButton(libCamp_gf_LastAddRoomChangePanelButton());
+                    }
 
+                }
+
+            }
         }
     }
 
@@ -15077,6 +15100,11 @@ bool gt_Init01CDerivedStates_Func (bool testConds, bool runActions) {
     else {
         gf_EnableRoomLocation(false, ge_RoomLocation_RoomLocationChar);
     }
+    if ((libWoLC_gf_StoryState("ConscriptionOpened") == false) && (gf_RoomIsEnabled(ge_RoomID_RoomConscription) == true)) {
+        gv_conscriptionOpenedNew = true;
+        libWoLC_gf_SetStoryStateBoolean("ConscriptionOpened", true);
+    }
+
     if ((libWoLC_gf_StoryState("ArmoryOpened") == false) && (gf_RoomIsEnabled(ge_RoomID_RoomArmory) == true)) {
         gv_armoryOpenedNew = true;
         libWoLC_gf_SetStoryStateBoolean("ArmoryOpened", true);
@@ -39732,6 +39760,36 @@ void gt_TipArmoryConsole_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Tip - Conscription
+//--------------------------------------------------------------------------------------------------
+bool gt_TipConscription_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    if ((gv_conscriptionOpenedNew == true)) {
+        gf_AddTip("StoryTips|Armory");
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TipConscription_Init () {
+    gt_TipConscription = TriggerCreate("gt_TipConscription_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Tip - Cantina
 //--------------------------------------------------------------------------------------------------
 bool gt_TipCantina_Func (bool testConds, bool runActions) {
@@ -40791,6 +40849,7 @@ void InitTriggers () {
     gt_TipMissionArchieves_Init();
     gt_TipArmory_Init();
     gt_TipArmoryConsole_Init();
+    gt_TipConscription_Init();
     gt_TipCantina_Init();
     gt_TipMercenaries_Init();
     gt_TipNewMercenaries_Init();
