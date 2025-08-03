@@ -1423,6 +1423,7 @@ void gf_StartTipHint ();
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
+trigger gt_ConscriptionCheatListener;
 trigger gt_WaitForSkipTrig;
 trigger gt_BackButtonClicked;
 trigger gt_BackButtonEscape;
@@ -13905,6 +13906,72 @@ void gf_StartTipHint () {
     }
     TriggerExecute(gt_TipCantina, true, false);
     TriggerExecute(gt_TipLab, true, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Conscription Cheat Listener
+//--------------------------------------------------------------------------------------------------
+bool gt_ConscriptionCheatListener_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_actionTypeName;
+    string lv_unitTypeName;
+    string lv_currentChatToken;
+    int lv_currentTokenIndex;
+    string lv_errorMessage;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_actionTypeName = "";
+    lv_unitTypeName = "";
+    lv_currentChatToken = "";
+    lv_errorMessage = "";
+
+    // Conditions
+    if (testConds) {
+        if (!((StringEqual(StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ConscriptionTokenIndex)), "conscription", c_stringNoCase) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_actionTypeName = StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ActionTokenIndex));
+    if ((lv_actionTypeName == null)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/83093A99"));
+        return true;
+    }
+
+    lv_currentTokenIndex = ge_ConscriptionCheatToken_UnitTokenStartIndex;
+    lv_currentChatToken = StringWord(EventChatMessage(false), lv_currentTokenIndex);
+    while ((lv_currentChatToken != null)) {
+        lv_currentChatToken = StringCase(lv_currentChatToken, false);
+        lv_currentChatToken = (StringCase(StringSub(lv_currentChatToken, 1, 1), true) + StringSub(lv_currentChatToken, 2, StringLength(lv_currentChatToken)));
+        lv_unitTypeName = (lv_unitTypeName + lv_currentChatToken);
+        lv_currentTokenIndex = (lv_currentTokenIndex + 1);
+        lv_currentChatToken = StringWord(EventChatMessage(false), lv_currentTokenIndex);
+    }
+    if (((lv_unitTypeName == null) || (StringEqual(lv_unitTypeName, "", c_stringNoCase) == true))) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/570012E2"));
+        return true;
+    }
+
+    lv_errorMessage = libWoLC_gf_ExecuteConscriptionActionString(lv_actionTypeName, lv_unitTypeName);
+    if ((StringEqual(lv_errorMessage, "", c_stringNoCase) != true)) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(lv_errorMessage));
+        return true;
+    }
+
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("cheat applied successfully"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ConscriptionCheatListener_Init () {
+    gt_ConscriptionCheatListener = TriggerCreate("gt_ConscriptionCheatListener_Func");
+    TriggerAddEventChatMessage(gt_ConscriptionCheatListener, c_playerAny, "conscription", false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40063,6 +40130,7 @@ void gt_TipAfterTValerian01_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
+    gt_ConscriptionCheatListener_Init();
     gt_WaitForSkipTrig_Init();
     gt_BackButtonClicked_Init();
     gt_BackButtonEscape_Init();
