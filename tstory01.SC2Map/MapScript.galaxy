@@ -14082,7 +14082,7 @@ bool gt_ConscriptionCheatListener_Func (bool testConds, bool runActions) {
     while ((lv_currentChatToken != null)) {
         lv_currentChatToken = StringCase(lv_currentChatToken, false);
         lv_currentChatToken = (StringCase(StringSub(lv_currentChatToken, 1, 1), true) + StringSub(lv_currentChatToken, 2, StringLength(lv_currentChatToken)));
-        lv_unitTypeName = (lv_unitTypeName + (lv_currentChatToken + " "));
+        lv_unitTypeName = (lv_unitTypeName + lv_currentChatToken);
         lv_currentTokenIndex = (lv_currentTokenIndex + 1);
         lv_currentChatToken = StringWord(EventChatMessage(false), lv_currentTokenIndex);
     }
@@ -14091,7 +14091,6 @@ bool gt_ConscriptionCheatListener_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_unitTypeName = StringSub(lv_unitTypeName, 1, (StringLength(lv_unitTypeName) - 1));
     lv_errorMessage = gf_ExecuteConscriptionCheat(lv_actionTypeName, lv_unitTypeName);
     if ((StringEqual(lv_errorMessage, "", c_stringNoCase) != true)) {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(lv_errorMessage));
