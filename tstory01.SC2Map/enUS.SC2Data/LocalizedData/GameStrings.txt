@@ -206,7 +206,7 @@ Param/Value/A612CD29=Mercenary
 Param/Value/A67AD1DF=Char
 Param/Value/A67D1B1C=   Stared Before = 
 Param/Value/A770B1AA=Bridge
-Param/Value/A97F1CC2=Mar Sara
+Param/Value/A97F1CC2=Joeyray's Bar
 Param/Value/A9E7CA0C=Cancel
 Param/Value/AB1AB48C=Auto Stop Music
 Param/Value/AB683C7D=The Fate of Haven
