@@ -7761,7 +7761,7 @@ void gf_EnterRoom (int lp_room, bool lp_showTransition) {
     }
     else {
     }
-    if (((lp_room == ge_RoomID_RoomArmory) || (lp_room == ge_RoomID_RoomBridge) || (lp_room == ge_RoomID_RoomCantina) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomLab) || (lp_room == ge_RoomID_RoomConscription))) {
+    if (((lp_room == ge_RoomID_RoomArmory) || (lp_room == ge_RoomID_RoomBridge) || (lp_room == ge_RoomID_RoomCantina) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomLab) || (lp_room == ge_RoomID_RoomConscription) || (lp_room == ge_RoomID_RoomMarSara))) {
         libCamp_gf_UpdateRoomChangePanel();
     }
 
@@ -9033,11 +9033,11 @@ void gf_DisplayRoomChangePanel () {
             }
             else {
                 if ((gf_RoomLocationIsEnabled(ge_RoomLocation_RoomLocationMarSara) == true)) {
-                    lv_roomIndex = gv_c_ROOM_FIRST;
+                    lv_roomIndex = ge_RoomID_RoomMarSara;
                     libCamp_gf_AddRoomChangePanelButton(gf_RoomName(ge_RoomID_RoomMarSara), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
-                    lv_roomIndex = (lv_roomIndex + 1);
                     gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
                     TriggerExecute(gt_RoomChangeButtonUpdate, true, false);
+                    lv_roomIndex = ge_RoomID_RoomConscription;
                     libCamp_gf_AddRoomChangePanelButton(gf_RoomName(ge_RoomID_RoomConscription), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
                     gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
                     TriggerExecute(gt_RoomChangeButtonUpdate, true, false);
@@ -20169,7 +20169,11 @@ bool gt_RoomChangeButtonResponse_Func (bool testConds, bool runActions) {
 
     Wait(0.25, c_timeGame);
     auto375C3EC2_val = lv_room;
-    if (auto375C3EC2_val == ge_RoomID_RoomArmory) {
+    if (auto375C3EC2_val == ge_RoomID_RoomConscription) {
+        libWoLC_gf_SetStoryStateBoolean("ConscriptionVisited", true);
+        libCamp_gf_StopFlashingRoomChangePanelButton(libCamp_gf_RoomChangePanelButtonCustomData(gv_roomChangePanelButtonId[(lv_room)]));
+    }
+    else if (auto375C3EC2_val == ge_RoomID_RoomArmory) {
         libWoLC_gf_SetStoryStateBoolean("ArmoryVisited", true);
         libCamp_gf_StopFlashingRoomChangePanelButton(libCamp_gf_RoomChangePanelButtonCustomData(gv_roomChangePanelButtonId[(lv_room)]));
     }
