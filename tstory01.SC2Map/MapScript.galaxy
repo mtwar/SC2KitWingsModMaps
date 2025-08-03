@@ -184,9 +184,10 @@ const int ge_ScreenButtonID_ButtonHyperion = 4;
 const int ge_SceneType_Scene = 0;
 const int ge_SceneType_Convo = 1;
 const int ge_SceneType_TV = 2;
-const int ge_ConscriptionCheatToken_ConscriptionTokenIndex = 0;
-const int ge_ConscriptionCheatToken_ActionTokenIndex = 1;
-const int ge_ConscriptionCheatToken_UnitTokenStartIndex = 2;
+const int ge_ConscriptionCheatToken_None = 0;
+const int ge_ConscriptionCheatToken_ConscriptionTokenIndex = 1;
+const int ge_ConscriptionCheatToken_ActionTokenIndex = 2;
+const int ge_ConscriptionCheatToken_UnitTokenStartIndex = 3;
 const int ge_ConscriptionActionType_None = 0;
 const int ge_ConscriptionActionType_EnableUnit = 1;
 const int ge_ConscriptionActionType_DisableUnit = 2;
@@ -1435,7 +1436,7 @@ void gf_StartTipHint ();
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
-trigger gt_Cheats;
+trigger gt_ConscriptionCheatListener;
 trigger gt_WaitForSkipTrig;
 trigger gt_BackButtonClicked;
 trigger gt_BackButtonEscape;
@@ -14041,9 +14042,9 @@ void gf_StartTipHint () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Cheats
+// Trigger: Conscription Cheat Listener
 //--------------------------------------------------------------------------------------------------
-bool gt_Cheats_Func (bool testConds, bool runActions) {
+bool gt_ConscriptionCheatListener_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_actionTypeName;
     string lv_unitTypeName;
@@ -14060,7 +14061,7 @@ bool gt_Cheats_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((StringCase(StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ConscriptionTokenIndex)), false) == "conscription"))) {
+        if (!((StringEqual(StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ConscriptionTokenIndex)), "conscription", c_stringNoCase) == true))) {
             return false;
         }
     }
@@ -14090,7 +14091,7 @@ bool gt_Cheats_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_unitTypeName = StringSub(lv_unitTypeName, 1, StringLength(lv_unitTypeName));
+    lv_unitTypeName = StringSub(lv_unitTypeName, 1, (StringLength(lv_unitTypeName) - 1));
     lv_errorMessage = gf_ExecuteConscriptionCheat(lv_actionTypeName, lv_unitTypeName);
     if ((StringEqual(lv_errorMessage, "", c_stringNoCase) != true)) {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(lv_errorMessage));
@@ -14102,9 +14103,9 @@ bool gt_Cheats_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_Cheats_Init () {
-    gt_Cheats = TriggerCreate("gt_Cheats_Func");
-    TriggerAddEventChatMessage(gt_Cheats, c_playerAny, "onscription", false);
+void gt_ConscriptionCheatListener_Init () {
+    gt_ConscriptionCheatListener = TriggerCreate("gt_ConscriptionCheatListener_Func");
+    TriggerAddEventChatMessage(gt_ConscriptionCheatListener, c_playerAny, "conscription", false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40263,7 +40264,7 @@ void gt_TipAfterTValerian01_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
-    gt_Cheats_Init();
+    gt_ConscriptionCheatListener_Init();
     gt_WaitForSkipTrig_Init();
     gt_BackButtonClicked_Init();
     gt_BackButtonEscape_Init();
