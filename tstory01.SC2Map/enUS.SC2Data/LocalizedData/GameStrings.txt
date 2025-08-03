@@ -116,6 +116,7 @@ Param/Value/53971E4F=Brian Bode
 Param/Value/53EC5C77=Kachinsky
 Param/Value/544F0CE0=Return (Transitional Load)
 Param/Value/554296D0=Hotspot Leave (With Camera)
+Param/Value/570012E2=Unit type name required. Format: Conscription <action type name> <unit type name><n/>Valid actions: enable, disable, purchase, refund
 Param/Value/591D85FD=
 Param/Value/5BA7AED9=Lab
 Param/Value/5D607CC0=Free Bird
@@ -156,6 +157,7 @@ Param/Value/7E5C57BE=)  Current room =
 Param/Value/7F550214=REPLAY
 Param/Value/8066977A=Zeratul
 Param/Value/82FE4BD6=Init Data Ends
+Param/Value/83093A99=Action type name required. Format: Conscription <action type name> <unit type name><n/>Valid actions: enable, disable, purchase, refund
 Param/Value/831DBE26=<n/><n/>
 Param/Value/861C0605=The Char Decision
 Param/Value/86EA9124=Don Cowin
@@ -262,6 +264,7 @@ Param/Value/CE6709E3=Cantina
 Param/Value/CEF2927D=<c val="ff0000">Failed to add Glow Text Tag: Exceeds the limit</c>
 Param/Value/CF302ED4=Init Data Starts
 Param/Value/D1EB5F97=Raynor
+Param/Value/D2D7286D=Unit type name required. Format: Conscription <action type name> <unit type name><n/>Valid actions: enable, disable, purchase, refund
 Param/Value/D38A49C2=Bridge
 Param/Value/D3B1D2B5=[in Next Track] StartRandom = 
 Param/Value/D3C1FD51=A Zerg, A Shotgun, and You

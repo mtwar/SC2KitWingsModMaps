@@ -2257,6 +2257,7 @@ bool gt_KillWallAutosave_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/28174837"));
     TriggerQueueEnter();
     UnitGroupIssueOrder(UnitGroupSelected(gv_p1_USER), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
     UnitPauseAll(true);
@@ -2273,7 +2274,6 @@ bool gt_KillWallAutosave_Func (bool testConds, bool runActions) {
     // Transmission - SoundLink("TRaynor01Raynor00042", 0)
     libCamp_gf_SendTransmissionCampaign(gv_raynor, SoundLink("TRaynor01Raynor00042", 0), c_transmissionDurationAdd, 0.0, true);
     libCamp_gf_SetAllSoundChannelVolumesCampaign(libNtve_ge_VolumeChannelMode_Game);
-    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/28174837"));
     libNtve_gf_RestoreUnitSelection(gv_p1_USER);
     UnitPauseAll(false);
     TriggerQueueExit();
@@ -2456,7 +2456,6 @@ bool gt_EscapeClearQ_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_CreateReticule5, true);
     TriggerEnable(gt_PlayHoloboard06Q, true);
     TriggerEnable(gt_CreateReticule6, true);
-    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/1A5B8441"));
     TriggerEnable(gt_EscapeRevealCheck, true);
     return true;
 }
@@ -5856,6 +5855,7 @@ bool gt_MidEscapeSetup_Func (bool testConds, bool runActions) {
     CameraSave(gv_p1_USER);
     UnitGroupIssueOrder(UnitGroupSelected(gv_p1_USER), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
     UnitPauseAll(true);
+    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/1A5B8441"));
     libNtve_gf_StoreUnitSelection(gv_p1_USER, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
     PlayerSetState(gv_p1_USER, c_playerStateXPGain, false);
     GameTimeOfDayPause(true);
