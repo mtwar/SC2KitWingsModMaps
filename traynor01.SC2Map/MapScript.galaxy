@@ -158,6 +158,7 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 void gf_SetCivviePropertiesforSpawnedunit (unit lp_uNIT);
 void gf_OrderUnitToMoveThenTurnToTargetPointsFacing (unit lp_u, point lp_targetPoint, int lp_queue);
+void gf_RescueVulture (unit lp_vulture);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
@@ -191,6 +192,7 @@ trigger gt_WhereisEveryoneQ;
 trigger gt_MutteringJohnQ;
 trigger gt_MutteringJohnDespawn;
 trigger gt_ThisisuglyQ;
+trigger gt_VultureRescue;
 trigger gt_GhostTownEntranceCarcass;
 trigger gt_GhostTownExitCarcass1;
 trigger gt_GhostTownExitCarcass2;
@@ -207,7 +209,6 @@ trigger gt_SouthieMarineaggroStatue;
 trigger gt_SouthieMarineaggroProximity;
 trigger gt_SouthieMarineattackQ;
 trigger gt_SouthieTransmissionKill;
-trigger gt_ThisisbadQ;
 trigger gt_KillWallAutosave;
 trigger gt_EscapeView;
 trigger gt_EscapeDamage;
@@ -315,6 +316,33 @@ void gf_OrderUnitToMoveThenTurnToTargetPointsFacing (unit lp_u, point lp_targetP
     // Implementation
     UnitIssueOrder(lp_u, OrderTargetingPoint(AbilityCommand("move", 0), lp_targetPoint), lp_queue);
     UnitIssueOrder(lp_u, OrderTargetingPoint(AbilityCommand("move", 4), PointWithOffsetPolar(lp_targetPoint, 10.0, PointGetFacing(lp_targetPoint))), c_orderQueueAddToEnd);
+}
+
+trigger auto_gf_RescueVulture_Trigger = null;
+unit auto_gf_RescueVulture_lp_vulture;
+
+void gf_RescueVulture (unit lp_vulture) {
+    auto_gf_RescueVulture_lp_vulture = lp_vulture;
+
+    if (auto_gf_RescueVulture_Trigger == null) {
+        auto_gf_RescueVulture_Trigger = TriggerCreate("auto_gf_RescueVulture_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_RescueVulture_Trigger, false, false);
+}
+
+bool auto_gf_RescueVulture_TriggerFunc (bool testConds, bool runActions) {
+    unit lp_vulture = auto_gf_RescueVulture_lp_vulture;
+
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_TurnAllAnimationPropertiesOff(libNtve_gf_MainActorofUnit(lp_vulture));
+    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(lp_vulture), c_animNameDefault, "Stand Morph End", 0, c_animTimeDefault);
+    Wait(0.5, c_timeGame);
+    UIAlertUnit("Trigger", gv_p1_USER, StringExternal("Param/Value/60C2FD74"), null, lp_vulture);
+    libNtve_gf_RescueUnit(lp_vulture, gv_p1_USER, true);
+    SoundPlay(SoundLink("THorner02Tychus00023", -1), PlayerGroupAll(), 100.0, 0.0);
+    return true;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1536,6 +1564,38 @@ void gt_ThisisuglyQ_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Vulture Rescue
+//--------------------------------------------------------------------------------------------------
+bool gt_VultureRescue_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+
+        if (!((UnitGroupCount(UnitGroup("Vulture", gv_riksvillePopulation, RegionEntireMap(), UnitFilter(0, 0, 0, (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_RescueVulture(UnitFromId(483365022));
+    TriggerEnable(TriggerGetCurrent(), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_VultureRescue_Init () {
+    gt_VultureRescue = TriggerCreate("gt_VultureRescue_Func");
+    TriggerAddEventUnitRange(gt_VultureRescue, null, UnitFromId(483365022), 3.0, true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Ghost Town Entrance Carcass
 //--------------------------------------------------------------------------------------------------
 bool gt_GhostTownEntranceCarcass_Func (bool testConds, bool runActions) {
@@ -2164,52 +2224,6 @@ void gt_SouthieTransmissionKill_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: This is bad Q
-//--------------------------------------------------------------------------------------------------
-bool gt_ThisisbadQ_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((EventUnit() == gv_holoboards[4]))) {
-            return false;
-        }
-
-        if (!((gv_gameOver == false))) {
-            return false;
-        }
-
-        if (!((gv_inCinematic == false))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TriggerEnable(TriggerGetCurrent(), false);
-    Wait(2.0, c_timeGame);
-    TriggerQueueEnter();
-    UIAlertPoint("Trigger", gv_p1_USER, StringExternal("Param/Value/EE3C9CCF"), null, RegionGetCenter(RegionFromId(19)));
-    VisRevealArea(gv_p1_USER, RegionFromId(19), 7.0, true);
-    libCamp_gf_SetAllSoundChannelVolumesCampaign(libNtve_ge_VolumeChannelMode_Speech);
-    libLbty_gf_PlayTransmissionCueSound(PlayerGroupAll());
-    libNtve_gf_AttachActorToUnit(gv_raynor, "TalkIcon", "Ref_Origin");
-    // Transmission - SoundLink("TRaynor01Raynor00042", 0)
-    libCamp_gf_SendTransmissionCampaign(gv_raynor, SoundLink("TRaynor01Raynor00042", 0), c_transmissionDurationAdd, 0.0, true);
-    libCamp_gf_SetAllSoundChannelVolumesCampaign(libNtve_ge_VolumeChannelMode_Game);
-    TriggerQueueExit();
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ThisisbadQ_Init () {
-    gt_ThisisbadQ = TriggerCreate("gt_ThisisbadQ_Func");
-    TriggerAddEventUnitDied(gt_ThisisbadQ, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Kill Wall Autosave
 //--------------------------------------------------------------------------------------------------
 bool gt_KillWallAutosave_Func (bool testConds, bool runActions) {
@@ -2243,7 +2257,26 @@ bool gt_KillWallAutosave_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    TriggerQueueEnter();
+    UnitGroupIssueOrder(UnitGroupSelected(gv_p1_USER), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    UnitPauseAll(true);
+    libNtve_gf_StoreUnitSelection(gv_p1_USER, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
+    UIAlertPoint("Trigger", gv_p1_USER, StringExternal("Param/Value/361F965A"), null, RegionGetCenter(RegionFromId(19)));
+    VisRevealArea(gv_p1_USER, RegionFromId(19), 7.0, true);
+    CameraLockInput(gv_p1_USER, true);
+    CameraPan(gv_p1_USER, PointFromId(1596338328), 1.0, -1, 20, false);
+    Wait(1.0, c_timeGame);
+    CameraLockInput(gv_p1_USER, false);
+    libCamp_gf_SetAllSoundChannelVolumesCampaign(libNtve_ge_VolumeChannelMode_Speech);
+    libLbty_gf_PlayTransmissionCueSound(PlayerGroupAll());
+    libNtve_gf_AttachActorToUnit(gv_raynor, "TalkIcon", "Ref_Origin");
+    // Transmission - SoundLink("TRaynor01Raynor00042", 0)
+    libCamp_gf_SendTransmissionCampaign(gv_raynor, SoundLink("TRaynor01Raynor00042", 0), c_transmissionDurationAdd, 0.0, true);
+    libCamp_gf_SetAllSoundChannelVolumesCampaign(libNtve_ge_VolumeChannelMode_Game);
     libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/28174837"));
+    libNtve_gf_RestoreUnitSelection(gv_p1_USER);
+    UnitPauseAll(false);
+    TriggerQueueExit();
     return true;
 }
 
@@ -2423,6 +2456,7 @@ bool gt_EscapeClearQ_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_CreateReticule5, true);
     TriggerEnable(gt_PlayHoloboard06Q, true);
     TriggerEnable(gt_CreateReticule6, true);
+    libCamp_gf_CreateMissionAutosavePoint(StringExternal("Param/Value/1A5B8441"));
     TriggerEnable(gt_EscapeRevealCheck, true);
     return true;
 }
@@ -4710,6 +4744,10 @@ bool gt_ObjectiveDeathlessComplete_Func (bool testConds, bool runActions) {
         if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
             return false;
         }
+
+        if (!((libWoLC_gf_MissionObjectiveProgress("TRaynor01_5") != libWoLC_ge_MissionObjectiveState_Failed))) {
+            return false;
+        }
     }
 
     // Actions
@@ -4746,6 +4784,14 @@ bool gt_ObjectiveDeathlessFailed_Func (bool testConds, bool runActions) {
         if (!((UnitGetOwner(EventUnit()) == gv_p1_USER))) {
             return false;
         }
+
+        if (!((UnitGetType(EventUnit()) != "SpiderMine"))) {
+            return false;
+        }
+
+        if (!((UnitGetType(EventUnit()) != "SpiderMineBurrowed"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -4754,6 +4800,7 @@ bool gt_ObjectiveDeathlessFailed_Func (bool testConds, bool runActions) {
     }
 
     libWCMI_gf_ZS_SetMissionObjectiveState("TRaynor01_5", libWoLC_ge_MissionObjectiveState_Failed);
+    TriggerEnable(gt_ObjectiveDeathlessComplete, false);
     TriggerEnable(TriggerGetCurrent(), false);
     return true;
 }
@@ -5807,10 +5854,11 @@ bool gt_MidEscapeSetup_Func (bool testConds, bool runActions) {
     libNtve_gf_CinematicMode(true, PlayerGroupAll(), 0.0);
     libNtve_gf_GlobalCinematicSetting(true);
     CameraSave(gv_p1_USER);
+    UnitGroupIssueOrder(UnitGroupSelected(gv_p1_USER), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    UnitPauseAll(true);
     libNtve_gf_StoreUnitSelection(gv_p1_USER, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
     PlayerSetState(gv_p1_USER, c_playerStateXPGain, false);
     GameTimeOfDayPause(true);
-    UnitPauseAll(true);
     PlayerSetState(gv_p3_RIKSVILLE_YELLOW, c_playerStateFidgetingEnabled, false);
     gv_midHiddenUnitGroup = UnitGroup(null, gv_p1_USER, RegionEntireMap(), UnitFilter(0, 0, 0, 0), 0);
     auto5AA6988B_g = gv_midHiddenUnitGroup;
@@ -6292,6 +6340,7 @@ void InitTriggers () {
     gt_MutteringJohnQ_Init();
     gt_MutteringJohnDespawn_Init();
     gt_ThisisuglyQ_Init();
+    gt_VultureRescue_Init();
     gt_GhostTownEntranceCarcass_Init();
     gt_GhostTownExitCarcass1_Init();
     gt_GhostTownExitCarcass2_Init();
@@ -6308,7 +6357,6 @@ void InitTriggers () {
     gt_SouthieMarineaggroProximity_Init();
     gt_SouthieMarineattackQ_Init();
     gt_SouthieTransmissionKill_Init();
-    gt_ThisisbadQ_Init();
     gt_KillWallAutosave_Init();
     gt_EscapeView_Init();
     gt_EscapeDamage_Init();

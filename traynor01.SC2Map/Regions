@@ -91,10 +91,9 @@
     <region id="21">
         <name value="Great Escape Triggered"/>
         <color value="255,0,128,0"/>
-        <invisible/>
         <shape type="circle">
-            <center value="34.349,74.671"/>
-            <radius value="7.7734"/>
+            <center value="35.0214,72.7724"/>
+            <radius value="7.775"/>
         </shape>
     </region>
     <region id="28">
@@ -238,14 +237,14 @@
         <color value="255,0,0,0"/>
         <shape type="circle">
             <center value="99.4321,67.899"/>
-            <radius value="11"/>
+            <radius value="7"/>
         </shape>
     </region>
     <region id="85">
         <name value="RevealLeftSidePath01"/>
         <color value="255,255,128,192"/>
         <shape type="circle">
-            <center value="35.2866,64.7482"/>
+            <center value="35.3083,64.949"/>
             <radius value="6.25"/>
         </shape>
     </region>
@@ -297,15 +296,15 @@
         <name value="RevealLeftSidePath02"/>
         <color value="255,255,128,192"/>
         <shape type="circle">
-            <center value="30.007,70.1496"/>
+            <center value="30.9724,70.7497"/>
             <radius value="4.4162"/>
         </shape>
         <shape type="circle">
-            <center value="34.232,69.7932"/>
+            <center value="35.1972,70.3933"/>
             <radius value="3.3842"/>
         </shape>
         <shape type="circle">
-            <center value="38.3498,68.664"/>
+            <center value="39.3151,69.2641"/>
             <radius value="2.3728"/>
         </shape>
     </region>
@@ -313,15 +312,15 @@
         <name value="RevealLeftSidePath03"/>
         <color value="255,255,128,192"/>
         <shape type="circle">
-            <center value="31.7165,75.4565"/>
+            <center value="32.2316,75.3422"/>
             <radius value="4.09"/>
         </shape>
         <shape type="circle">
-            <center value="36.3315,73.9921"/>
+            <center value="36.8466,73.878"/>
             <radius value="3.3894"/>
         </shape>
         <shape type="circle">
-            <center value="40.506,72.3874"/>
+            <center value="41.0212,72.2731"/>
             <radius value="3.007"/>
         </shape>
     </region>
@@ -801,23 +800,23 @@
         <name value="Auto-Save_Triggered02"/>
         <color value="255,128,0,255"/>
         <shape type="circle">
-            <center value="51.041,44.9587"/>
+            <center value="51.2597,45.2878"/>
             <radius value="1.7202"/>
         </shape>
         <shape type="circle">
-            <center value="48.2036,47.983"/>
+            <center value="48.4223,48.312"/>
             <radius value="1.7202"/>
         </shape>
         <shape type="circle">
-            <center value="47.1784,48.7468"/>
+            <center value="47.3972,49.076"/>
             <radius value="1.7202"/>
         </shape>
         <shape type="circle">
-            <center value="49.204,46.936"/>
+            <center value="49.4228,47.2651"/>
             <radius value="1.7202"/>
         </shape>
         <shape type="circle">
-            <center value="50.0361,45.9985"/>
+            <center value="50.255,46.3276"/>
             <radius value="1.7202"/>
         </shape>
     </region>
