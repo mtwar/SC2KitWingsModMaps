@@ -188,11 +188,6 @@ const int ge_ConscriptionCheatToken_None = 0;
 const int ge_ConscriptionCheatToken_ConscriptionTokenIndex = 1;
 const int ge_ConscriptionCheatToken_ActionTokenIndex = 2;
 const int ge_ConscriptionCheatToken_UnitTokenStartIndex = 3;
-const int ge_ConscriptionActionType_None = 0;
-const int ge_ConscriptionActionType_EnableUnit = 1;
-const int ge_ConscriptionActionType_DisableUnit = 2;
-const int ge_ConscriptionActionType_PurchaseUnit = 3;
-const int ge_ConscriptionActionType_RefundUnit = 4;
 const int ge_ClickableCursorType_Move = 0;
 const int ge_ClickableCursorType_Talk = 1;
 const int ge_ClickableCursorType_Activate = 2;
@@ -1001,14 +996,6 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
-string gf_EnableUnit (string lp_unitType);
-string gf_DisableUnit (string lp_unitType);
-string gf_PurchaseUnit (string lp_unitType);
-string gf_RefundUnit (string lp_unitType);
-string gf_ExecuteConscriptionAction (int lp_actionType, string lp_unitType);
-int gf_ParseConscriptionActionType (string lp_actionTypeName);
-string gf_ParseUnitType (string lp_unitTypeName);
-string gf_ExecuteConscriptionCheat (string lp_actionTypeName, string lp_unitTypeName);
 void gf_CustomFadeInOut (bool lp_fadeIn, fixed lp_duration, bool lp_waitUntilDone);
 void gf_TurnClickableOnOff (unit lp_unit, bool lp_desiredState);
 void gf_TurnClickablesOnOff (unitgroup lp_whichClickables, bool lp_desiredState);
@@ -1436,7 +1423,6 @@ void gf_StartTipHint ();
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
-trigger gt_ConscriptionCheatListener;
 trigger gt_WaitForSkipTrig;
 trigger gt_BackButtonClicked;
 trigger gt_BackButtonEscape;
@@ -2249,126 +2235,6 @@ trigger gt_TipAfterTValerian01;
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
-string gf_EnableUnit (string lp_unitType) {
-    // Automatic Variable Declarations
-    // Implementation
-    return "";
-}
-
-string gf_DisableUnit (string lp_unitType) {
-    // Automatic Variable Declarations
-    // Implementation
-    return "";
-}
-
-string gf_PurchaseUnit (string lp_unitType) {
-    // Automatic Variable Declarations
-    // Implementation
-    return "";
-}
-
-string gf_RefundUnit (string lp_unitType) {
-    // Automatic Variable Declarations
-    // Implementation
-    return "";
-}
-
-string gf_ExecuteConscriptionAction (int lp_actionType, string lp_unitType) {
-    // Variable Declarations
-    string lv_errorString;
-
-    // Automatic Variable Declarations
-    int autoABC5871B_val;
-
-    // Variable Initialization
-    lv_errorString = "";
-
-    // Implementation
-    autoABC5871B_val = lp_actionType;
-    if (autoABC5871B_val == ge_ConscriptionActionType_EnableUnit) {
-        lv_errorString = gf_EnableUnit(lp_unitType);
-    }
-    else if (autoABC5871B_val == ge_ConscriptionActionType_DisableUnit) {
-        lv_errorString = gf_DisableUnit(lp_unitType);
-    }
-    else if (autoABC5871B_val == ge_ConscriptionActionType_PurchaseUnit) {
-        lv_errorString = gf_PurchaseUnit(lp_unitType);
-    }
-    else if (autoABC5871B_val == ge_ConscriptionActionType_RefundUnit) {
-        lv_errorString = gf_RefundUnit(lp_unitType);
-    }
-    else {
-        return "action type not implemented";
-    }
-    return lv_errorString;
-}
-
-int gf_ParseConscriptionActionType (string lp_actionTypeName) {
-    // Automatic Variable Declarations
-    string autoD1BF7E3A_val;
-
-    // Implementation
-    autoD1BF7E3A_val = StringCase(lp_actionTypeName, false);
-    if (autoD1BF7E3A_val == "enable") {
-        return ge_ConscriptionActionType_EnableUnit;
-    }
-    else if (autoD1BF7E3A_val == "disable") {
-        return ge_ConscriptionActionType_DisableUnit;
-    }
-    else if (autoD1BF7E3A_val == "purchase") {
-        return ge_ConscriptionActionType_PurchaseUnit;
-    }
-    else if (autoD1BF7E3A_val == "refund") {
-        return ge_ConscriptionActionType_RefundUnit;
-    }
-    else {
-        return ge_ConscriptionActionType_None;
-    }
-}
-
-string gf_ParseUnitType (string lp_unitTypeName) {
-    // Variable Declarations
-    string lv_unitType;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    if ((StringEqual(lp_unitTypeName, "", c_stringNoCase) == true)) {
-        return null;
-    }
-    else {
-        lv_unitType = UnitTypeFromString(lp_unitTypeName);
-    }
-    if (((lv_unitType == null) || (lv_unitType == ""))) {
-        return null;
-    }
-
-    return lv_unitType;
-}
-
-string gf_ExecuteConscriptionCheat (string lp_actionTypeName, string lp_unitTypeName) {
-    // Variable Declarations
-    int lv_actionType;
-    string lv_unitType;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-
-    // Implementation
-    lv_actionType = gf_ParseConscriptionActionType(lp_actionTypeName);
-    if ((lv_actionType == ge_ConscriptionActionType_None)) {
-        return "invalid action type name";
-    }
-
-    lv_unitType = gf_ParseUnitType(lp_unitTypeName);
-    if ((lv_unitType == null)) {
-        return "invalid unit type name";
-    }
-
-    return gf_ExecuteConscriptionAction(lv_actionType, lv_unitType);
-}
-
 void gf_CustomFadeInOut (bool lp_fadeIn, fixed lp_duration, bool lp_waitUntilDone) {
     // Automatic Variable Declarations
     // Implementation
@@ -14039,72 +13905,6 @@ void gf_StartTipHint () {
     }
     TriggerExecute(gt_TipCantina, true, false);
     TriggerExecute(gt_TipLab, true, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Conscription Cheat Listener
-//--------------------------------------------------------------------------------------------------
-bool gt_ConscriptionCheatListener_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    string lv_actionTypeName;
-    string lv_unitTypeName;
-    string lv_currentChatToken;
-    int lv_currentTokenIndex;
-    string lv_errorMessage;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_actionTypeName = "";
-    lv_unitTypeName = "";
-    lv_currentChatToken = "";
-    lv_errorMessage = "";
-
-    // Conditions
-    if (testConds) {
-        if (!((StringEqual(StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ConscriptionTokenIndex)), "conscription", c_stringNoCase) == true))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    lv_actionTypeName = StringWord(EventChatMessage(false), (ge_ConscriptionCheatToken_ActionTokenIndex));
-    if ((lv_actionTypeName == null)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/83093A99"));
-        return true;
-    }
-
-    lv_currentTokenIndex = ge_ConscriptionCheatToken_UnitTokenStartIndex;
-    lv_currentChatToken = StringWord(EventChatMessage(false), lv_currentTokenIndex);
-    while ((lv_currentChatToken != null)) {
-        lv_currentChatToken = StringCase(lv_currentChatToken, false);
-        lv_currentChatToken = (StringCase(StringSub(lv_currentChatToken, 1, 1), true) + StringSub(lv_currentChatToken, 2, StringLength(lv_currentChatToken)));
-        lv_unitTypeName = (lv_unitTypeName + lv_currentChatToken);
-        lv_currentTokenIndex = (lv_currentTokenIndex + 1);
-        lv_currentChatToken = StringWord(EventChatMessage(false), lv_currentTokenIndex);
-    }
-    if (((lv_unitTypeName == null) || (StringEqual(lv_unitTypeName, "", c_stringNoCase) == true))) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Param/Value/570012E2"));
-        return true;
-    }
-
-    lv_errorMessage = gf_ExecuteConscriptionCheat(lv_actionTypeName, lv_unitTypeName);
-    if ((StringEqual(lv_errorMessage, "", c_stringNoCase) != true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(lv_errorMessage));
-        return true;
-    }
-
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("cheat applied successfully"));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ConscriptionCheatListener_Init () {
-    gt_ConscriptionCheatListener = TriggerCreate("gt_ConscriptionCheatListener_Func");
-    TriggerAddEventChatMessage(gt_ConscriptionCheatListener, c_playerAny, "conscription", false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40263,7 +40063,6 @@ void gt_TipAfterTValerian01_Init () {
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
-    gt_ConscriptionCheatListener_Init();
     gt_WaitForSkipTrig_Init();
     gt_BackButtonClicked_Init();
     gt_BackButtonEscape_Init();
