@@ -262,7 +262,6 @@ Param/Value/CE6709E3=Cantina
 Param/Value/CEF2927D=<c val="ff0000">Failed to add Glow Text Tag: Exceeds the limit</c>
 Param/Value/CF302ED4=Init Data Starts
 Param/Value/D1EB5F97=Raynor
-Param/Value/D2D7286D=Unit type name required. Format: Conscription <action type name> <unit type name><n/>Valid actions: enable, disable, purchase, refund
 Param/Value/D38A49C2=Bridge
 Param/Value/D3B1D2B5=[in Next Track] StartRandom = 
 Param/Value/D3C1FD51=A Zerg, A Shotgun, and You
