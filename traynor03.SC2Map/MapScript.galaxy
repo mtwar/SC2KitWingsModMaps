@@ -512,13 +512,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "Bunker", gv_pLAYER01_USER);
-    if ((libNtve_gf_DifficultyValueInt(1, 0, 0, 0) == 1)) {
-        TechTreeAbilityAllow(gv_pLAYER01_USER, AbilityCommand("TerranBuild", 4), false);
-    }
-    else {
-        libWoLC_gf_EnableCampaignTechUnit(true, "MissileTurret", gv_pLAYER01_USER);
-    }
     auto27D6E41E_g = gv_zergPlayers;
     auto27D6E41E_var = -1;
     while (true) {

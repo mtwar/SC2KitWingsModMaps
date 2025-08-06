@@ -578,8 +578,8 @@
     <Element Type="Trigger" Id="D19696BC">
         <Action Type="Comment" Id="355F47A5"/>
         <Action Type="FunctionCall" Id="DA8658D2"/>
-        <Action Type="FunctionCall" Id="F259669D"/>
-        <Action Type="Comment" Id="07D494FB"/>
+        <Action Type="FunctionCall" Id="F4BC0F8B"/>
+        <Action Type="FunctionCall" Id="8A831205"/>
         <Action Type="FunctionCall" Id="27D6E41E"/>
     </Element>
     <Element Type="Comment" Id="355F47A5">
@@ -589,6 +589,7 @@
         </Comment>
     </Element>
     <Element Type="FunctionCall" Id="DA8658D2">
+        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
         <Parameter Type="Param" Id="3282E414"/>
         <Parameter Type="Param" Id="83031E14"/>
@@ -608,83 +609,9 @@
         <ValueType Type="userinstance"/>
         <ValueContext Value="TechUnit"/>
     </Element>
-    <Element Type="FunctionCall" Id="F259669D">
-        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000137"/>
-        <FunctionCall Type="FunctionCall" Id="8A831205"/>
-        <FunctionCall Type="FunctionCall" Id="2D6CD08A"/>
-        <FunctionCall Type="FunctionCall" Id="F4BC0F8B"/>
-    </Element>
-    <Element Type="FunctionCall" Id="8A831205">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="00000005"/>
-        <Parameter Type="Param" Id="CE4DEB38"/>
-        <Parameter Type="Param" Id="FD92E0DE"/>
-        <Parameter Type="Param" Id="9039B6B3"/>
-    </Element>
-    <Element Type="Param" Id="CE4DEB38">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="FD92E0DE">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="169E518A"/>
-    </Element>
-    <Element Type="Param" Id="9039B6B3">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>MissileTurret</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
-    </Element>
-    <Element Type="FunctionCall" Id="2D6CD08A">
-        <FunctionDef Type="FunctionDef" Library="Ntve" Id="C439C375"/>
-        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="00000003"/>
-        <Parameter Type="Param" Id="E7A5BA79"/>
-        <Parameter Type="Param" Id="E968A19E"/>
-        <Parameter Type="Param" Id="13C4582E"/>
-    </Element>
-    <Element Type="Param" Id="E7A5BA79">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="ABB380C4"/>
-        <FunctionCall Type="FunctionCall" Id="48FF0C9C"/>
-    </Element>
-    <Element Type="FunctionCall" Id="48FF0C9C">
-        <FunctionDef Type="FunctionDef" Library="Ntve" Id="7703744B"/>
-        <Parameter Type="Param" Id="73033A97"/>
-        <Parameter Type="Param" Id="BA81D0FC"/>
-        <Parameter Type="Param" Id="3FCAC1EC"/>
-        <Parameter Type="Param" Id="2CE621CA"/>
-    </Element>
-    <Element Type="Param" Id="73033A97">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="450AA777"/>
-        <Value>1</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="BA81D0FC">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="EAFE0D4F"/>
-        <Value>0</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="3FCAC1EC">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="34D9F076"/>
-        <Value>0</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="2CE621CA">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="14E02B62"/>
-        <Value>0</Value>
-        <ValueType Type="int"/>
-    </Element>
-    <Element Type="Param" Id="E968A19E">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="51567265"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="1E7A4625"/>
-    </Element>
-    <Element Type="Param" Id="13C4582E">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="4A15EC5F"/>
-        <Value>1</Value>
-        <ValueType Type="int"/>
-    </Element>
     <Element Type="FunctionCall" Id="F4BC0F8B">
+        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="0F7C3248"/>
-        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="00000004"/>
         <Parameter Type="Param" Id="10AA25B8"/>
         <Parameter Type="Param" Id="3E2DC75B"/>
         <Parameter Type="Param" Id="FDA82172"/>
@@ -703,7 +630,26 @@
         <ValueType Type="abilcmd"/>
         <ValueId Id="4"/>
     </Element>
-    <Element Type="Comment" Id="07D494FB">
+    <Element Type="FunctionCall" Id="8A831205">
+        <Disabled/>
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
+        <Parameter Type="Param" Id="CE4DEB38"/>
+        <Parameter Type="Param" Id="FD92E0DE"/>
+        <Parameter Type="Param" Id="9039B6B3"/>
+    </Element>
+    <Element Type="Param" Id="CE4DEB38">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
+    </Element>
+    <Element Type="Param" Id="FD92E0DE">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
+        <Variable Type="Variable" Id="169E518A"/>
+    </Element>
+    <Element Type="Param" Id="9039B6B3">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
+        <Value>MissileTurret</Value>
+        <ValueType Type="userinstance"/>
+        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="27D6E41E">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="5084725D"/>

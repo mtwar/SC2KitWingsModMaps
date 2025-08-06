@@ -339,6 +339,7 @@
         <Action Type="Comment" Id="47FE8349"/>
         <Action Type="FunctionCall" Id="D386DF53"/>
         <Action Type="FunctionCall" Id="B2D504A5"/>
+        <Action Type="Comment" Id="5C867F79"/>
         <Action Type="FunctionCall" Id="BB8F0478"/>
     </Element>
     <Element Type="Comment" Id="47FE8349">
@@ -387,7 +388,13 @@
         <ValueType Type="userinstance"/>
         <ValueContext Value="TechUnit"/>
     </Element>
+    <Element Type="Comment" Id="5C867F79">
+        <Comment>
+            Need a function to determine whether to unlock
+        </Comment>
+    </Element>
     <Element Type="FunctionCall" Id="BB8F0478">
+        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
         <Parameter Type="Param" Id="31D677EA"/>
         <Parameter Type="Param" Id="9CC61129"/>

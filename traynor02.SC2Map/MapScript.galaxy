@@ -374,7 +374,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
 
     libWoLC_gf_EnableCampaignTechUnit(true, "SCV", gv_pLAYER_01_USER);
     libWoLC_gf_EnableCampaignTechUnit(true, "CommandCenter", gv_pLAYER_01_USER);
-    libWoLC_gf_EnableCampaignTechUnit(true, "Medic", gv_pLAYER_01_USER);
     return true;
 }
 
