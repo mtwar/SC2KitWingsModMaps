@@ -723,5 +723,6 @@
         <Instances Id="ResearchUnlockedProt"/>
         <Instances Id="ResearchUnlockedZerg"/>
         <Instances Id="MercUnlocked"/>
+        <Instances Id="ConscriptionOpenedNew"/>
     </CUser>
 </Catalog>

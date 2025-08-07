@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Catalog>
-    <CActorUnit id="SMHyperionConscriptionStage1Set" parent="GenericUnitSM" unitName="SMHyperionCantinaStage1Set">
-        <Model value="SMHyperionArmoryStage1Set"/>
-        <BuildModel value="SMHyperionArmoryStage1Set"/>
-        <PlacementModel value="SMHyperionArmoryStage1Set"/>
-        <HighlightTooltip value="Unit/Name/SMHyperionConscriptionStage1Set"/>
-    </CActorUnit>
-</Catalog>
