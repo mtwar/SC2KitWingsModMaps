@@ -447,33 +447,12 @@
     </Element>
     <Element Type="Trigger" Id="72AB8AF0">
         <Action Type="Comment" Id="D31DE7CE"/>
-        <Action Type="FunctionCall" Id="BB3693E9"/>
     </Element>
     <Element Type="Comment" Id="D31DE7CE">
         <Comment>
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.
         </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="BB3693E9">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="516A518C"/>
-        <Parameter Type="Param" Id="4C316B6A"/>
-        <Parameter Type="Param" Id="5B8307E8"/>
-    </Element>
-    <Element Type="Param" Id="516A518C">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="4C316B6A">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="E8B1AF94"/>
-    </Element>
-    <Element Type="Param" Id="5B8307E8">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Medivac</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Trigger" Id="71F29349">
         <Action Type="Comment" Id="A8E383F2"/>

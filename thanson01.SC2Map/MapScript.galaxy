@@ -533,7 +533,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "Firebat", gv_p1_USER);
     TechTreeUpgradeAddLevel(gv_p2_ZERG_ORANGE_NW, "Burrow", 1);
     TechTreeUpgradeAddLevel(gv_p3_ZERG_LIGHTBLUE_SE, "Burrow", 1);
     TechTreeUpgradeAddLevel(gv_p2_ZERG_ORANGE_NW, "overlordspeed", 1);

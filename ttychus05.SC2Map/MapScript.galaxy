@@ -386,7 +386,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "Battlecruiser", gv_pLAYER_01_USER);
     TechTreeAbilityAllow(gv_pLAYER_02_ScriptedTOSS, AbilityCommand("Blink", 0), false);
     TechTreeAbilityAllow(gv_pLAYER_03_HighTOSS, AbilityCommand("Blink", 0), false);
     TechTreeAbilityAllow(gv_pLAYER_04_DarkTOSS, AbilityCommand("Blink", 0), false);

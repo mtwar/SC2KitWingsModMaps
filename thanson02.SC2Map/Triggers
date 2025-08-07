@@ -470,32 +470,11 @@
         <ValueElement Type="Trigger" Id="947DD893"/>
     </Element>
     <Element Type="Trigger" Id="00000033">
-        <Action Type="FunctionCall" Id="0BC1C57D"/>
         <Action Type="Comment" Id="CC948A95"/>
         <Action Type="FunctionCall" Id="1A640D4F"/>
         <Action Type="FunctionCall" Id="15AD4EAC"/>
         <Action Type="FunctionCall" Id="CB7AE254"/>
         <Action Type="FunctionCall" Id="24D01164"/>
-    </Element>
-    <Element Type="FunctionCall" Id="0BC1C57D">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="3A719457"/>
-        <Parameter Type="Param" Id="54225070"/>
-        <Parameter Type="Param" Id="78A76B3E"/>
-    </Element>
-    <Element Type="Param" Id="3A719457">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="54225070">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="00000017"/>
-    </Element>
-    <Element Type="Param" Id="78A76B3E">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>SensorTower</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Comment" Id="CC948A95">
     </Element>

@@ -416,7 +416,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
     }
 
     TechTreeUpgradeAddLevel(gv_p6_PROTOSSAir, "WarpGateResearch", 1);
-    libWoLC_gf_EnableCampaignTechUnit(true, "SiegeTank", gv_p1_USER);
     return true;
 }
 

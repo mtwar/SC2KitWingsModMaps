@@ -287,7 +287,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
     }
 
     TechTreeUpgradeAddLevel(gv_pLAYER01_USER, "Kit@DisableBuildSupplyDepot", 1);
-    libWoLC_gf_EnableCampaignTechUnit(true, "Banshee", gv_pLAYER01_USER);
     TechTreeAbilityAllow(gv_pLAYER02_PROTOSS, AbilityCommand("Blink", 0), false);
     TechTreeAbilityAllow(gv_pLAYER03_PROTOSS, AbilityCommand("Blink", 0), false);
     TechTreeAbilityAllow(gv_pLAYER04_PROTOSS, AbilityCommand("Blink", 0), false);

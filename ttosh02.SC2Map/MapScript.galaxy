@@ -686,7 +686,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
 
     TechTreeUpgradeAddLevel(gv_p2_PROTOSS_EAST_ATTACKERS, "BlinkTech", 1);
     TechTreeUpgradeAddLevel(gv_p4_PROTOSS_WEST_ESCORTS, "BlinkTech", 1);
-    libWoLC_gf_EnableCampaignTechUnit(true, "Goliath", gv_p1_USER);
     return true;
 }
 

@@ -26996,6 +26996,7 @@
         <Condition Type="FunctionCall" Id="6EC841D1"/>
         <Action Type="FunctionCall" Id="D0803CD6"/>
         <Action Type="FunctionCall" Id="EF00CB19"/>
+        <Action Type="FunctionCall" Id="51F656C6"/>
         <Action Type="FunctionCall" Id="B5E80A33"/>
         <Action Type="FunctionCall" Id="5186E963"/>
         <Action Type="FunctionCall" Id="F2A548A7"/>
@@ -27047,6 +27048,7 @@
         <Preset Type="PresetValue" Library="Ntve" Id="00000545"/>
     </Element>
     <Element Type="FunctionCall" Id="EF00CB19">
+        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
         <Parameter Type="Param" Id="E67FB6D0"/>
         <Parameter Type="Param" Id="4F30FDAD"/>
@@ -27065,6 +27067,24 @@
         <Value>Reaper</Value>
         <ValueType Type="userinstance"/>
         <ValueContext Value="TechUnit"/>
+    </Element>
+    <Element Type="FunctionCall" Id="51F656C6">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
+        <Parameter Type="Param" Id="5CD4092C"/>
+    </Element>
+    <Element Type="Param" Id="5CD4092C">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
+        <FunctionCall Type="FunctionCall" Id="816532C2"/>
+    </Element>
+    <Element Type="FunctionCall" Id="816532C2">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
+        <Parameter Type="Param" Id="27E77F5A"/>
+    </Element>
+    <Element Type="Param" Id="27E77F5A">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
+        <Value>Reaper</Value>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="B5E80A33">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="C4DC760C"/>

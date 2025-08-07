@@ -30370,7 +30370,7 @@
         <FunctionCall Type="FunctionCall" Id="FE4D9E18"/>
         <FunctionCall Type="FunctionCall" Id="D1E9132F"/>
         <FunctionCall Type="FunctionCall" Id="FB0CD7C0"/>
-        <FunctionCall Type="FunctionCall" Id="53749451"/>
+        <FunctionCall Type="FunctionCall" Id="CA92AD23"/>
         <FunctionCall Type="FunctionCall" Id="5E980E8F"/>
         <FunctionCall Type="FunctionCall" Id="DB662986"/>
         <FunctionCall Type="FunctionCall" Id="AFC79356"/>
@@ -30526,26 +30526,24 @@
         <ParameterDef Type="ParamDef" Library="Camp" Id="C47C23DE"/>
         <Preset Type="PresetValue" Library="Ntve" Id="00000067"/>
     </Element>
-    <Element Type="FunctionCall" Id="53749451">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
+    <Element Type="FunctionCall" Id="CA92AD23">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
         <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A7CC7F7D"/>
-        <Parameter Type="Param" Id="B32CB316"/>
-        <Parameter Type="Param" Id="502777BF"/>
-        <Parameter Type="Param" Id="4BA0320B"/>
+        <Parameter Type="Param" Id="DC61A601"/>
     </Element>
-    <Element Type="Param" Id="B32CB316">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
+    <Element Type="Param" Id="DC61A601">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
+        <FunctionCall Type="FunctionCall" Id="AE912A32"/>
     </Element>
-    <Element Type="Param" Id="502777BF">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="4072A820"/>
+    <Element Type="FunctionCall" Id="AE912A32">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
+        <Parameter Type="Param" Id="FDBCC517"/>
     </Element>
-    <Element Type="Param" Id="4BA0320B">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
+    <Element Type="Param" Id="FDBCC517">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
         <Value>Vulture</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="5E980E8F">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="B71CCE8B"/>

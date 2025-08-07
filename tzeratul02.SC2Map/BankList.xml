@@ -5,5 +5,5 @@
     <Bank Name="WArmy" Player="1"/>
     <Bank Name="WCampaign" Player="1"/>
     <Bank Name="TCampaign" Player="1"/>
-    <Bank Name="PStoryTransition" Player="1"/>
+    <Bank Name="TStoryTransition" Player="1"/>
 </BankList>

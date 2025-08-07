@@ -1519,7 +1519,7 @@ bool gt_MarauderQ_Func (bool testConds, bool runActions) {
     while (true) {
         Wait(1.0, c_timeGame);
         if ((UnitCargoValue(lv_swannDropship, c_unitCargoUnitCount) == 0)) {
-            libWoLC_gf_EnableCampaignTechUnit(true, "Marauder", gv_p1_USER);
+            libWoLC_gf_LogDebugIfNotEmpty(libWoLC_gf_UnlockConscriptionUnit("Marauder"));
             UnitIssueOrder(lv_swannDropship, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(166)), c_orderQueueReplace);
             break;
         }

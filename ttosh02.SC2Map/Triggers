@@ -455,6 +455,7 @@
     <Element Type="Comment" Id="1E405C77">
     </Element>
     <Element Type="FunctionCall" Id="5B0E4232">
+        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
         <Parameter Type="Param" Id="F3A79FE9"/>
         <Parameter Type="Param" Id="1FEAE7A2"/>

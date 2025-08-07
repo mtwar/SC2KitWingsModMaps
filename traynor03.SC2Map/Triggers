@@ -577,9 +577,6 @@
     </Element>
     <Element Type="Trigger" Id="D19696BC">
         <Action Type="Comment" Id="355F47A5"/>
-        <Action Type="FunctionCall" Id="DA8658D2"/>
-        <Action Type="FunctionCall" Id="F4BC0F8B"/>
-        <Action Type="FunctionCall" Id="8A831205"/>
         <Action Type="FunctionCall" Id="27D6E41E"/>
     </Element>
     <Element Type="Comment" Id="355F47A5">
@@ -587,69 +584,6 @@
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.
         </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="DA8658D2">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="3282E414"/>
-        <Parameter Type="Param" Id="83031E14"/>
-        <Parameter Type="Param" Id="C4CB5915"/>
-    </Element>
-    <Element Type="Param" Id="3282E414">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="83031E14">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="169E518A"/>
-    </Element>
-    <Element Type="Param" Id="C4CB5915">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Bunker</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
-    </Element>
-    <Element Type="FunctionCall" Id="F4BC0F8B">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="Ntve" Id="0F7C3248"/>
-        <Parameter Type="Param" Id="10AA25B8"/>
-        <Parameter Type="Param" Id="3E2DC75B"/>
-        <Parameter Type="Param" Id="FDA82172"/>
-    </Element>
-    <Element Type="Param" Id="10AA25B8">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="BFF56EB0"/>
-        <Variable Type="Variable" Id="169E518A"/>
-    </Element>
-    <Element Type="Param" Id="3E2DC75B">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="09B7BAEA"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000107"/>
-    </Element>
-    <Element Type="Param" Id="FDA82172">
-        <ParameterDef Type="ParamDef" Library="Ntve" Id="9B01128C"/>
-        <Value>TerranBuild</Value>
-        <ValueType Type="abilcmd"/>
-        <ValueId Id="4"/>
-    </Element>
-    <Element Type="FunctionCall" Id="8A831205">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="CE4DEB38"/>
-        <Parameter Type="Param" Id="FD92E0DE"/>
-        <Parameter Type="Param" Id="9039B6B3"/>
-    </Element>
-    <Element Type="Param" Id="CE4DEB38">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="FD92E0DE">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="169E518A"/>
-    </Element>
-    <Element Type="Param" Id="9039B6B3">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>MissileTurret</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="27D6E41E">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="5084725D"/>

@@ -899,7 +899,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "VikingFighter", gv_p01_USER);
     TechTreeUpgradeAddLevel(gv_p02_ZERG_EAST, "overlordtransport", 1);
     TechTreeUpgradeAddLevel(gv_p03_VIROPHAGE, "overlordtransport", 1);
     TechTreeUpgradeAddLevel(gv_p04_ZERG_NORTH, "overlordtransport", 1);

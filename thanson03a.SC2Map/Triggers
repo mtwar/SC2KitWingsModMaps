@@ -705,9 +705,6 @@
     </Element>
     <Element Type="Trigger" Id="C2EE683B">
         <Action Type="Comment" Id="9CAD346E"/>
-        <Action Type="Comment" Id="C48627EC"/>
-        <Action Type="FunctionCall" Id="9BF358BE"/>
-        <Action Type="Comment" Id="E7160CE5"/>
         <Action Type="FunctionCall" Id="432F8726"/>
     </Element>
     <Element Type="Comment" Id="9CAD346E">
@@ -715,33 +712,6 @@
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions if you want.
         </Comment>
-    </Element>
-    <Element Type="Comment" Id="C48627EC">
-        <Comment>
-            Enable Tech
-        </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="9BF358BE">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="EFE40F4F"/>
-        <Parameter Type="Param" Id="B419DA81"/>
-        <Parameter Type="Param" Id="719824C3"/>
-    </Element>
-    <Element Type="Param" Id="EFE40F4F">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="B419DA81">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="41340C67"/>
-    </Element>
-    <Element Type="Param" Id="719824C3">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>VikingFighter</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
-    </Element>
-    <Element Type="Comment" Id="E7160CE5">
     </Element>
     <Element Type="FunctionCall" Id="432F8726">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="0F7C3248"/>

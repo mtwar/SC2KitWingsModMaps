@@ -244,33 +244,12 @@
         <ValueElement Type="Trigger" Id="DE489F77"/>
     </Element>
     <Element Type="Trigger" Id="00000033">
-        <Action Type="FunctionCall" Id="66EFA14D"/>
         <Action Type="Comment" Id="2D3F63C4"/>
         <Action Type="FunctionCall" Id="BBB172BE"/>
         <Action Type="FunctionCall" Id="072645A3"/>
         <Action Type="FunctionCall" Id="24F32C73"/>
         <Action Type="FunctionCall" Id="92D775CD"/>
         <Action Type="FunctionCall" Id="7DBBEA5E"/>
-    </Element>
-    <Element Type="FunctionCall" Id="66EFA14D">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="ED418659"/>
-        <Parameter Type="Param" Id="498A3E2C"/>
-        <Parameter Type="Param" Id="A935A796"/>
-    </Element>
-    <Element Type="Param" Id="ED418659">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="498A3E2C">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="00000017"/>
-    </Element>
-    <Element Type="Param" Id="A935A796">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Firebat</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Comment" Id="2D3F63C4">
     </Element>

@@ -3355,7 +3355,7 @@ bool gt_TransmissionReaperIntroQ_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    libWoLC_gf_EnableCampaignTechUnit(true, "Reaper", gv_p01_USER);
+    libWoLC_gf_LogDebugIfNotEmpty(libWoLC_gf_UnlockConscriptionUnit("Reaper"));
     autoB5E80A33_g = gv_toshReapers;
     autoB5E80A33_u = UnitGroupCount(autoB5E80A33_g, c_unitCountAll);
     for (;; autoB5E80A33_u -= 1) {

@@ -518,12 +518,6 @@ void gt_Initialization_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_Init01Technology_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libWoLC_gf_EnableCampaignTechUnit(true, "Medivac", gv_p01_USER);
     return true;
 }
 

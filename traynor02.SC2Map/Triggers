@@ -336,83 +336,34 @@
         <ValueElement Type="Trigger" Id="00CF337F"/>
     </Element>
     <Element Type="Trigger" Id="D2EF9605">
-        <Action Type="Comment" Id="47FE8349"/>
-        <Action Type="FunctionCall" Id="D386DF53"/>
-        <Action Type="FunctionCall" Id="B2D504A5"/>
-        <Action Type="Comment" Id="5C867F79"/>
-        <Action Type="FunctionCall" Id="BB8F0478"/>
+        <Action Type="Comment" Id="88CE71B6"/>
+        <Action Type="FunctionCall" Id="13FAFF11"/>
     </Element>
-    <Element Type="Comment" Id="47FE8349">
+    <Element Type="Comment" Id="88CE71B6">
         <Comment>
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.
         </Comment>
     </Element>
-    <Element Type="FunctionCall" Id="D386DF53">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="B1D2608C"/>
-        <Parameter Type="Param" Id="6E7D0F34"/>
-        <Parameter Type="Param" Id="3EF5EAA7"/>
+    <Element Type="FunctionCall" Id="13FAFF11">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="0F7C3248"/>
+        <Parameter Type="Param" Id="F108BB7B"/>
+        <Parameter Type="Param" Id="2BCA418E"/>
+        <Parameter Type="Param" Id="4F057916"/>
     </Element>
-    <Element Type="Param" Id="B1D2608C">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
+    <Element Type="Param" Id="F108BB7B">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="09B7BAEA"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000107"/>
     </Element>
-    <Element Type="Param" Id="6E7D0F34">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
+    <Element Type="Param" Id="2BCA418E">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="9B01128C"/>
+        <Value>TerranBuild</Value>
+        <ValueType Type="abilcmd"/>
+        <ValueId Id="4"/>
+    </Element>
+    <Element Type="Param" Id="4F057916">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="BFF56EB0"/>
         <Variable Type="Variable" Id="1E91CAF5"/>
-    </Element>
-    <Element Type="Param" Id="3EF5EAA7">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>SCV</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
-    </Element>
-    <Element Type="FunctionCall" Id="B2D504A5">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="F5C9536B"/>
-        <Parameter Type="Param" Id="B7C567A5"/>
-        <Parameter Type="Param" Id="E3EAEF06"/>
-    </Element>
-    <Element Type="Param" Id="F5C9536B">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="B7C567A5">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="1E91CAF5"/>
-    </Element>
-    <Element Type="Param" Id="E3EAEF06">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>CommandCenter</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
-    </Element>
-    <Element Type="Comment" Id="5C867F79">
-        <Comment>
-            Need a function to determine whether to unlock
-        </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="BB8F0478">
-        <Disabled/>
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="31D677EA"/>
-        <Parameter Type="Param" Id="9CC61129"/>
-        <Parameter Type="Param" Id="CBEEB996"/>
-    </Element>
-    <Element Type="Param" Id="31D677EA">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="9CC61129">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="1E91CAF5"/>
-    </Element>
-    <Element Type="Param" Id="CBEEB996">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Medic</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Trigger" Id="656C69BE">
         <Action Type="Comment" Id="022DAF44"/>

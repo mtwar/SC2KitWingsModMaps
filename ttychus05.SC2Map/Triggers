@@ -506,7 +506,6 @@
     </Element>
     <Element Type="Trigger" Id="6577E22D">
         <Action Type="Comment" Id="EA5EAD32"/>
-        <Action Type="FunctionCall" Id="1F4CD07D"/>
         <Action Type="Comment" Id="FDA44AE3"/>
         <Action Type="FunctionCall" Id="EEDB088F"/>
         <Action Type="FunctionCall" Id="957F22E5"/>
@@ -517,26 +516,6 @@
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.
         </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="1F4CD07D">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="AF0ACE5A"/>
-        <Parameter Type="Param" Id="E9095475"/>
-        <Parameter Type="Param" Id="4CA4FE9D"/>
-    </Element>
-    <Element Type="Param" Id="AF0ACE5A">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="E9095475">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="B2E881CF"/>
-    </Element>
-    <Element Type="Param" Id="4CA4FE9D">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Battlecruiser</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Comment" Id="FDA44AE3">
         <Comment>

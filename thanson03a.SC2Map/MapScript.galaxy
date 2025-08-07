@@ -479,7 +479,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "VikingFighter", gv_pLAYER01_USER);
     TechTreeAbilityAllow(gv_pLAYER06_TERRORFLEET, AbilityCommand("GravitonBeam", 0), true);
     return true;
 }

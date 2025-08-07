@@ -415,8 +415,6 @@
     <Element Type="Trigger" Id="00000033">
         <Action Type="Comment" Id="8B50F654"/>
         <Action Type="FunctionCall" Id="190319CF"/>
-        <Action Type="Comment" Id="FB818819"/>
-        <Action Type="FunctionCall" Id="859FB02B"/>
     </Element>
     <Element Type="Comment" Id="8B50F654">
         <Comment>
@@ -444,28 +442,6 @@
         <Value>WarpGateResearch</Value>
         <ValueType Type="gamelink"/>
         <ValueGameType Type="Upgrade"/>
-    </Element>
-    <Element Type="Comment" Id="FB818819">
-    </Element>
-    <Element Type="FunctionCall" Id="859FB02B">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="4B1486D4"/>
-        <Parameter Type="Param" Id="B1EB9C43"/>
-        <Parameter Type="Param" Id="6920E1C9"/>
-    </Element>
-    <Element Type="Param" Id="4B1486D4">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="B1EB9C43">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="00000017"/>
-    </Element>
-    <Element Type="Param" Id="6920E1C9">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>SiegeTank</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Trigger" Id="00000020">
         <Action Type="Comment" Id="1534BB02"/>

@@ -360,33 +360,12 @@
     </Element>
     <Element Type="Trigger" Id="4DE49412">
         <Action Type="Comment" Id="EE67065A"/>
-        <Action Type="FunctionCall" Id="30EE4E78"/>
     </Element>
     <Element Type="Comment" Id="EE67065A">
         <Comment>
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.
         </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="30EE4E78">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="60EA0527"/>
-        <Parameter Type="Param" Id="66964E85"/>
-        <Parameter Type="Param" Id="3EBA33BE"/>
-    </Element>
-    <Element Type="Param" Id="60EA0527">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="66964E85">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="34EE3804"/>
-    </Element>
-    <Element Type="Param" Id="3EBA33BE">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Diamondback</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Trigger" Id="F37B61EC">
         <Variable Type="Variable" Id="16D94DAF"/>

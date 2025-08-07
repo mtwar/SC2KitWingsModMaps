@@ -1488,7 +1488,7 @@ bool gt_WraithIntro_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     Wait(15.0, c_timeGame);
-    libWoLC_gf_EnableCampaignTechUnit(true, "Wraith", gv_p01_USER);
+    libWoLC_gf_LogDebugIfNotEmpty(libWoLC_gf_UnlockConscriptionUnit("Wraith"));
     libCamp_gf_CreateNewStructureTips();
     libNtve_gf_PauseUnit(UnitFromId(292), false);
     libNtve_gf_PauseUnit(UnitFromId(8), false);

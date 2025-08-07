@@ -509,7 +509,6 @@ bool gt_Init01Technology_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libWoLC_gf_EnableCampaignTechUnit(true, "SensorTower", gv_pLAYER_01_USER);
     TechTreeUpgradeAddLevel(gv_pLAYER_03_INFESTED_REFUGEES, "Burrow", 1);
     TechTreeUpgradeAddLevel(gv_pLAYER_04_INFESTEDREFUGEES, "Burrow", 1);
     TechTreeUpgradeAddLevel(gv_pLAYER_06_INFESTORS, "Burrow", 1);

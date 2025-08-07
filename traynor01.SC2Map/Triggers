@@ -353,9 +353,9 @@
         <ValueElement Type="Trigger" Library="DE1190BD" Id="1190B013"/>
     </Element>
     <Element Type="Trigger" Id="477E4773">
-        <Action Type="Comment" Id="D417B4DE"/>
+        <Action Type="Comment" Id="5EE9966D"/>
     </Element>
-    <Element Type="Comment" Id="D417B4DE">
+    <Element Type="Comment" Id="5EE9966D">
         <Comment>
             Tech restrictions are mainly handled by the &quot;Load campaign data&quot; action.
             You can apply further tech restrictions here if needed.

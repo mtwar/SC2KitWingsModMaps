@@ -13907,32 +13907,30 @@
     <Element Type="FunctionCall" Id="338B1B1D">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000137"/>
         <SubFunctionType Type="SubFuncType" Library="Ntve" Id="4945FAA8"/>
-        <FunctionCall Type="FunctionCall" Id="8008E7DC"/>
+        <FunctionCall Type="FunctionCall" Id="D924D4C2"/>
         <FunctionCall Type="FunctionCall" Id="DAB15FEC"/>
         <FunctionCall Type="FunctionCall" Id="08B4AC4B"/>
         <FunctionCall Type="FunctionCall" Id="A97EE5CF"/>
         <FunctionCall Type="FunctionCall" Id="E3F523CF"/>
     </Element>
-    <Element Type="FunctionCall" Id="8008E7DC">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
+    <Element Type="FunctionCall" Id="D924D4C2">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
         <SubFunctionType Type="SubFuncType" Library="Ntve" Id="00000004"/>
-        <Parameter Type="Param" Id="C10218BC"/>
-        <Parameter Type="Param" Id="687C3EB1"/>
-        <Parameter Type="Param" Id="8540F0C3"/>
+        <Parameter Type="Param" Id="1E141887"/>
     </Element>
-    <Element Type="Param" Id="C10218BC">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
+    <Element Type="Param" Id="1E141887">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
+        <FunctionCall Type="FunctionCall" Id="DC72DF7F"/>
     </Element>
-    <Element Type="Param" Id="687C3EB1">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="A72065A3"/>
+    <Element Type="FunctionCall" Id="DC72DF7F">
+        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
+        <Parameter Type="Param" Id="26482980"/>
     </Element>
-    <Element Type="Param" Id="8540F0C3">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
+    <Element Type="Param" Id="26482980">
+        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
         <Value>Marauder</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="DAB15FEC">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000089"/>

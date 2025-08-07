@@ -615,8 +615,6 @@
         <Action Type="Comment" Id="878ACCD7"/>
         <Action Type="Comment" Id="1AC38602"/>
         <Action Type="FunctionCall" Id="EFA61987"/>
-        <Action Type="Comment" Id="9989AE96"/>
-        <Action Type="FunctionCall" Id="79568C62"/>
         <Action Type="Comment" Id="55FBE9DD"/>
         <Action Type="FunctionCall" Id="BA02943B"/>
         <Action Type="FunctionCall" Id="87198D76"/>
@@ -653,31 +651,6 @@
     <Element Type="Param" Id="6E26BCD7">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="00000255"/>
         <Variable Type="Variable" Id="FF5BDA67"/>
-    </Element>
-    <Element Type="Comment" Id="9989AE96">
-        <Comment>
-            Enable Tech
-        </Comment>
-    </Element>
-    <Element Type="FunctionCall" Id="79568C62">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="CA947B66"/>
-        <Parameter Type="Param" Id="13C84930"/>
-        <Parameter Type="Param" Id="3C547913"/>
-        <Parameter Type="Param" Id="E173608B"/>
-    </Element>
-    <Element Type="Param" Id="13C84930">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6BD9B1E0"/>
-        <Preset Type="PresetValue" Library="Ntve" Id="00000063"/>
-    </Element>
-    <Element Type="Param" Id="3C547913">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="6360C9A5"/>
-        <Variable Type="Variable" Id="FF5BDA67"/>
-    </Element>
-    <Element Type="Param" Id="E173608B">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="1D99B387"/>
-        <Value>Banshee</Value>
-        <ValueType Type="userinstance"/>
-        <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="Comment" Id="55FBE9DD">
         <Comment>
