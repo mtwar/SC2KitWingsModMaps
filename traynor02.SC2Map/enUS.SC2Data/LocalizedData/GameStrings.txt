@@ -13,6 +13,7 @@ MapInfo/Player03/Name=Mar Sara Colonists
 MapInfo/Player04/Name=Mar Sara Rebels
 MapInfo/Player05/Name=The Dominion
 MapInfo/Player06/Name=Lvl80 ETC
+Objective/Description/TRaynor02_22=The attack on Backwater Station inspired a general revolt on Mar Sara and a small pocket of rebel resistance fighters is under siege by Dominion forces. Help the rebels in their fight against the Dominion oppressors.
 Param/Value/0298E5C5=
 Param/Value/082D660C=Trains infantry units.
 Param/Value/0B80F9CB=

@@ -219,6 +219,9 @@ trigger gt_ObjectiveRebelsCreate;
 trigger gt_ObjectiveRebelsDiscover;
 trigger gt_ObjectiveRebelsComplete;
 trigger gt_ObjectiveRebelsFailed;
+trigger gt_ObjectiveDominionExcavationSiteCreate;
+trigger gt_ObjectiveDominionExcavationSiteUpdate;
+trigger gt_ObjectiveDominionExcavationSiteComplete;
 trigger gt_BriefingQ;
 trigger gt_BriefingScene00;
 trigger gt_BriefingScene01;
@@ -4585,6 +4588,92 @@ void gt_ObjectiveRebelsFailed_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Create
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteCreate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_CreateObjectiveCampaign("TRaynor01_4");
+    libWCMI_gf_HideObjectiveCampaign("TRaynor01_4");
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteCreate_Init () {
+    gt_ObjectiveDominionExcavationSiteCreate = TriggerCreate("gt_ObjectiveDominionExcavationSiteCreate_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Update
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteUpdate_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_gameOver == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libWCMI_gf_DisplayMissionObjectiveRewardFloatingText(UnitGetPosition(EventUnit()), "TRaynor01_4");
+    UnitKill(EventUnit());
+    TriggerExecute(gt_ObjectiveDominionExcavationSiteComplete, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteUpdate_Init () {
+    gt_ObjectiveDominionExcavationSiteUpdate = TriggerCreate("gt_ObjectiveDominionExcavationSiteUpdate_Func");
+    TriggerAddEventUnitAbility(gt_ObjectiveDominionExcavationSiteUpdate, null, AbilityCommand("Pickup", 0), c_unitAbilStageExecute, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Objective Dominion Excavation Site Complete
+//--------------------------------------------------------------------------------------------------
+bool gt_ObjectiveDominionExcavationSiteComplete_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    libWCMI_gf_ZS_SetMissionObjectiveState("TRaynor01_4", libWoLC_ge_MissionObjectiveState_Completed);
+    Wait(libWCMI_gv_campaignObjectiveDelay, c_timeGame);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ObjectiveDominionExcavationSiteComplete_Init () {
+    gt_ObjectiveDominionExcavationSiteComplete = TriggerCreate("gt_ObjectiveDominionExcavationSiteComplete_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Briefing Q
 //--------------------------------------------------------------------------------------------------
 bool gt_BriefingQ_Func (bool testConds, bool runActions) {
@@ -5151,6 +5240,9 @@ void InitTriggers () {
     gt_ObjectiveRebelsDiscover_Init();
     gt_ObjectiveRebelsComplete_Init();
     gt_ObjectiveRebelsFailed_Init();
+    gt_ObjectiveDominionExcavationSiteCreate_Init();
+    gt_ObjectiveDominionExcavationSiteUpdate_Init();
+    gt_ObjectiveDominionExcavationSiteComplete_Init();
     gt_BriefingQ_Init();
     gt_BriefingScene00_Init();
     gt_BriefingScene01_Init();
