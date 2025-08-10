@@ -367,12 +367,6 @@ void gt_Initialization_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_Init01Technology_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TechTreeAbilityAllow(gv_pLAYER_01_USER, AbilityCommand("TerranBuild", 4), false);
     return true;
 }
 

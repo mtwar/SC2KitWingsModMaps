@@ -14,7 +14,7 @@
 <Actor id="SYSTEM_ActorConfig"/>
 <Actor id="LightOmniCyan"/>
 <Actor id="PathingBlocker1x1Doodad"/>
-<Actor id="AvernusBarrier" Variations="3,4,5"/>
+<Actor id="AvernusBarrier" Variations="3,4"/>
 <Actor id="BirdsTarsonis"/>
 <Actor id="Brambles" Variations="0,1,2,3,4,5,6,7"/>
 <Actor id="BraxisAlphaBarrels" Variations="0,1,2"/>
@@ -68,7 +68,7 @@
 <Actor id="RockFormationLarge" Variations="5"/>
 <Actor id="RockLarge" Variations="0,1,2,3,5"/>
 <Actor id="Searchlight" Variations="1"/>
-<Actor id="SignsWarning" Variations="1,10"/>
+<Actor id="SignsWarning" Variations="1,10,14,20"/>
 <Actor id="SpacePlatformBarrier" Variations="0,1"/>
 <Actor id="SpacePlatformBillboard" Variations="1"/>
 <Actor id="SpacePlatformCautionLights" Variations="1"/>
@@ -135,9 +135,13 @@
 <Unit id="CommandCenter"/>
 <Unit id="SupplyDepot"/>
 <Unit id="Barracks"/>
+<Unit id="MissileTurret"/>
 <Unit id="Bunker"/>
 <Unit id="Factory"/>
+<Unit id="Starport"/>
+<Unit id="AutoTurret"/>
 <Unit id="SiegeTankSieged"/>
+<Unit id="StarportTechLab"/>
 <Unit id="SCV"/>
 <Unit id="Marine"/>
 <Unit id="Hellion"/>
@@ -145,12 +149,15 @@
 <Unit id="Lyote"/>
 <Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
 <Unit id="VespeneGeyser"/>
+<Unit id="PerditionTurretUnderground"/>
 <Unit id="WarPig"/>
 <Unit id="DevilDog"/>
+<Unit id="Firebat"/>
 <Unit id="SpecialOpsDropship"/>
 <Unit id="MinerMale"/>
 <Unit id="Civilian" Variations="0,1,2"/>
 <Unit id="Hut" Variations="2,3,4,5"/>
+<Unit id="ProtossRelic" Variations="4"/>
 <Unit id="PalletGas"/>
 <Unit id="PalletMinerals"/>
 <Unit id="TerranBuggy"/>
