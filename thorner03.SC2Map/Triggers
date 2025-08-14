@@ -11472,22 +11472,6 @@
         <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="40DCFC19">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
-        <Parameter Type="Param" Id="67D7AFB5"/>
-    </Element>
-    <Element Type="Param" Id="67D7AFB5">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
-        <FunctionCall Type="FunctionCall" Id="3E64DCCF"/>
-    </Element>
-    <Element Type="FunctionCall" Id="3E64DCCF">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
-        <Parameter Type="Param" Id="15CC901A"/>
-    </Element>
-    <Element Type="Param" Id="15CC901A">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
-        <Value>Wraith</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="088BBAF3">
         <FunctionDef Type="FunctionDef" Library="Camp" Id="32A39F0D"/>

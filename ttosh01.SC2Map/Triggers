@@ -27069,22 +27069,6 @@
         <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="51F656C6">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
-        <Parameter Type="Param" Id="5CD4092C"/>
-    </Element>
-    <Element Type="Param" Id="5CD4092C">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
-        <FunctionCall Type="FunctionCall" Id="816532C2"/>
-    </Element>
-    <Element Type="FunctionCall" Id="816532C2">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
-        <Parameter Type="Param" Id="27E77F5A"/>
-    </Element>
-    <Element Type="Param" Id="27E77F5A">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
-        <Value>Reaper</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="B5E80A33">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="C4DC760C"/>

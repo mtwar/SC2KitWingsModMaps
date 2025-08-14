@@ -681,22 +681,6 @@
         <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="A934C3AE">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
-        <Parameter Type="Param" Id="8CD23770"/>
-    </Element>
-    <Element Type="Param" Id="8CD23770">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
-        <FunctionCall Type="FunctionCall" Id="3CF0125F"/>
-    </Element>
-    <Element Type="FunctionCall" Id="3CF0125F">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
-        <Parameter Type="Param" Id="2E5B4554"/>
-    </Element>
-    <Element Type="Param" Id="2E5B4554">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
-        <Value>Thor</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="DC09E67B">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="0F7C3248"/>

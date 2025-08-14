@@ -30527,23 +30527,7 @@
         <Preset Type="PresetValue" Library="Ntve" Id="00000067"/>
     </Element>
     <Element Type="FunctionCall" Id="CA92AD23">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
         <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A7CC7F7D"/>
-        <Parameter Type="Param" Id="DC61A601"/>
-    </Element>
-    <Element Type="Param" Id="DC61A601">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
-        <FunctionCall Type="FunctionCall" Id="AE912A32"/>
-    </Element>
-    <Element Type="FunctionCall" Id="AE912A32">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
-        <Parameter Type="Param" Id="FDBCC517"/>
-    </Element>
-    <Element Type="Param" Id="FDBCC517">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
-        <Value>Vulture</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="5E980E8F">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="B71CCE8B"/>

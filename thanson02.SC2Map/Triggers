@@ -22421,22 +22421,6 @@
         <ValueContext Value="TechUnit"/>
     </Element>
     <Element Type="FunctionCall" Id="A595F7B0">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="F6F91DFE"/>
-        <Parameter Type="Param" Id="63CEF848"/>
-    </Element>
-    <Element Type="Param" Id="63CEF848">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="E6CC1334"/>
-        <FunctionCall Type="FunctionCall" Id="1E559573"/>
-    </Element>
-    <Element Type="FunctionCall" Id="1E559573">
-        <FunctionDef Type="FunctionDef" Library="WoLC" Id="9A7ECA93"/>
-        <Parameter Type="Param" Id="D8EDA632"/>
-    </Element>
-    <Element Type="Param" Id="D8EDA632">
-        <ParameterDef Type="ParamDef" Library="WoLC" Id="02310419"/>
-        <Value>Hellion</Value>
-        <ValueType Type="gamelink"/>
-        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="CF58B16E">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="F20A0011"/>
