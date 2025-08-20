@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorUnit id="SMHyperionConscriptionStage1Set" parent="GenericUnitSM" unitName="HyperionConscriptionSetStage1">
+        <On index="0" Terms="UnitBirth.SMHyperionArmoryStage1Set" Send="Create SoundEmitter SMHyperionArmoryStage1Set_Ambience"/>
+        <Model value="SMHyperionConscriptionStage1Set"/>
+        <BuildModel value="SMHyperionConscriptionStage1Set"/>
+        <DeathArray index="Normal" ModelLink="SMHyperionConscriptionStage1Set"/>
+        <PlacementModel value="SMHyperionConscriptionStage1Set"/>
+        <HighlightTooltip value="Unit/Name/SMHyperionConscriptionStage1Set"/>
+    </CActorUnit>
     <CActorUnit id="SMHyperionConscriptionStage1RaynorCameras" parent="GenericUnitSM" unitName="HyperionConscriptionRaynorCameras">
         <Model value="SMHyperionCantinaStage1RaynorCameras"/>
         <BuildModel value="SMHyperionCantinaStage1RaynorCameras"/>

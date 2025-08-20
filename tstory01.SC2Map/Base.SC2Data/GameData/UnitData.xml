@@ -4,4 +4,10 @@
         <Race value="Terr"/>
         <EditorCategories value="ObjectType:Set,ObjectFamily:Storymode"/>
     </CUnit>
+    <CUnit id="HyperionConscriptionSetStage1" parent="SMSET">
+        <FlagArray index="Unclickable" value="1"/>
+        <FlagArray index="Unhighlightable" value="1"/>
+        <EditorCategories value="ObjectType:Set,ObjectFamily:Storymode"/>
+        <SyncModelData value="Assets\StoryModeSets\Terran\SM_HyperionArmoryStage1\SM_HyperionArmoryStage1_00.m3h"/>
+    </CUnit>
 </Catalog>

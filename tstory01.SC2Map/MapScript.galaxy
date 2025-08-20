@@ -276,10 +276,10 @@ const int ge_CantinaStates_Normal = 0;
 const int ge_CantinaStates_Broken = 1;
 const int ge_RoomID_RoomNone = 0;
 const int ge_RoomID_RoomBridge = 1;
-const int ge_RoomID_RoomArmory = 2;
-const int ge_RoomID_RoomLab = 3;
-const int ge_RoomID_RoomCantina = 4;
-const int ge_RoomID_RoomConscription = 5;
+const int ge_RoomID_RoomConscription = 2;
+const int ge_RoomID_RoomArmory = 3;
+const int ge_RoomID_RoomLab = 4;
+const int ge_RoomID_RoomCantina = 5;
 const int ge_RoomID_RoomBottomBarLast = 6;
 const int ge_RoomID_RoomChar = 7;
 const int ge_RoomID_RoomMarSara = 8;
@@ -455,6 +455,7 @@ int gv_roomCameraButtonMarSara;
 int gv_roomCameraButtonBridge;
 int gv_roomCameraButtonArmory;
 int gv_roomCameraButtonCantina;
+int gv_roomCameraButtonConscription;
 int gv_roomCameraButtonLab;
 int gv_roomCameraButtonChar;
 int gv_roomCameraButtonCancel;
@@ -785,6 +786,7 @@ unit gv_armoryIntroBGUnit_Walkup;
 unit gv_armoryIntroBGUnit_Fidget;
 trigger gv_tVNewsCurrentThread;
 bool gv_tipStart;
+bool gv_conscriptionOpenedNew;
 bool gv_armoryOpenedNew;
 bool gv_cantinaOpenedNew;
 bool gv_labOpenedNew;
@@ -864,6 +866,7 @@ void InitGlobals () {
     gv_roomCameraButtonBridge = c_invalidDialogControlId;
     gv_roomCameraButtonArmory = c_invalidDialogControlId;
     gv_roomCameraButtonCantina = c_invalidDialogControlId;
+    gv_roomCameraButtonConscription = c_invalidDialogControlId;
     gv_roomCameraButtonLab = c_invalidDialogControlId;
     gv_roomCameraButtonChar = c_invalidDialogControlId;
     gv_roomCameraButtonCancel = c_invalidDialogControlId;
@@ -1211,10 +1214,10 @@ void gf_PrepareRoom (int lp_room);
 void gf_WalkinRoom (int lp_room);
 void gf_EnterRoom (int lp_room, bool lp_showTransition);
 void gf_LeaveRoomArmory (bool lp_showTransition);
-void gf_LeaveRoomArmory2 (bool lp_showTransition);
 void gf_LeaveRoomBridge (bool lp_showTransition);
 void gf_LeaveRoomCantina (bool lp_showTransition);
 void gf_LeaveRoomChar (bool lp_showTransition);
+void gf_LeaveRoomArmory2 (bool lp_showTransition);
 void gf_LeaveRoomLab (bool lp_showTransition);
 void gf_LeaveRoomMarSara (bool lp_showTransition);
 void gf_LeaveRoomGalaxy (bool lp_showTransition);
@@ -1484,6 +1487,7 @@ trigger gt_ReturnToBridge;
 trigger gt_ReturnToCantina;
 trigger gt_ReturnToCantinaArcade;
 trigger gt_ReturnToChar;
+trigger gt_ReturnToBridge2;
 trigger gt_ReturnToLab;
 trigger gt_ReturnToMarSara;
 trigger gt_ReturnToBattleReport;
@@ -1557,6 +1561,7 @@ trigger gt_PrepareRoomBridge;
 trigger gt_PrepareRoomCantina;
 trigger gt_PrepareRoomChar;
 trigger gt_CharArtifactAnimation;
+trigger gt_PrepareRoomArmory2;
 trigger gt_PrepareRoomCorridor;
 trigger gt_PrepareRoomFlagship;
 trigger gt_PrepareRoomGalaxy;
@@ -2210,6 +2215,9 @@ trigger gt_TVNewsCharAsyncPreload;
 trigger gt_TVNewsEventEnd;
 trigger gt_TVNewsEventAdStart;
 trigger gt_TipAfterTRaynor01;
+trigger gt_TipConscription;
+trigger gt_TipConscriptionConsole;
+trigger gt_TipNewConscriptions;
 trigger gt_TipAfterTRaynor02;
 trigger gt_TipAfterTRaynor03;
 trigger gt_TipAfterTHanson01orTTychus01;
@@ -4541,6 +4549,7 @@ void gf_TransitionalSave () {
     UserDataSetInt("TStory01TransitionData", "CantinaBroken", "Integer", 1, BoolToInt((gv_cantinaState == ge_CantinaStates_Broken)));
     UserDataSetInt("TStory01TransitionData", "ArmoryOpenedNew", "Integer", 1, BoolToInt(gv_armoryOpenedNew));
     UserDataSetInt("TStory01TransitionData", "CantinaOpenedNew", "Integer", 1, BoolToInt(gv_cantinaOpenedNew));
+    UserDataSetInt("TStory01TransitionData", "ConscriptionOpenedNew", "Integer", 1, BoolToInt(gv_conscriptionOpenedNew));
     UserDataSetInt("TStory01TransitionData", "LabOpenedNew", "Integer", 1, BoolToInt(gv_labOpenedNew));
     UserDataSetInt("TStory01TransitionData", "LabArtifactsClickable", "Integer", 1, BoolToInt(gv_labArtifactsClickable));
     UserDataSetString("TStory01TransitionData", "AbChoiceCurrent", "String", 1, (gv_abChoiceCurrent));
@@ -4578,6 +4587,8 @@ void gf_TransitionalLoad () {
     }
     gv_armoryOpenedNew = (UserDataGetInt("TStory01TransitionData", "ArmoryOpenedNew", "Integer", 1) > 0);
     gv_cantinaOpenedNew = (UserDataGetInt("TStory01TransitionData", "CantinaOpenedNew", "Integer", 1) > 0);
+    gv_cantinaOpenedNew = (UserDataGetInt("TStory01TransitionData", "CantinaOpenedNew", "Integer", 1) > 0);
+    gv_conscriptionOpenedNew = (UserDataGetInt("TStory01TransitionData", "ConscriptionOpenedNew", "Integer", 1) > 0);
     gv_labOpenedNew = (UserDataGetInt("TStory01TransitionData", "LabOpenedNew", "Integer", 1) > 0);
     gv_labArtifactsClickable = (UserDataGetInt("TStory01TransitionData", "LabArtifactsClickable", "Integer", 1) > 0);
     gv_abChoiceCurrent = (UserDataGetString("TStory01TransitionData", "AbChoiceCurrent", "String", 1));
@@ -4647,6 +4658,8 @@ void gf_RoomCheatCreateDialog () {
     gf_RoomCheatAddButton(StringExternal("Param/Value/AF6FF0E1"));
     gv_roomCheatButtonArmory = DialogControlLastCreated();
     gf_RoomCheatAddButton(StringExternal("Param/Value/FDEB51AC"));
+    gv_roomCheatButtonCantina = DialogControlLastCreated();
+    gf_RoomCheatAddButton(StringExternal("Param/Value/FC94246A"));
     gv_roomCheatButtonCantina = DialogControlLastCreated();
     gf_RoomCheatAddButton(StringExternal("Param/Value/5BA7AED9"));
     gv_roomCheatButtonLab = DialogControlLastCreated();
@@ -4733,6 +4746,8 @@ void gf_RoomCameraCreateDialog () {
     gv_roomCameraButtonArmory = DialogControlLastCreated();
     gf_RoomCameraAddButton(StringExternal("Param/Value/CE6709E3"));
     gv_roomCameraButtonCantina = DialogControlLastCreated();
+    gf_RoomCameraAddButton(StringExternal("Param/Value/062BC694"));
+    gv_roomCameraButtonConscription = DialogControlLastCreated();
     gf_RoomCameraAddButton(StringExternal("Param/Value/3CBAFF16"));
     gv_roomCameraButtonLab = DialogControlLastCreated();
     gf_RoomCameraAddButton(StringExternal("Param/Value/A67AD1DF"));
@@ -7333,6 +7348,9 @@ int gf_RoomFromIndex (int lp_index) {
     else if (auto9E8DFA28_val == (ge_RoomID_RoomChar)) {
         return ge_RoomID_RoomChar;
     }
+    else if (auto9E8DFA28_val == (ge_RoomID_RoomConscription)) {
+        return ge_RoomID_RoomConscription;
+    }
     else if (auto9E8DFA28_val == (ge_RoomID_RoomCorridor)) {
         return ge_RoomID_RoomCorridor;
     }
@@ -7359,6 +7377,9 @@ int gf_RoomFromIndex (int lp_index) {
     }
     else if (auto9E8DFA28_val == (ge_RoomID_RoomTechPurchase)) {
         return ge_RoomID_RoomTechPurchase;
+    }
+    else if (auto9E8DFA28_val == (ge_RoomID_RoomConscriptionPurchase)) {
+        return ge_RoomID_RoomConscriptionPurchase;
     }
     else if (auto9E8DFA28_val == (ge_RoomID_RoomVoid)) {
         return ge_RoomID_RoomVoid;
@@ -7726,6 +7747,9 @@ void gf_PrepareRoomActors (int lp_roomID, bool lp_includeRaynor) {
         gf_ResetActorToLocation(ge_ActorID_ActorWarfield, PointFromId(229));
         gf_ResetActorToLocation(ge_ActorID_ActorWarfieldAOD, PointFromId(229));
     }
+    else if (autoBE62A339_val == ge_RoomID_RoomConscription) {
+        gf_ResetActorToLocation(ge_ActorID_ActorRaynor, PointFromId(132));
+    }
     else if (autoBE62A339_val == ge_RoomID_RoomCorridor) {
         if ((lp_includeRaynor == true)) {
             gf_ResetActorToLocation(ge_ActorID_ActorRaynor, PointFromId(132));
@@ -7794,6 +7818,9 @@ void gf_PrepareRoom (int lp_room) {
     else if (autoD1937875_val == ge_RoomID_RoomChar) {
         TriggerExecute(gt_PrepareRoomChar, true, false);
     }
+    else if (autoD1937875_val == ge_RoomID_RoomConscription) {
+        TriggerExecute(gt_PrepareRoomArmory2, true, false);
+    }
     else if (autoD1937875_val == ge_RoomID_RoomCorridor) {
         TriggerExecute(gt_PrepareRoomCorridor, true, false);
     }
@@ -7814,6 +7841,9 @@ void gf_PrepareRoom (int lp_room) {
     }
     else if (autoD1937875_val == ge_RoomID_RoomTechPurchase) {
         TriggerExecute(gt_PrepareRoomTechPurchase, true, false);
+    }
+    else if (autoD1937875_val == ge_RoomID_RoomConscriptionPurchase) {
+        TriggerExecute(gt_PrepareRoomConscriptionPurchase, true, false);
     }
     else if (autoD1937875_val == ge_RoomID_RoomLabResearch) {
         TriggerExecute(gt_PrepareRoomLabResearch, true, false);
@@ -7850,14 +7880,14 @@ void gf_WalkinRoom (int lp_room) {
     else if (auto0CE9CDAF_val == ge_RoomID_RoomChar) {
         TriggerExecute(gt_WalkinChar, true, true);
     }
+    else if (auto0CE9CDAF_val == ge_RoomID_RoomConscription) {
+        TriggerExecute(gt_WalkinArmory2, true, true);
+    }
     else if (auto0CE9CDAF_val == ge_RoomID_RoomLab) {
         TriggerExecute(gt_WalkinLab, true, true);
     }
     else if (auto0CE9CDAF_val == ge_RoomID_RoomMarSara) {
         TriggerExecute(gt_WalkinMarSara, true, true);
-    }
-    else if (auto0CE9CDAF_val == ge_RoomID_RoomConscription) {
-        TriggerExecute(gt_WalkinArmory2, true, true);
     }
     else {
     }
@@ -7886,18 +7916,18 @@ void gf_EnterRoom (int lp_room, bool lp_showTransition) {
     else if (auto63D10BA2_val == ge_RoomID_RoomChar) {
         TriggerExecute(gt_EnterChar, true, false);
     }
+    else if (auto63D10BA2_val == ge_RoomID_RoomConscription) {
+        TriggerExecute(gt_EnterArmory2, true, false);
+    }
     else if (auto63D10BA2_val == ge_RoomID_RoomLab) {
         TriggerExecute(gt_EnterLab, true, false);
     }
     else if (auto63D10BA2_val == ge_RoomID_RoomMarSara) {
         TriggerExecute(gt_EnterMarSara, true, false);
     }
-    else if (auto63D10BA2_val == ge_RoomID_RoomConscription) {
-        TriggerExecute(gt_EnterArmory2, true, false);
-    }
     else {
     }
-    if ((gf_IsBottomBarRoom(lp_room) || (lp_room == ge_RoomID_RoomChar))) {
+    if ((gf_IsBottomBarRoom(lp_room) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomMarSara))) {
         libCamp_gf_UpdateRoomChangePanel();
     }
 
@@ -7910,10 +7940,6 @@ void gf_LeaveRoomArmory (bool lp_showTransition) {
     }
 
     TriggerExecute(gt_ArmoryBackgroundActivitiesStop, true, false);
-}
-
-void gf_LeaveRoomArmory2 (bool lp_showTransition) {
-    // Automatic Variable Declarations
 }
 
 void gf_LeaveRoomBridge (bool lp_showTransition) {
@@ -7951,6 +7977,10 @@ void gf_LeaveRoomChar (bool lp_showTransition) {
     gf_CharTychusAnimationStop();
     gf_DestoryCharBackgroundSounds();
     gf_CharActorAnimation(true, false, true);
+}
+
+void gf_LeaveRoomArmory2 (bool lp_showTransition) {
+    // Automatic Variable Declarations
 }
 
 void gf_LeaveRoomLab (bool lp_showTransition) {
@@ -8320,6 +8350,14 @@ int gf_RoomLocation (int lp_room) {
     }
     else if (auto403A5568_val == ge_RoomID_RoomCorridor) {
         return ge_RoomLocation_RoomLocationOthers;
+    }
+    else if (auto403A5568_val == ge_RoomID_RoomConscription) {
+        if ((libWoLC_gf_MissionStatusCheck("TRaynor03", libWoLC_ge_MissionStatus_Completed) == false)) {
+            return ge_RoomLocation_RoomLocationMarSara;
+        }
+        else {
+            return ge_RoomLocation_RoomLocationHyperion;
+        }
     }
     else if (auto403A5568_val == ge_RoomID_RoomLab) {
         return ge_RoomLocation_RoomLocationHyperion;
@@ -9051,6 +9089,21 @@ void gf_DisplayRoomChangePanel () {
                 }
             }
 
+            if ((gf_RoomLocationIsEnabled(ge_RoomLocation_RoomLocationMarSara) == true)) {
+                lv_roomIndex = ge_RoomID_RoomMarSara;
+                libCamp_gf_AddRoomChangePanelButton(gf_RoomName(gf_RoomFromIndex(lv_roomIndex)), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
+                gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
+                TriggerExecute(gt_RoomChangeButtonUpdate, true, true);
+                lv_roomIndex = ge_RoomID_RoomConscription;
+                libCamp_gf_AddRoomChangePanelButton(gf_RoomName(gf_RoomFromIndex(lv_roomIndex)), gt_RoomChangeButtonResponse, gt_RoomChangeButtonUpdate, lv_roomIndex, lv_tip);
+                gv_roomChangePanelButtonId[lv_roomIndex] = libCamp_gf_LastAddRoomChangePanelButton();
+                TriggerExecute(gt_RoomChangeButtonUpdate, true, true);
+                if ((libWoLC_gf_StoryState("ConscriptionVisited") == false)) {
+                    libCamp_gf_FlashRoomChangePanelButton(libCamp_gf_LastAddRoomChangePanelButton());
+                }
+
+            }
+
         }
     }
 
@@ -9151,6 +9204,9 @@ int gf_DoorRoom (unit lp_door) {
     else if (auto76833007_val == gv_charDropship) {
         return ge_RoomID_RoomChar;
     }
+    else if (auto76833007_val == gv_conscriptionDoor) {
+        return ge_RoomID_RoomConscription;
+    }
     else {
     }
     return ge_RoomID_RoomNone;
@@ -9194,6 +9250,9 @@ void gf_OpenDoor (int lp_room, bool lp_instant) {
         else if ((lp_room == ge_RoomID_RoomArmory)) {
             SoundPlayAtPoint(SoundLink("ArmoryIntro_DoorOpen", -1), PlayerGroupAll(), PointFromId(399), 0.0, 100.0, 0.0);
         }
+        else if ((lp_room == ge_RoomID_RoomConscription)) {
+            SoundPlayAtPoint(SoundLink("ArmoryIntro_DoorOpen", -1), PlayerGroupAll(), PointFromId(399), 0.0, 100.0, 0.0);
+        }
     }
 }
 
@@ -9230,6 +9289,9 @@ void gf_CloseDoor (int lp_room, bool lp_instant) {
             SoundPlayAtPoint(SoundLink("Lab_Intro_Doors_Close", -1), PlayerGroupAll(), PointFromId(251), 0.0, 100.0, 0.0);
         }
         else if ((lp_room == ge_RoomID_RoomArmory)) {
+            SoundPlayAtPoint(SoundLink("ArmoryIntro_DoorsClose", -1), PlayerGroupAll(), PointFromId(399), 0.0, 100.0, 0.0);
+        }
+        else if ((lp_room == ge_RoomID_RoomConscription)) {
             SoundPlayAtPoint(SoundLink("ArmoryIntro_DoorsClose", -1), PlayerGroupAll(), PointFromId(399), 0.0, 100.0, 0.0);
         }
     }
@@ -15129,6 +15191,11 @@ bool gt_Init01CDerivedStates_Func (bool testConds, bool runActions) {
         libWoLC_gf_SetStoryStateBoolean("LabOpened", true);
     }
 
+    if ((libWoLC_gf_StoryState("ConscriptionOpened") == false) && (gf_RoomIsEnabled(ge_RoomID_RoomConscription) == true)) {
+        gv_conscriptionOpenedNew = true;
+        libWoLC_gf_SetStoryStateBoolean("ConscriptionOpened", true);
+    }
+
     lv_artifactCount = 0;
     if ((libWoLC_gf_MissionStatusCheck("TRaynor03", libWoLC_ge_MissionStatus_Completed) == true)) {
         lv_artifactCount += 1;
@@ -15493,6 +15560,8 @@ bool gt_Init02BRooms_Func (bool testConds, bool runActions) {
     gv_cantinaRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(3), UnitFilter(0, 0, 0, 0), 0);
     gv_charRoom = UnitFromId(213);
     gv_charRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(6), UnitFilter(0, 0, 0, 0), 0);
+    gv_conscriptionRoom = UnitFromId(87688558);
+    gv_conscriptionRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(13), UnitFilter(0, 0, 0, 0), 0);
     gv_corridorRoom = UnitFromId(126);
     gv_corridorRoomUnits = UnitGroup(null, c_playerAny, RegionFromId(7), UnitFilter(0, 0, 0, 0), 0);
     gv_galaxyRoom = UnitFromId(5);
@@ -16338,6 +16407,27 @@ bool gt_ReturnToChar_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ReturnToChar_Init () {
     gt_ReturnToChar = TriggerCreate("gt_ReturnToChar_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Return To Conscription
+//--------------------------------------------------------------------------------------------------
+bool gt_ReturnToBridge2_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libWoLC_gf_SetStoryStateBoolean("ConscriptionVisited", true);
+    gf_GoToRoom(ge_RoomID_RoomConscription, false);
+    gf_EnterRoom(ge_RoomID_RoomConscription, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ReturnToBridge2_Init () {
+    gt_ReturnToBridge2 = TriggerCreate("gt_ReturnToBridge2_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19314,6 +19404,33 @@ void gt_CharArtifactAnimation_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Prepare Room Conscription
+//--------------------------------------------------------------------------------------------------
+bool gt_PrepareRoomArmory2_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_PreloadRoomIfCondition(ge_RoomID_RoomConscription, true);
+    FogSetEnabled(false);
+    GameSetLighting("SMHyperionArmory", 0.0);
+    GameSetBackground(c_backgroundFixed, null, 100.0);
+    GameSetBackground(c_backgroundTerrain, null, 100.0);
+    gf_ChangeVisibleUnits(gf_RoomUnits(ge_RoomID_RoomConscription));
+    gf_PrepareRoomActors(ge_RoomID_RoomConscription, true);
+    libCamp_gf_ChangeAmbience("HyperionArmoryAmbience");
+    SoundSetReverb("Reverb_HyperionArmory", 0.0, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_PrepareRoomArmory2_Init () {
+    gt_PrepareRoomArmory2 = TriggerCreate("gt_PrepareRoomArmory2_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Prepare Room Corridor
 //--------------------------------------------------------------------------------------------------
 bool gt_PrepareRoomCorridor_Func (bool testConds, bool runActions) {
@@ -20158,6 +20275,10 @@ bool gt_RoomChangeButtonResponse_Func (bool testConds, bool runActions) {
     }
     else if (auto375C3EC2_val == ge_RoomID_RoomLab) {
         libWoLC_gf_SetStoryStateBoolean("LabVisited", true);
+        libCamp_gf_StopFlashingRoomChangePanelButton(libCamp_gf_RoomChangePanelButtonCustomData(gv_roomChangePanelButtonId[(lv_room)]));
+    }
+    else if (auto375C3EC2_val == ge_RoomID_RoomConscription) {
+        libWoLC_gf_SetStoryStateBoolean("ConscriptionVisited", true);
         libCamp_gf_StopFlashingRoomChangePanelButton(libCamp_gf_RoomChangePanelButtonCustomData(gv_roomChangePanelButtonId[(lv_room)]));
     }
     else {
@@ -39533,6 +39654,90 @@ void gt_TipAfterTRaynor01_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Tip - Conscription
+//--------------------------------------------------------------------------------------------------
+bool gt_TipConscription_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    if ((gv_conscriptionOpenedNew == true)) {
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TipConscription_Init () {
+    gt_TipConscription = TriggerCreate("gt_TipConscription_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tip - Conscription Console
+//--------------------------------------------------------------------------------------------------
+bool gt_TipConscriptionConsole_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    if (libWoLC_gf_StoryState("CantinaIntroDone")) {
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TipConscriptionConsole_Init () {
+    gt_TipConscriptionConsole = TriggerCreate("gt_TipConscriptionConsole_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tip - New Conscriptions
+//--------------------------------------------------------------------------------------------------
+bool gt_TipNewConscriptions_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((TriggerIsEnabled(TriggerGetCurrent()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TipNewConscriptions_Init () {
+    gt_TipNewConscriptions = TriggerCreate("gt_TipNewConscriptions_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Tip - After TRaynor02
 //--------------------------------------------------------------------------------------------------
 bool gt_TipAfterTRaynor02_Func (bool testConds, bool runActions) {
@@ -40064,6 +40269,7 @@ void InitTriggers () {
     gt_ReturnToCantina_Init();
     gt_ReturnToCantinaArcade_Init();
     gt_ReturnToChar_Init();
+    gt_ReturnToBridge2_Init();
     gt_ReturnToLab_Init();
     gt_ReturnToMarSara_Init();
     gt_ReturnToBattleReport_Init();
@@ -40137,6 +40343,7 @@ void InitTriggers () {
     gt_PrepareRoomCantina_Init();
     gt_PrepareRoomChar_Init();
     gt_CharArtifactAnimation_Init();
+    gt_PrepareRoomArmory2_Init();
     gt_PrepareRoomCorridor_Init();
     gt_PrepareRoomFlagship_Init();
     gt_PrepareRoomGalaxy_Init();
@@ -40790,6 +40997,9 @@ void InitTriggers () {
     gt_TVNewsEventEnd_Init();
     gt_TVNewsEventAdStart_Init();
     gt_TipAfterTRaynor01_Init();
+    gt_TipConscription_Init();
+    gt_TipConscriptionConsole_Init();
+    gt_TipNewConscriptions_Init();
     gt_TipAfterTRaynor02_Init();
     gt_TipAfterTRaynor03_Init();
     gt_TipAfterTHanson01orTTychus01_Init();

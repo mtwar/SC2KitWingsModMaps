@@ -16,6 +16,17 @@
         <SelectionRadius value="0.400000"/>
         <ShadowRadius value="0.400000"/>
     </CModel>
+    <CModel id="SMHyperionConscriptionStage1Set" parent="SMSET">
+        <Model value="Assets\StoryModeSets\Terran\SM_HyperionArmoryStage1\SM_HyperionArmoryStage1_00.m3"/>
+        <Events>
+            <Anim value="Stand,01"/>
+            <Name value="SMModelEventSound"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Attachment value="Ref_Head"/>
+            <Payload value="Armory_Fan"/>
+        </Events>
+    </CModel>
     <CModel id="SMHyperionCantinaStage1RaynorCameras" parent="SMCAMERA">
         <Model value="Assets\StoryModeCameras\SM_HyperionArmorySwannCameras\SM_HyperionArmorySwannCameras.m3"/>
     </CModel>
