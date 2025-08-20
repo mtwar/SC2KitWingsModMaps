@@ -1,4 +1,6 @@
-﻿Button/Name/TStory01ABChoiceBroodLords=Brood Lord
+﻿Abil/Name/move2=Move
+Abil/Name/stop2=Stop
+Button/Name/TStory01ABChoiceBroodLords=Brood Lord
 Button/Name/TStory01ABChoiceGhost=Ghost
 Button/Name/TStory01ABChoiceMutalisk=Mutalisk
 Button/Name/TStory01ABChoiceNydusWorm=Nydus Worm
@@ -35,6 +37,7 @@ Param/Value/0AC87428=Close
 Param/Value/0B3A684D=Turn Clickables Off
 Param/Value/0BDD7A96=Init States Starts
 Param/Value/0C4BEE1D=White Boy James
+Param/Value/0C4C95A5=
 Param/Value/0CA20F37=TrackStarted = 
 Param/Value/0CADB231=Preload Tychus char animation
 Param/Value/0DB89306=Observatory
@@ -279,6 +282,7 @@ Param/Value/DC6A50B2=Corridor
 Param/Value/DD9F9BD5=Armory Simulator Clicked
 Param/Value/DE8C56DB=Return Room = 
 Param/Value/DF2FFC7C=Mission Archieves
+Param/Value/DF5994A5=Conscription Purchase
 Param/Value/E07F138B=Start preloading locations
 Param/Value/E08A5DE1=Void
 Param/Value/E156CE66=
@@ -299,6 +303,7 @@ Param/Value/EF33F1A0=
 Param/Value/EFFA4A63=BG Actor Start: 
 Param/Value/F024A537=Tychus Findlay
 Param/Value/F0A894E7=White Boy James & The Blues Express
+Param/Value/F1784EEC=Conscription
 Param/Value/F1F90DCB=Hanson B
 Param/Value/F2D8EFC3=Room: Lab
 Param/Value/F311546A=Archives
@@ -315,6 +320,8 @@ Param/Value/FDDC74F7=Picked at loc[
 Param/Value/FDEB51AC=Cantina
 Param/Value/FEDA652A=Big Tuna
 Param/Value/FFFD0315=Bridge
+Unit/Name/HyperionConscriptionRaynorCameras=Hyperion Conscription Raynor Cameras
+Unit/Name/SMHyperionConscriptionStage1RaynorCameras=Hyperion Conscription Raynor Cameras
 UserData/TStory01ABChoice/THanson03A_Action=Protect the Colony
 UserData/TStory01ABChoice/THanson03A_Description=Side with the terran refugees against the protoss. This will anger the protoss, but it will buy Dr. Hanson more time to search for a cure. Regardless of whether she finds a cure, Dr. Hanson's efforts will lead to new breakthroughs in zerg research.
 UserData/TStory01ABChoice/THanson03A_Reward=<s val="ABChoiceResearchPoints_Zerg">+3 Zerg research</s>

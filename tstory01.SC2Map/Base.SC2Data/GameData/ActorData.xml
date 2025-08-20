@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorUnit id="SMHyperionConscriptionStage1RaynorCameras" parent="GenericUnitSM" unitName="HyperionConscriptionRaynorCameras">
+        <Model value="SMHyperionCantinaStage1RaynorCameras"/>
+        <BuildModel value="SMHyperionCantinaStage1RaynorCameras"/>
+        <DeathArray index="Normal" ModelLink="SMHyperionCantinaStage1RaynorCameras"/>
+        <DeathCustoms index="0" ModelLink="ZergSmallUnitDeathLow2"/>
+        <DeathCustoms index="1" ModelLink="ProtossSmallUnitDeathLow2"/>
+        <DeathCustoms index="2" ModelLink="TerranSmallUnitDeathLow2"/>
+        <DeathCustoms index="3" ModelLink="ZergSmallUnitDeathLow2"/>
+        <DeathCustoms index="4" ModelLink="Invisible2"/>
+        <PlacementModel value="SMHyperionCantinaStage1RaynorCameras"/>
+        <PortraitModel value="StaticPortrait2"/>
+        <HighlightTooltip value="Unit/Name/SMHyperionConscriptionStage1RaynorCameras"/>
+    </CActorUnit>
+</Catalog>

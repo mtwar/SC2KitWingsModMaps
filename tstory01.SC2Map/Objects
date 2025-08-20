@@ -191,9 +191,7 @@
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
     <ObjectPoint Id="390" Position="114.2297,100.2045,0" Rotation="4.2456" Scale="1,1,1" Section="Cantina" Type="Normal" Name="CantinaTychusNearby2" Color="0,0,0,0" Model="SMRaynorCommander" Animation="Stand"/>
-    <ObjectPoint Id="40" Position="88.6098,17.38,0" Rotation="0.6198" Scale="1,1,1" Section="Armory" Type="Normal" Name="ArmoryRaynorHome" Color="0,0,0,0">
-        <Flag Index="PointHidden" Value="1"/>
-    </ObjectPoint>
+    <ObjectPoint Id="40" Position="88.6098,17.38,0" Rotation="0.6198" Scale="1,1,1" Section="Armory" Type="Normal" Name="ArmoryRaynorHome" Color="0,0,0,0"/>
     <ObjectPoint Id="67" Position="87.3745,10.274,0" Rotation="1.2397" Scale="1,1,1" Section="Armory" Type="Normal" Name="ArmoryKachinskyHome" Color="0,0,0,0">
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
@@ -217,6 +215,7 @@
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
     <ObjectPoint Id="958" Position="113.0603,101.6057,0" Rotation="5.1486" Scale="1,1,1" Section="Cantina" Type="Normal" Name="ScriptScene - MercIntro BG1" Color="0,0,0,0" Model="SMAnnabelle" Animation="Stand"/>
+    <ObjectPoint Id="1812326509" Position="210.8496,22.8134,0" Scale="1,1,1" Section="Armory" Type="Normal" Name="ConscriptionDoor" Color="0,0,0,0"/>
     <ObjectPoint Id="528" Position="125.2512,62.6752,0" Rotation="2.8603" Scale="1,1,1" Section="Bridge" Type="Normal" Name="Debrief - TRaynor03 Monkey 01" Color="0,0,0,0" Model="SMKachinsky" Animation="Stand">
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
@@ -1061,6 +1060,7 @@
     <ObjectPoint Id="565" Position="164.0737,18.0244,0" Rotation="6.1406" Scale="1,1,1" Section="Char" Type="Normal" Name="Briefing - Char Valerian01 Tychus 2" Color="0,0,0,0" Model="SMMarine01" Animation="Stand" PathingRadiusSoft="5" PathingRadiusHard="7.75">
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
+    <ObjectPoint Id="1085646936" Position="230.9257,17.7282,0" Rotation="0.6196" Scale="1,1,1" Section="Armory" Type="Normal" Name="ConscriptionRaynorHome" Color="0,0,0,0"/>
     <ObjectPoint Id="17" Position="127.72,64.94,0" Rotation="1.8786" Scale="1,1,1" Section="Bridge" Type="Normal" Name="Debrief - THanson01 - HornerConvo" Color="0,0,0,0" Model="SMFirstOfficer" Animation="Stand">
         <Flag Index="PointHidden" Value="1"/>
     </ObjectPoint>
@@ -1234,14 +1234,14 @@
         <CameraValue Index="FocalDepth" Value="0.5"/>
         <CameraValue Index="FalloffEnd" Value="4"/>
     </ObjectCamera>
-    <ObjectCamera Id="37" Position="129.3627,63.8833,0" Rotation="0.6342" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 010_1" Color="0,0,0,0" CameraTarget="129.3627,63.8833">
+    <ObjectCamera Id="37" Position="129.3627,63.8833,0" Rotation="0.6337" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 010_1" Color="0,0,0,0" CameraTarget="129.3627,63.8833">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="25.8725"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="200"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.085"/>
-        <CameraValue Index="Yaw" Value="36.3552"/>
+        <CameraValue Index="Yaw" Value="36.3273"/>
         <CameraValue Index="HeightOffset" Value="0.7697"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -1392,7 +1392,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="961" Position="164.1906,16.5541,0" Rotation="0.776" Scale="1,1,1" Section="Char" Name="Briefing - Char Briefing Screen" Color="0,0,0,0" CameraTarget="164.1906,16.5541">
+    <ObjectCamera Id="961" Position="164.1906,16.5541,0" Rotation="0.7753" Scale="1,1,1" Section="Char" Name="Briefing - Char Briefing Screen" Color="0,0,0,0" CameraTarget="164.1906,16.5541">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="64.8498"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -1400,7 +1400,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.5502"/>
         <CameraValue Index="Pitch" Value="358.8498"/>
-        <CameraValue Index="Yaw" Value="44.4685"/>
+        <CameraValue Index="Yaw" Value="44.4404"/>
         <CameraValue Index="HeightOffset" Value="0.8334"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -1749,7 +1749,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="2.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="544" Position="125.9892,18.4685,0" Rotation="0.066" Scale="1,1,1" Section="Observatory" Name="Observatory Valerian - Valerian Medium" Color="0,0,0,0" CameraTarget="125.9892,18.4685">
+    <ObjectCamera Id="544" Position="125.9892,18.4685,0" Rotation="0.0654" Scale="1,1,1" Section="Observatory" Name="Observatory Valerian - Valerian Medium" Color="0,0,0,0" CameraTarget="125.9892,18.4685">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="54.2167"/>
@@ -1758,7 +1758,7 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.316"/>
         <CameraValue Index="Pitch" Value="2.5297"/>
-        <CameraValue Index="Yaw" Value="3.7907"/>
+        <CameraValue Index="Yaw" Value="3.7626"/>
         <CameraValue Index="HeightOffset" Value="0.6396"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="3"/>
@@ -1835,14 +1835,14 @@
         <CameraValue Index="FocalDepth" Value="0.7995"/>
         <CameraValue Index="FalloffEnd" Value="6"/>
     </ObjectCamera>
-    <ObjectCamera Id="535" Position="163.9013,16.848,0" Rotation="0.7705" Scale="1,1,1" Section="Char" Name="News - Char 1" Color="0,0,0,0" CameraTarget="163.9013,16.848">
+    <ObjectCamera Id="535" Position="163.9013,16.848,0" Rotation="0.77" Scale="1,1,1" Section="Char" Name="News - Char 1" Color="0,0,0,0" CameraTarget="163.9013,16.848">
         <CameraValue Index="FieldOfView" Value="50"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="150"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.5788"/>
         <CameraValue Index="Pitch" Value="358.8498"/>
-        <CameraValue Index="Yaw" Value="44.1606"/>
+        <CameraValue Index="Yaw" Value="44.1328"/>
         <CameraValue Index="HeightOffset" Value="0.8251"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -1876,7 +1876,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="4.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="569" Position="128.5905,63.3095,0" Rotation="0.9746" Scale="1,1,1" Section="Bridge" Name="Bridge - Convo Tychus - Tychus Med" Color="0,0,0,0" CameraTarget="128.5905,63.3095">
+    <ObjectCamera Id="569" Position="128.5905,63.3095,0" Rotation="0.974" Scale="1,1,1" Section="Bridge" Name="Bridge - Convo Tychus - Tychus Med" Color="0,0,0,0" CameraTarget="128.5905,63.3095">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="40"/>
@@ -1885,7 +1885,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.3505"/>
         <CameraValue Index="Pitch" Value="348.38"/>
-        <CameraValue Index="Yaw" Value="55.855"/>
+        <CameraValue Index="Yaw" Value="55.827"/>
         <CameraValue Index="HeightOffset" Value="0.9252"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -2018,7 +2018,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="5.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="599" Position="89.4836,74.307,0" Rotation="2.5688" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Hanson Medium" Color="0,0,0,0" CameraTarget="89.4836,74.307">
+    <ObjectCamera Id="599" Position="89.4836,74.307,0" Rotation="2.5683" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Hanson Medium" Color="0,0,0,0" CameraTarget="89.4836,74.307">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50.7663"/>
@@ -2027,7 +2027,7 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.223"/>
         <CameraValue Index="Pitch" Value="355.6503"/>
-        <CameraValue Index="Yaw" Value="147.198"/>
+        <CameraValue Index="Yaw" Value="147.17"/>
         <CameraValue Index="Roll" Value="2.0698"/>
         <CameraValue Index="HeightOffset" Value="0.6098"/>
         <CameraValue Index="DepthOfField" Value="1"/>
@@ -2191,7 +2191,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="549" Position="164.6557,17.0102,0" Rotation="1.3405" Scale="1,1,1" Section="Char" Name="Char Warfield - Warfield Medium" Color="0,0,0,0" CameraTarget="164.6557,17.0102">
+    <ObjectCamera Id="549" Position="164.6557,17.0102,0" Rotation="1.34" Scale="1,1,1" Section="Char" Name="Char Warfield - Warfield Medium" Color="0,0,0,0" CameraTarget="164.6557,17.0102">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
@@ -2200,7 +2200,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.466"/>
         <CameraValue Index="Pitch" Value="352.6198"/>
-        <CameraValue Index="Yaw" Value="76.8232"/>
+        <CameraValue Index="Yaw" Value="76.7951"/>
         <CameraValue Index="HeightOffset" Value="0.684"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -2391,7 +2391,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="6"/>
     </ObjectCamera>
-    <ObjectCamera Id="557" Position="164.7692,16.9584,0" Rotation="1.324" Scale="1,1,1" Section="Char" Name="Char Warfield - Warfield Closeup" Color="0,0,0,0" CameraTarget="164.7692,16.9584">
+    <ObjectCamera Id="557" Position="164.7692,16.9584,0" Rotation="1.3234" Scale="1,1,1" Section="Char" Name="Char Warfield - Warfield Closeup" Color="0,0,0,0" CameraTarget="164.7692,16.9584">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
@@ -2400,7 +2400,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.2924"/>
         <CameraValue Index="Pitch" Value="353.8398"/>
-        <CameraValue Index="Yaw" Value="75.872"/>
+        <CameraValue Index="Yaw" Value="75.844"/>
         <CameraValue Index="HeightOffset" Value="0.7421"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.5998"/>
@@ -2451,7 +2451,7 @@
         <CameraValue Index="FocalDepth" Value="0.5998"/>
         <CameraValue Index="FalloffEnd" Value="2.2"/>
     </ObjectCamera>
-    <ObjectCamera Id="76" Position="87.747,74.8295,0" Rotation="1.107" Scale="1,1,1" Section="Lab" Name="Lab Stettmann - Raynor Medium" Color="0,0,0,0" CameraTarget="87.747,74.8295">
+    <ObjectCamera Id="76" Position="87.747,74.8295,0" Rotation="1.1064" Scale="1,1,1" Section="Lab" Name="Lab Stettmann - Raynor Medium" Color="0,0,0,0" CameraTarget="87.747,74.8295">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50.7663"/>
@@ -2460,21 +2460,21 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.2741"/>
         <CameraValue Index="Pitch" Value="358.5297"/>
-        <CameraValue Index="Yaw" Value="63.4365"/>
+        <CameraValue Index="Yaw" Value="63.4082"/>
         <CameraValue Index="Roll" Value="1.5197"/>
         <CameraValue Index="HeightOffset" Value="0.611"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="4"/>
     </ObjectCamera>
-    <ObjectCamera Id="1066" Position="113.8076,102.0466,0" Rotation="0.8986" Scale="1,1,1" Section="Cantina" Name="Cantina - Convo Tosh - Master" Color="0,0,0,0" CameraTarget="113.8076,102.0466">
+    <ObjectCamera Id="1066" Position="113.8076,102.0466,0" Rotation="0.8981" Scale="1,1,1" Section="Cantina" Name="Cantina - Convo Tosh - Master" Color="0,0,0,0" CameraTarget="113.8076,102.0466">
         <CameraValue Index="FieldOfView" Value="60"/>
         <CameraValue Index="NearClip" Value="0.0698"/>
         <CameraValue Index="FarClip" Value="20"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.4416"/>
         <CameraValue Index="Pitch" Value="7.7595"/>
-        <CameraValue Index="Yaw" Value="51.5046"/>
+        <CameraValue Index="Yaw" Value="51.4765"/>
         <CameraValue Index="Roll" Value="2.0998"/>
         <CameraValue Index="HeightOffset" Value="1.6623"/>
         <CameraValue Index="DepthOfField" Value="0.0495"/>
@@ -2720,6 +2720,24 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="7"/>
     </ObjectCamera>
+    <ObjectCamera Id="1768718493" Position="219.3942,13.642,0" Rotation="2.9274" Scale="1,1,1" Name="_ConscriptionView" Color="255,0,255,0" CameraTarget="219.3942,13.642">
+        <CameraValue Index="FieldOfView" Value="66"/>
+        <CameraValue Index="NearClip" Value="0.2597"/>
+        <CameraValue Index="FarClip" Value="78.9511"/>
+        <CameraValue Index="ShadowClip" Value="50"/>
+        <CameraValue Index="Distance" Value="2.2248"/>
+        <CameraValue Index="Pitch" Value="5.0698"/>
+        <CameraValue Index="Yaw" Value="167.74"/>
+        <CameraValue Index="Roll" Value="0.5"/>
+        <CameraValue Index="HeightOffset" Value="2.987"/>
+        <CameraValue Index="FocalDepth" Value="8"/>
+        <CameraValue Index="FalloffStart" Value="3"/>
+        <CameraValue Index="FalloffEnd" Value="8"/>
+        <CameraValue Index="FalloffStartNear" Value="0.0002"/>
+        <CameraValue Index="FalloffEndNear" Value="0.0002"/>
+        <CameraValue Index="BokehFStop" Value="0.0097"/>
+        <CameraValue Index="BokehMaxCoC" Value="1"/>
+    </ObjectCamera>
     <ObjectCamera Id="464" Position="128.7597,63.1474,0" Rotation="0.9665" Scale="1,1,1" Section="Bridge" Name="Debrief - TTychus04 - Tychus" Color="0,0,0,0" CameraTarget="128.7597,63.1474">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="40"/>
@@ -2778,7 +2796,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="24"/>
     </ObjectCamera>
-    <ObjectCamera Id="543" Position="126,18.2697,0" Rotation="0.0278" Scale="1,1,1" Section="Observatory" Name="Observatory Valerian - Valerian Closeup" Color="0,0,0,0" CameraTarget="126,18.2697">
+    <ObjectCamera Id="543" Position="126,18.2697,0" Rotation="0.0273" Scale="1,1,1" Section="Observatory" Name="Observatory Valerian - Valerian Closeup" Color="0,0,0,0" CameraTarget="126,18.2697">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="54.2167"/>
@@ -2786,7 +2804,7 @@
         <CameraValue Index="FarClip" Value="24.96"/>
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.41"/>
-        <CameraValue Index="Yaw" Value="1.6086"/>
+        <CameraValue Index="Yaw" Value="1.5805"/>
         <CameraValue Index="HeightOffset" Value="0.67"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="3"/>
@@ -3020,7 +3038,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="9"/>
     </ObjectCamera>
-    <ObjectCamera Id="574" Position="89.571,17.5422,0" Rotation="1.9272" Scale="1,1,1" Section="Armory" Name="Armory - Convo Swann - Swann Closeup" Color="0,0,0,0" CameraTarget="89.571,17.5422">
+    <ObjectCamera Id="574" Position="89.571,17.5422,0" Rotation="1.9267" Scale="1,1,1" Section="Armory" Name="Armory - Convo Swann - Swann Closeup" Color="0,0,0,0" CameraTarget="89.571,17.5422">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="47.1354"/>
@@ -3029,7 +3047,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.6594"/>
         <CameraValue Index="Pitch" Value="356.4201"/>
-        <CameraValue Index="Yaw" Value="110.437"/>
+        <CameraValue Index="Yaw" Value="110.409"/>
         <CameraValue Index="HeightOffset" Value="1.135"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -3051,7 +3069,7 @@
         <CameraValue Index="FocalDepth" Value="0.5998"/>
         <CameraValue Index="FalloffEnd" Value="4"/>
     </ObjectCamera>
-    <ObjectCamera Id="1019" Position="89.384,17.6081,0" Rotation="1.9216" Scale="1,1,1" Section="Armory" Name="Armory - Convo Swann - Swann Shoulder" Color="0,0,0,0" CameraTarget="89.384,17.6081">
+    <ObjectCamera Id="1019" Position="89.384,17.6081,0" Rotation="1.9211" Scale="1,1,1" Section="Armory" Name="Armory - Convo Swann - Swann Shoulder" Color="0,0,0,0" CameraTarget="89.384,17.6081">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -3059,7 +3077,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.8964"/>
         <CameraValue Index="Pitch" Value="9.9"/>
-        <CameraValue Index="Yaw" Value="110.1152"/>
+        <CameraValue Index="Yaw" Value="110.0871"/>
         <CameraValue Index="HeightOffset" Value="1.0495"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -3080,7 +3098,6 @@
     </ObjectCamera>
     <ObjectCamera Id="26" Position="89.0983,7.668,0" Rotation="2.9277" Scale="1,1,1" Section="Armory" Name="_ArmoryView" Color="255,0,255,0" CameraTarget="89.0983,7.668">
         <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="66"/>
         <CameraValue Index="NearClip" Value="0.2597"/>
         <CameraValue Index="FarClip" Value="78.9514"/>
@@ -3792,7 +3809,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="32"/>
     </ObjectCamera>
-    <ObjectCamera Id="640" Position="129.4064,63.6984,0" Rotation="0.513" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 020" Color="0,0,0,0" CameraTarget="129.4064,63.6984">
+    <ObjectCamera Id="640" Position="129.4064,63.6984,0" Rotation="0.5124" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 020" Color="0,0,0,0" CameraTarget="129.4064,63.6984">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="30"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -3800,7 +3817,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="1.2995"/>
         <CameraValue Index="Pitch" Value="358.2"/>
-        <CameraValue Index="Yaw" Value="29.403"/>
+        <CameraValue Index="Yaw" Value="29.3752"/>
         <CameraValue Index="HeightOffset" Value="0.8073"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -4405,7 +4422,7 @@
         <CameraValue Index="FocalDepth" Value="0.5"/>
         <CameraValue Index="FalloffEnd" Value="4"/>
     </ObjectCamera>
-    <ObjectCamera Id="300" Position="162.91,18.3693,0" Rotation="3.9133" Scale="1,1,1" Section="Char" Name="ABChoice Char - 020" Color="0,0,0,0" CameraTarget="162.91,18.3693">
+    <ObjectCamera Id="300" Position="162.91,18.3693,0" Rotation="3.9128" Scale="1,1,1" Section="Char" Name="ABChoice Char - 020" Color="0,0,0,0" CameraTarget="162.91,18.3693">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="64.8498"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -4413,7 +4430,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.5334"/>
         <CameraValue Index="Pitch" Value="7.2595"/>
-        <CameraValue Index="Yaw" Value="224.2312"/>
+        <CameraValue Index="Yaw" Value="224.2031"/>
         <CameraValue Index="HeightOffset" Value="0.3981"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -4519,6 +4536,24 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
+    <ObjectCamera Id="1552861464" Position="240.792,22.3598,0" Rotation="4.1516" Scale="1,1,1" Name="Conscription - Convo Raynor - Master" Color="0,0,0,0" CameraTarget="240.792,22.3598">
+        <CameraValue Index="FieldOfView" Value="65.47"/>
+        <CameraValue Index="NearClip" Value="0.0998"/>
+        <CameraValue Index="FarClip" Value="140"/>
+        <CameraValue Index="ShadowClip" Value="75"/>
+        <CameraValue Index="Distance" Value="1.3815"/>
+        <CameraValue Index="Pitch" Value="11.5397"/>
+        <CameraValue Index="Yaw" Value="237.88"/>
+        <CameraValue Index="HeightOffset" Value="0.8825"/>
+        <CameraValue Index="DepthOfField" Value="0.5"/>
+        <CameraValue Index="FocalDepth" Value="5"/>
+        <CameraValue Index="FalloffStart" Value="0.0002"/>
+        <CameraValue Index="FalloffEnd" Value="8"/>
+        <CameraValue Index="FalloffStartNear" Value="0.0002"/>
+        <CameraValue Index="FalloffEndNear" Value="0.0002"/>
+        <CameraValue Index="BokehFStop" Value="0.0097"/>
+        <CameraValue Index="BokehMaxCoC" Value="1"/>
+    </ObjectCamera>
     <ObjectCamera Id="240" Position="127.973,64.0351,0" Rotation="4.7287" Scale="1,1,1" Section="Bridge" Name="Briefing - Bridge Horner04 - 015" Color="0,0,0,0" CameraTarget="127.973,64.0351">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="72.9423"/>
@@ -4561,7 +4596,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="785" Position="164.1906,16.5541,0" Rotation="0.776" Scale="1,1,1" Section="Char" Name="Briefing - Char Valerian01 - 090" Color="0,0,0,0" CameraTarget="164.1906,16.5541">
+    <ObjectCamera Id="785" Position="164.1906,16.5541,0" Rotation="0.7753" Scale="1,1,1" Section="Char" Name="Briefing - Char Valerian01 - 090" Color="0,0,0,0" CameraTarget="164.1906,16.5541">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="64.8498"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -4569,7 +4604,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.5502"/>
         <CameraValue Index="Pitch" Value="358.8498"/>
-        <CameraValue Index="Yaw" Value="44.4685"/>
+        <CameraValue Index="Yaw" Value="44.4404"/>
         <CameraValue Index="HeightOffset" Value="0.8334"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -4902,7 +4937,7 @@
         <CameraValue Index="FocalDepth" Value="0.5"/>
         <CameraValue Index="FalloffEnd" Value="6"/>
     </ObjectCamera>
-    <ObjectCamera Id="255" Position="128.2482,63.744,0" Rotation="0.2761" Scale="1,1,1" Section="Bridge" Name="Briefing - Bridge Tychus01 - 040" Color="0,0,0,0" CameraTarget="128.2482,63.744">
+    <ObjectCamera Id="255" Position="128.2482,63.744,0" Rotation="0.2756" Scale="1,1,1" Section="Bridge" Name="Briefing - Bridge Tychus01 - 040" Color="0,0,0,0" CameraTarget="128.2482,63.744">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
         <CameraValue Index="NearClip" Value="0.0495"/>
@@ -4910,7 +4945,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.949"/>
         <CameraValue Index="Pitch" Value="353.14"/>
-        <CameraValue Index="Yaw" Value="15.8342"/>
+        <CameraValue Index="Yaw" Value="15.8066"/>
         <CameraValue Index="HeightOffset" Value="0.9101"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.5"/>
@@ -4959,7 +4994,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="8.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="358" Position="88.3312,73.0224,0" Rotation="0.0866" Scale="1,1,1" Section="Lab" Name="Briefing - Lab Back Left 2" Color="0,0,0,0" CameraTarget="88.3312,73.0224">
+    <ObjectCamera Id="358" Position="88.3312,73.0224,0" Rotation="0.0861" Scale="1,1,1" Section="Lab" Name="Briefing - Lab Back Left 2" Color="0,0,0,0" CameraTarget="88.3312,73.0224">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="44.2221"/>
@@ -4967,7 +5002,7 @@
         <CameraValue Index="FarClip" Value="100000"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="1.0795"/>
-        <CameraValue Index="Yaw" Value="4.9797"/>
+        <CameraValue Index="Yaw" Value="4.9516"/>
         <CameraValue Index="HeightOffset" Value="0.4892"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -5003,7 +5038,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="141" Position="88.2353,74.7145,0" Rotation="0.307" Scale="1,1,1" Section="Lab" Name="ScriptScene - LabIntro Stettman Shoulder" Color="0,0,0,0" CameraTarget="88.2353,74.7145">
+    <ObjectCamera Id="141" Position="88.2353,74.7145,0" Rotation="0.3063" Scale="1,1,1" Section="Lab" Name="ScriptScene - LabIntro Stettman Shoulder" Color="0,0,0,0" CameraTarget="88.2353,74.7145">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="20"/>
@@ -5012,13 +5047,13 @@
         <CameraValue Index="ShadowClip" Value="10"/>
         <CameraValue Index="Distance" Value="0.855"/>
         <CameraValue Index="Pitch" Value="359.38"/>
-        <CameraValue Index="Yaw" Value="17.5971"/>
+        <CameraValue Index="Yaw" Value="17.569"/>
         <CameraValue Index="HeightOffset" Value="0.5612"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="4.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="681" Position="127.8803,63.3847,0" Rotation="0.184" Scale="1,1,1" Section="Bridge" Name="Briefing - Bridge Horner02 - 020" Color="0,0,0,0" CameraTarget="127.8803,63.3847">
+    <ObjectCamera Id="681" Position="127.8803,63.3847,0" Rotation="0.1835" Scale="1,1,1" Section="Bridge" Name="Briefing - Bridge Horner02 - 020" Color="0,0,0,0" CameraTarget="127.8803,63.3847">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="45.3562"/>
         <CameraValue Index="NearClip" Value="0.0495"/>
@@ -5026,7 +5061,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.4606"/>
         <CameraValue Index="Pitch" Value="7.48"/>
-        <CameraValue Index="Yaw" Value="10.561"/>
+        <CameraValue Index="Yaw" Value="10.533"/>
         <CameraValue Index="HeightOffset" Value="0.856"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.5"/>
@@ -5046,13 +5081,13 @@
         <CameraValue Index="FalloffStart" Value="3"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="706" Position="163.959,99.7912,0" Rotation="0.0522" Scale="1,1,1" Section="Mar Sara" Name="Briefing - MarSara TRaynor02 010_1" Color="0,0,0,0" CameraTarget="163.959,99.7912">
+    <ObjectCamera Id="706" Position="163.959,99.7912,0" Rotation="0.0517" Scale="1,1,1" Section="Mar Sara" Name="Briefing - MarSara TRaynor02 010_1" Color="0,0,0,0" CameraTarget="163.959,99.7912">
         <CameraValue Index="FieldOfView" Value="45"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="20"/>
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="1.475"/>
-        <CameraValue Index="Yaw" Value="3.0073"/>
+        <CameraValue Index="Yaw" Value="2.9794"/>
         <CameraValue Index="HeightOffset" Value="0.632"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -5658,7 +5693,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="152" Position="88.7868,73.723,0" Rotation="0.0871" Scale="1,1,1" Section="Lab" Name="ScriptScene - LabIntro Stettman Closeup" Color="0,0,0,0" CameraTarget="88.7868,73.723">
+    <ObjectCamera Id="152" Position="88.7868,73.723,0" Rotation="0.0866" Scale="1,1,1" Section="Lab" Name="ScriptScene - LabIntro Stettman Closeup" Color="0,0,0,0" CameraTarget="88.7868,73.723">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
@@ -5667,7 +5702,7 @@
         <CameraValue Index="ShadowClip" Value="10"/>
         <CameraValue Index="Distance" Value="0.205"/>
         <CameraValue Index="Pitch" Value="351.5498"/>
-        <CameraValue Index="Yaw" Value="5.0075"/>
+        <CameraValue Index="Yaw" Value="4.9797"/>
         <CameraValue Index="HeightOffset" Value="0.6381"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -5872,7 +5907,7 @@
         <CameraValue Index="FalloffStart" Value="3"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="654" Position="129.3708,63.766,0" Rotation="0.5134" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 040" Color="0,0,0,0" CameraTarget="129.3708,63.766">
+    <ObjectCamera Id="654" Position="129.3708,63.766,0" Rotation="0.513" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 040" Color="0,0,0,0" CameraTarget="129.3708,63.766">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="25"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -5880,7 +5915,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="1.2248"/>
         <CameraValue Index="Pitch" Value="356.0397"/>
-        <CameraValue Index="Yaw" Value="29.4311"/>
+        <CameraValue Index="Yaw" Value="29.403"/>
         <CameraValue Index="HeightOffset" Value="0.8505"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
@@ -5916,13 +5951,13 @@
         <CameraValue Index="FalloffStart" Value="3"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="671" Position="163.959,99.7912,0" Rotation="0.1652" Scale="1,1,1" Section="Mar Sara" Name="Briefing - MarSara TRaynor02 010_2" Color="0,0,0,0" CameraTarget="163.959,99.7912">
+    <ObjectCamera Id="671" Position="163.959,99.7912,0" Rotation="0.1647" Scale="1,1,1" Section="Mar Sara" Name="Briefing - MarSara TRaynor02 010_2" Color="0,0,0,0" CameraTarget="163.959,99.7912">
         <CameraValue Index="FieldOfView" Value="45"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="20"/>
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="1.475"/>
-        <CameraValue Index="Yaw" Value="9.484"/>
+        <CameraValue Index="Yaw" Value="9.4558"/>
         <CameraValue Index="HeightOffset" Value="0.632"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -6087,7 +6122,7 @@
         <CameraValue Index="FocalDepth" Value="0.5"/>
         <CameraValue Index="FalloffEnd" Value="5.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="838" Position="127.4936,63.5158,0" Rotation="0.7231" Scale="1,1,1" Section="Bridge" Name="Debrief - TTychus01 - Raynor" Color="0,0,0,0" CameraTarget="127.4936,63.5158">
+    <ObjectCamera Id="838" Position="127.4936,63.5158,0" Rotation="0.7226" Scale="1,1,1" Section="Bridge" Name="Debrief - TTychus01 - Raynor" Color="0,0,0,0" CameraTarget="127.4936,63.5158">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -6095,7 +6130,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.4606"/>
         <CameraValue Index="Pitch" Value="358.97"/>
-        <CameraValue Index="Yaw" Value="41.447"/>
+        <CameraValue Index="Yaw" Value="41.419"/>
         <CameraValue Index="Roll" Value="1.5097"/>
         <CameraValue Index="HeightOffset" Value="0.827"/>
         <CameraValue Index="DepthOfField" Value="1"/>
@@ -7098,7 +7133,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="28" Position="128.0993,64.6403,0" Rotation="0.085" Scale="1,1,1" Section="Bridge" Name="Debrief - THanson01 - Hanson" Color="0,0,0,0" CameraTarget="128.0993,64.6403">
+    <ObjectCamera Id="28" Position="128.0993,64.6403,0" Rotation="0.0844" Scale="1,1,1" Section="Bridge" Name="Debrief - THanson01 - Hanson" Color="0,0,0,0" CameraTarget="128.0993,64.6403">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="52.2685"/>
@@ -7107,13 +7142,13 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.21"/>
         <CameraValue Index="Pitch" Value="6.38"/>
-        <CameraValue Index="Yaw" Value="4.8818"/>
+        <CameraValue Index="Yaw" Value="4.8537"/>
         <CameraValue Index="HeightOffset" Value="0.8515"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="4"/>
     </ObjectCamera>
-    <ObjectCamera Id="568" Position="128.6613,63.2316,0" Rotation="0.824" Scale="1,1,1" Section="Bridge" Name="Bridge - Convo Tychus - Tychus Closeup" Color="0,0,0,0" CameraTarget="128.6613,63.2316">
+    <ObjectCamera Id="568" Position="128.6613,63.2316,0" Rotation="0.8234" Scale="1,1,1" Section="Bridge" Name="Bridge - Convo Tychus - Tychus Closeup" Color="0,0,0,0" CameraTarget="128.6613,63.2316">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="35"/>
@@ -7122,7 +7157,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.2775"/>
         <CameraValue Index="Pitch" Value="344.96"/>
-        <CameraValue Index="Yaw" Value="47.224"/>
+        <CameraValue Index="Yaw" Value="47.196"/>
         <CameraValue Index="HeightOffset" Value="0.9826"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="0.5998"/>
@@ -7354,7 +7389,7 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="601" Position="89.286,74.2087,0" Rotation="5.0117" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Raynor Medium" Color="0,0,0,0" CameraTarget="89.286,74.2087">
+    <ObjectCamera Id="601" Position="89.286,74.2087,0" Rotation="5.0112" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Raynor Medium" Color="0,0,0,0" CameraTarget="89.286,74.2087">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50.7663"/>
@@ -7363,7 +7398,7 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.3415"/>
         <CameraValue Index="Pitch" Value="358.55"/>
-        <CameraValue Index="Yaw" Value="287.1643"/>
+        <CameraValue Index="Yaw" Value="287.1362"/>
         <CameraValue Index="HeightOffset" Value="0.6147"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -7464,20 +7499,20 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="6"/>
     </ObjectCamera>
-    <ObjectCamera Id="537" Position="164.0114,16.7272,0" Rotation="0.7705" Scale="1,1,1" Section="Char" Name="News - Char 2" Color="0,0,0,0" CameraTarget="164.0114,16.7272">
+    <ObjectCamera Id="537" Position="164.0114,16.7272,0" Rotation="0.77" Scale="1,1,1" Section="Char" Name="News - Char 2" Color="0,0,0,0" CameraTarget="164.0114,16.7272">
         <CameraValue Index="FieldOfView" Value="50"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="150"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.5495"/>
         <CameraValue Index="Pitch" Value="358.8498"/>
-        <CameraValue Index="Yaw" Value="44.1606"/>
+        <CameraValue Index="Yaw" Value="44.1328"/>
         <CameraValue Index="HeightOffset" Value="0.8283"/>
         <CameraValue Index="DepthOfField" Value="0.5"/>
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="32"/>
     </ObjectCamera>
-    <ObjectCamera Id="604" Position="88.9782,74.176,0" Rotation="4.903" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Raynor Shoulder" Color="0,0,0,0" CameraTarget="88.9782,74.176">
+    <ObjectCamera Id="604" Position="88.9782,74.176,0" Rotation="4.9025" Scale="1,1,1" Section="Lab" Name="Lab Hanson - Raynor Shoulder" Color="0,0,0,0" CameraTarget="88.9782,74.176">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50.7663"/>
@@ -7486,7 +7521,7 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.8095"/>
         <CameraValue Index="Pitch" Value="6.47"/>
-        <CameraValue Index="Yaw" Value="280.9394"/>
+        <CameraValue Index="Yaw" Value="280.9113"/>
         <CameraValue Index="HeightOffset" Value="0.5515"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -7760,7 +7795,6 @@
     </ObjectCamera>
     <ObjectCamera Id="575" Position="88.3098,17.91,0" Rotation="4.1518" Scale="1,1,1" Section="Armory" Name="Armory - Convo Swann - Master" Color="0,0,0,0" CameraTarget="88.3098,17.91">
         <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="65.47"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="140"/>
@@ -8112,7 +8146,7 @@
         <CameraValue Index="FocalDepth" Value="1"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="475" Position="129.4963,64.0905,0" Rotation="0.452" Scale="1,1,1" Section="Bridge" Name="Debrief - TRaynor03 - Tychus" Color="0,0,0,0" CameraTarget="129.4963,64.0905">
+    <ObjectCamera Id="475" Position="129.4963,64.0905,0" Rotation="0.4514" Scale="1,1,1" Section="Bridge" Name="Debrief - TRaynor03 - Tychus" Color="0,0,0,0" CameraTarget="129.4963,64.0905">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="27"/>
         <CameraValue Index="NearClip" Value="0.0495"/>
@@ -8120,7 +8154,7 @@
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="1.5468"/>
         <CameraValue Index="Pitch" Value="349.1296"/>
-        <CameraValue Index="Yaw" Value="25.906"/>
+        <CameraValue Index="Yaw" Value="25.8781"/>
         <CameraValue Index="HeightOffset" Value="0.7714"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -8156,14 +8190,14 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="4.5"/>
     </ObjectCamera>
-    <ObjectCamera Id="639" Position="129.2067,63.803,0" Rotation="0.565" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 010_2" Color="0,0,0,0" CameraTarget="129.2067,63.803">
+    <ObjectCamera Id="639" Position="129.2067,63.803,0" Rotation="0.5644" Scale="1,1,1" Section="Bridge" Name="Debrief - TTosh02 - 010_2" Color="0,0,0,0" CameraTarget="129.2067,63.803">
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="25.8725"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="200"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.0595"/>
-        <CameraValue Index="Yaw" Value="32.3825"/>
+        <CameraValue Index="Yaw" Value="32.3547"/>
         <CameraValue Index="HeightOffset" Value="0.7697"/>
         <CameraValue Index="DepthOfField" Value="1"/>
         <CameraValue Index="FocalDepth" Value="1"/>
@@ -8341,7 +8375,7 @@
         <CameraValue Index="FocalDepth" Value="0.9"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="127" Position="87.8427,74.7707,0" Rotation="1.1066" Scale="1,1,1" Section="Lab" Name="Lab Stettmann - Raynor Closeup" Color="0,0,0,0" CameraTarget="87.8427,74.7707">
+    <ObjectCamera Id="127" Position="87.8427,74.7707,0" Rotation="1.1062" Scale="1,1,1" Section="Lab" Name="Lab Stettmann - Raynor Closeup" Color="0,0,0,0" CameraTarget="87.8427,74.7707">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="CameraHidden" Value="1"/>
         <CameraValue Index="FieldOfView" Value="50.7663"/>
@@ -8350,7 +8384,7 @@
         <CameraValue Index="ShadowClip" Value="20"/>
         <CameraValue Index="Distance" Value="0.2741"/>
         <CameraValue Index="Pitch" Value="358.53"/>
-        <CameraValue Index="Yaw" Value="63.4226"/>
+        <CameraValue Index="Yaw" Value="63.3945"/>
         <CameraValue Index="Roll" Value="1.5197"/>
         <CameraValue Index="HeightOffset" Value="0.6364"/>
         <CameraValue Index="DepthOfField" Value="1"/>
@@ -8516,14 +8550,14 @@
         <CameraValue Index="FocalDepth" Value="0.7"/>
         <CameraValue Index="FalloffEnd" Value="5"/>
     </ObjectCamera>
-    <ObjectCamera Id="1074" Position="128.856,62.8935,0" Rotation="3.8886" Scale="1,1,1" Section="Bridge" Name="Debrief - TRaynor03 - 000_2" Color="0,0,0,0" CameraTarget="128.856,62.8935">
+    <ObjectCamera Id="1074" Position="128.856,62.8935,0" Rotation="3.8881" Scale="1,1,1" Section="Bridge" Name="Debrief - TRaynor03 - 000_2" Color="0,0,0,0" CameraTarget="128.856,62.8935">
         <CameraValue Index="FieldOfView" Value="30"/>
         <CameraValue Index="NearClip" Value="0.0495"/>
         <CameraValue Index="FarClip" Value="200"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="0.0197"/>
         <CameraValue Index="Pitch" Value="18.9536"/>
-        <CameraValue Index="Yaw" Value="222.8183"/>
+        <CameraValue Index="Yaw" Value="222.7902"/>
         <CameraValue Index="Roll" Value="359.9997"/>
         <CameraValue Index="HeightOffset" Value="1.4643"/>
         <CameraValue Index="DepthOfField" Value="1"/>
@@ -8720,6 +8754,13 @@
     </ObjectUnit>
     <ObjectUnit Id="338" Position="128,64,0" Scale="1,1,1" Section="Bridge" UnitType="SMHyperionBridgeBriefingCenter">
         <Flag Index="DeferModelLoad" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="699260290" Position="230.94,26.8498,0" Rotation="5.2502" Scale="1,1,1" UnitType="HyperionConscriptionRaynorCameras">
+        <Flag Index="DeferModelLoad" Value="1"/>
+        <AIRebuild Index="1" Value="0"/>
+        <AIRebuild Index="2" Value="0"/>
+        <AIRebuild Index="3" Value="0"/>
+        <AIRebuild Index="4" Value="0"/>
     </ObjectUnit>
     <ObjectUnit Id="856" Position="164,100,0" Scale="1,1,1" Section="Mar Sara" UnitType="SMMarSaraBarKerriganPhotoHS">
         <Flag Index="DeferModelLoad" Value="1"/>

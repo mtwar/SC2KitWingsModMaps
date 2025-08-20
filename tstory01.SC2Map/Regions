@@ -4,7 +4,6 @@
         <section value="Armory"/>
         <name value="ArmoryRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="72.6372,2.944,99.6494,57.0212"/>
         </shape>
@@ -13,7 +12,6 @@
         <section value="Bridge"/>
         <name value="BridgeRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="119.1794,54.3518,190.4978,86.7382"/>
         </shape>
@@ -22,7 +20,6 @@
         <section value="Cantina"/>
         <name value="CantinaRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="108.1501,93.9067,121.4616,108.1157"/>
         </shape>
@@ -31,7 +28,6 @@
         <section value="Mar Sara"/>
         <name value="MarSaraRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="158.7392,94.573,170.7468,105.229"/>
         </shape>
@@ -56,7 +52,6 @@
         <section value="Lab"/>
         <name value="LabRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="81.27,69.4226,96.073,82.9521"/>
         </shape>
@@ -65,7 +60,6 @@
         <section value="Char"/>
         <name value="CharRoomArea"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="rect">
             <quad value="142.322,7.1894,185.7331,48.7084"/>
         </shape>
@@ -106,7 +100,6 @@
         <section value="Bridge"/>
         <name value="Region 001"/>
         <color value="255,192,192,192"/>
-        <invisible/>
         <shape type="circle">
             <center value="129.5244,63.907"/>
             <radius value="1.9995"/>
@@ -125,6 +118,12 @@
         <name value="BridgeDoor"/>
         <shape type="rect">
             <quad value="128.2861,65.621,129.0888,66.9401"/>
+        </shape>
+    </region>
+    <region id="13">
+        <name value="ConscriptionRoomArea"/>
+        <shape type="rect">
+            <quad value="197.0295,6.3176,249.7348,86.7102"/>
         </shape>
     </region>
 </Regions>
