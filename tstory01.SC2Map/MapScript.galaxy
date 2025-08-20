@@ -587,7 +587,6 @@ unit gv_armoryTechViking;
 unit gv_armoryConsole;
 unit gv_armoryCrane;
 unit gv_armoryDoor;
-unit gv_conscriptionDoor;
 unit gv_armorySimulator;
 unit gv_armorySpaceLightning;
 unit gv_bridgeMissionArchieves;
@@ -633,6 +632,8 @@ unit gv_charGatlingGun;
 unit gv_charViking;
 unit gv_charMarineA;
 unit gv_charMarineB;
+unit gv_conscriptionDoor;
+unit gv_conscriptionConsole;
 unit gv_labArtifactField;
 unit gv_labArtifact1;
 unit gv_labArtifact2;
@@ -1692,6 +1693,8 @@ trigger gt_CharArtifactClickedCameraChange;
 trigger gt_CharArtifactClickedCameraChangeNoChange;
 trigger gt_CharConsoleClicked;
 trigger gt_CharConsoleLeave;
+trigger gt_ConscriptionConsoleClicked;
+trigger gt_ConscriptionConsoleLeave;
 trigger gt_LabArtifactClickedPreCallback;
 trigger gt_LabArtifactClickedPostCallback;
 trigger gt_LabArtifactClickedCamera;
@@ -5117,8 +5120,12 @@ point gf_ActorPoint (int lp_roomID, int lp_actorID, int lp_toActorID) {
 bool gf_ActorIsEnabledInRoom (int lp_actor, int lp_room) {
     // Automatic Variable Declarations
     // Implementation
+    if ((lp_actor == ge_ActorID_ActorTychus) && (lp_room == ge_RoomID_RoomConscription)) {
+        return true;
+    }
+
     if ((lp_actor == ge_ActorID_ActorRaynor)) {
-        if (((lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomGalaxy) || (lp_room == ge_RoomID_RoomLabResearch) || (lp_room == ge_RoomID_RoomMercenary) || (lp_room == ge_RoomID_RoomMissionArchieves) || (lp_room == ge_RoomID_RoomObservatory) || (lp_room == ge_RoomID_RoomTechPurchase) || (lp_room == ge_RoomID_RoomVoid))) {
+        if ((gf_IsSubPanelRoom(lp_room) || (lp_room == ge_RoomID_RoomChar) || (lp_room == ge_RoomID_RoomMissionArchieves) || (lp_room == ge_RoomID_RoomObservatory) || (lp_room == ge_RoomID_RoomVoid))) {
             return false;
         }
 
@@ -7748,7 +7755,8 @@ void gf_PrepareRoomActors (int lp_roomID, bool lp_includeRaynor) {
         gf_ResetActorToLocation(ge_ActorID_ActorWarfieldAOD, PointFromId(229));
     }
     else if (autoBE62A339_val == ge_RoomID_RoomConscription) {
-        gf_ResetActorToLocation(ge_ActorID_ActorRaynor, PointFromId(132));
+        gf_ResetActorToLocation(ge_ActorID_ActorRaynor, PointFromId(1085646936));
+        gf_ResetActorToLocation(ge_ActorID_ActorTychus, PointFromId(1504728376));
     }
     else if (autoBE62A339_val == ge_RoomID_RoomCorridor) {
         if ((lp_includeRaynor == true)) {
@@ -8851,8 +8859,8 @@ void gf_ViewRoomCamera (int lp_room, playergroup lp_players, fixed lp_duration) 
         auto67E08BC8_val = lp_room;
         {
             CameraUseModel(lv_player, gf_RoomUnit(lp_room), "Default", lp_duration);
-            gf_ClearAnimationwithblendtime(gv_aNIMID_ZOOM, gf_RoomUnit(ge_RoomID_RoomArmory), 0.0);
-            libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gf_RoomUnit(ge_RoomID_RoomArmory)), gv_aNIMID_ZOOM, "Stand", c_animFlagPlayForever, 0.0);
+            gf_ClearAnimationwithblendtime(gv_aNIMID_ZOOM, gf_RoomUnit(lp_room), 0.0);
+            libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gf_RoomUnit(lp_room)), gv_aNIMID_ZOOM, "Stand", c_animFlagPlayForever, 0.0);
         }
     }
 }
@@ -10246,8 +10254,8 @@ void gf_ConscriptionDisplay (trigger lp_exitCallback) {
     // Automatic Variable Declarations
     // Implementation
     gf_PauseNewItemInfo(true);
-    gf_GoToRoom(ge_RoomID_RoomConscription, false);
-    libWCUI_gf_DisplayMercenaryConsole(lp_exitCallback);
+    gf_GoToRoom(ge_RoomID_RoomConscriptionPurchase, false);
+    libWCUI_gf_DisplayConscriptionPurchase(lp_exitCallback);
 }
 
 void gf_MercDisplay (trigger lp_exitCallback) {
@@ -15895,6 +15903,8 @@ bool gt_Init02DHotspots_Func (bool testConds, bool runActions) {
         gf_AddClickable(gv_clickables, gv_labTubeZerg, ge_RoomID_RoomLab, ge_ClickableCursorType_Look);
     }
 
+    gv_conscriptionConsole = UnitFromId(223526711);
+    gf_AddClickable(gv_clickables, gv_conscriptionConsole, ge_RoomID_RoomConscription, ge_ClickableCursorType_Activate);
     gf_InitMarSaraBarHotspots();
     gv_observatoryPainting = UnitFromId(521);
     gv_observatoryProp = UnitFromId(179);
@@ -19820,6 +19830,7 @@ bool gt_WalkinArmory2_Func (bool testConds, bool runActions) {
     }
 
     gf_ResetActorToLocation(ge_ActorID_ActorRaynor, PointFromId(1085646936));
+    gf_ResetActorToLocation(ge_ActorID_ActorTychus, PointFromId(1504728376));
     return true;
 }
 
@@ -21404,6 +21415,9 @@ bool gt_HotspotClicked_Func (bool testConds, bool runActions) {
     }
     else if ((gf_HotspotClicked() == gv_charArtifact)) {
         TriggerExecute(gt_CharArtifactClicked, true, false);
+    }
+    else if ((gf_HotspotClicked() == gv_conscriptionConsole)) {
+        TriggerExecute(gt_ConscriptionConsoleClicked, true, false);
     }
     else if ((UnitGroupHasUnit(gv_labArtifacts, gf_HotspotClicked()) == true)) {
         TriggerExecute(gt_LabArtifactClicked, true, false);
@@ -23068,6 +23082,62 @@ bool gt_CharConsoleLeave_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_CharConsoleLeave_Init () {
     gt_CharConsoleLeave = TriggerCreate("gt_CharConsoleLeave_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ConscriptionConsole Clicked
+//--------------------------------------------------------------------------------------------------
+bool gt_ConscriptionConsoleClicked_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_TurnClickablesOnOff(gv_clickables, false);
+    libCamp_gf_HideStoryUI(false, true);
+    gf_SetAllSoundChannelVolumesStoryMode(libNtve_ge_VolumeChannelMode_Cinematic);
+    gf_StopAllTransmissionConversation();
+    SoundPlay(SoundLink("UI_TechConsoleTransition_Normal", c_soundIndexAny), PlayerGroupAll(), 100.0, 0.0);
+    gf_SetWorldMode(ge_WorldMode_WorldModeSubspaceUI);
+    gf_SetIdleState(ge_IdleState_Busy);
+    gf_HotspotZoom(gf_RoomUnit(ge_RoomID_RoomConscription), "Default", "Fly 01", 0.0);
+    Wait(0.3, c_timeGame);
+    CinematicFade(false, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    Wait(0.1, c_timeGame);
+    gf_GoToRoom(ge_RoomID_RoomConscriptionPurchase, false);
+    gf_PauseNewItemInfo(true);
+    libWCUI_gf_DisplayConscriptionPurchase(gt_ConscriptionConsoleLeave);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ConscriptionConsoleClicked_Init () {
+    gt_ConscriptionConsoleClicked = TriggerCreate("gt_ConscriptionConsoleClicked_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ConscriptionConsole Leave
+//--------------------------------------------------------------------------------------------------
+bool gt_ConscriptionConsoleLeave_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_PauseNewItemInfo(false);
+    gf_HotspotLeave(ge_RoomID_RoomConscription, gt_PrepareRoomArmory2, 0.0, 0.6);
+    gf_SetAllSoundChannelVolumesStoryMode(libNtve_ge_VolumeChannelMode_Game);
+    gf_SetWorldMode(ge_WorldMode_WorldModeGlobal);
+    gf_SetIdleState(ge_IdleState_Idle);
+    libCamp_gf_HideStoryUI(true, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ConscriptionConsoleLeave_Init () {
+    gt_ConscriptionConsoleLeave = TriggerCreate("gt_ConscriptionConsoleLeave_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40474,6 +40544,8 @@ void InitTriggers () {
     gt_CharArtifactClickedCameraChangeNoChange_Init();
     gt_CharConsoleClicked_Init();
     gt_CharConsoleLeave_Init();
+    gt_ConscriptionConsoleClicked_Init();
+    gt_ConscriptionConsoleLeave_Init();
     gt_LabArtifactClickedPreCallback_Init();
     gt_LabArtifactClickedPostCallback_Init();
     gt_LabArtifactClickedCamera_Init();
